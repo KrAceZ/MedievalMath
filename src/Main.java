@@ -12,5 +12,9 @@ public class Main {
 
         String userInput = UserInput();
         System.out.println("User input: " + userInput);
+
+        System.out.println("Did it work?");
     }
+
+
 }
