@@ -1,8 +1,16 @@
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+    public static String UserInput() {
+        Scanner scn = new Scanner(System.in);
+        System.out.print("Enter something: ");
+        return scn.nextLine();
     }
 
-    //wjfjhb
+    public static void main(String[] args) {
+        System.out.println("Hello world!");
 
+        String userInput = UserInput();
+        System.out.println("User input: " + userInput);
+    }
 }
