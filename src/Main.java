@@ -12,7 +12,7 @@ public class Main {
 
         String userInput = UserInput();
         System.out.println("User input: " + userInput);
-
+        System.out.println("testing 123");
         System.out.println("Did it work?");
     }
 
