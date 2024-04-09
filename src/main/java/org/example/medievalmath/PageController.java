@@ -15,7 +15,7 @@ public class PageController {
 
     public void initialize() {
         // Initialize the page with default background image
-        Image defaultBackground = new Image("jetbrains://idea/navigate/reference?project=MedievalMath&path=org/example/medievalmath/PNGs/Background.png");
+        Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
         page = new Page(defaultBackground);
 
         // Set the background image
