@@ -15,7 +15,7 @@ public class PageController {
 
     public void initialize() {
         // Initialize the page with default background image
-        Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
+        Image defaultBackground = new Image(getClass().getResourceAsStream("HomeBackground.png"));
         page = new Page(defaultBackground);
 
         // Set the background image
