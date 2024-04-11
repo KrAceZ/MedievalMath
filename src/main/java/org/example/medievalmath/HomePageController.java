@@ -21,11 +21,11 @@ public class HomePageController {
 
     public void initialize() {
         // Initialize the home page with background image
-        Image homeBackgroundImage = new Image(getClass().getResourceAsStream("HomeBackground.png"));
-        Page homePage = new Page(homeBackgroundImage);
+        Image backgroundImage = new Image(getClass().getResourceAsStream("Background.png"));
+        Page homePage = new Page(backgroundImage);
 
         // Set the background image
-        backgroundImageView.setImage(homeBackgroundImage);
+        backgroundImageView.setImage(backgroundImage);
     }
 
     // get background Image for HelloApplication to set window size based on background image
