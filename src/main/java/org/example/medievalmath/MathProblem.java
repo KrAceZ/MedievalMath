@@ -45,4 +45,12 @@ public class MathProblem {
     public boolean checkAnswer(int userAnswer) {
         return userAnswer == answer;
     }
+
+    public static List<MathProblem> generateProblems(int numProblems) {
+        List<MathProblem> problems = new ArrayList<>();
+        for (int i = 0; i < numProblems; i++) {
+            problems.add(new MathProblem());
+        }
+        return problems;
+    }
 }
