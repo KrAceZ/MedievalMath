@@ -52,5 +52,9 @@ public class MathProblem {
             problems.add(new MathProblem());
         }
         return problems;
+
+        // example command to call this class -> List<MathProblem> problems = MathProblem.generateProblems(5);
+
     }
+
 }
