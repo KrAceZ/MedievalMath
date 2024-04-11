@@ -1,0 +1,58 @@
+public class QuizController {
+	
+	// .... imports and constructors and other stuff
+	
+	private void loadQuestions() {
+        String[] questions = {
+                "1. How many consonants are there in the English alphabet?",
+                "2. Who invented the Light Bulb?",
+                "3. What is the farthest planet from the sun in the Solar System?",
+                "4. What is the largest moon in the Solar System?",
+                "5. What is the capital of Australia?",
+                "6. Who wrote the novel '1984'?",
+                "7. What is the chemical symbol for Gold?",
+                "8. Who painted the Mona Lisa?",
+                "9. What is the tallest mountain in the world?",
+                "10. What is the longest river in the world?"
+        };
+
+        String[][] options = {
+                {"19", "20", "21", "22"},
+                {"Thomas Edison", "Alexander Fleming", "Charles Babbage", "Alber Einstein"},
+                {"Jupiter", "Saturn", "Uranus", "Neptune"},
+                {"Titan", "Ganymede", "Moon", "Europa"},
+                {"Sydney", "Melbourne", "Canberra", "Perth"},
+                {"George Orwell", "Aldous Huxley", "Ray Bradbury", "Ernest Hemingway"},
+                {"Gd", "Au", "Ag", "Ga"},
+                {"Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"},
+                {"K2", "Mount Everest", "Kangchenjunga", "Lhotse"},
+                {"Amazon River", "Nile River", "Yangtze River", "Mississippi River"}
+        };
+
+        if (counter < questions.length) {
+            question.setText(questions[counter]);
+            opt1.setText(options[counter][0]);
+            opt2.setText(options[counter][1]);
+            opt3.setText(options[counter][2]);
+            opt4.setText(options[counter][3]);
+        }
+    }
+
+    boolean checkAnswer(String answer) {
+
+        return switch (counter) {
+            case 0 -> answer.equals("21");
+            case 1 -> answer.equals("Thomas Edison");
+            case 2 -> answer.equals("Neptune");
+            case 3 -> answer.equals("Ganymede");
+            case 4 -> answer.equals("Canberra");
+            case 5 -> answer.equals("George Orwell");
+            case 6 -> answer.equals("Au");
+            case 7 -> answer.equals("Leonardo da Vinci");
+            case 8 -> answer.equals("Mount Everest");
+            case 9 -> answer.equals("Nile River");
+            default -> false;
+        };
+		
+		//.... more other stuff
+    }
