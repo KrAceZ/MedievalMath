@@ -1,29 +1,14 @@
 package org.example.medievalmath;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
-
 import java.util.Random;
-public class BasicMathController {
-    @FXML
-    private Label problemLabel;
 
-    @FXML
-    private TextField answerField;
-
+public class MathProblem {
     private int a;
     private int b;
     private String operator;
     private int answer;
 
-    @FXML
-    public void initialize() {
-        generateProblem();
-    }
-
-    private void generateProblem() {
+    public MathProblem() {
         Random rand = new Random();
         this.a = rand.nextInt(11);
         this.b = rand.nextInt(11);
@@ -51,23 +36,13 @@ public class BasicMathController {
                 }
                 break;
         }
-        problemLabel.setText(getProblem());
     }
 
-    private String getProblem() {
+    public String getProblem() {
         return a + " " + operator + " " + b + " = ";
     }
 
-    @FXML
-    private void checkAnswer(ActionEvent event) {
-        int userAnswer = Integer.parseInt(answerField.getText());
-        if (userAnswer == answer) {
-            // Correct answer, generate new problem
-            generateProblem();
-        } else {
-            // Incorrect answer, show some message
-        }
+    public boolean checkAnswer(int userAnswer) {
+        return userAnswer == answer;
     }
-
 }
-
