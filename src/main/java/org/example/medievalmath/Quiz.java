@@ -1,7 +1,7 @@
 package org.example.medievalmath;
 import java.util.List;
 
-public class Quiz {
+public class Quiz { /*
     private List<MathProblem> problems;
     private int currentProblemIndex; // To keep track of the current problem being displayed
 
@@ -43,5 +43,5 @@ public class Quiz {
     // Method to check if the quiz has ended
     public boolean isQuizEnd() {
         return currentProblemIndex >= problems.size();
-    }
+    }*/
 }

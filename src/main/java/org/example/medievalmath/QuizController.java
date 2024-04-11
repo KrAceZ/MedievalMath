@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class QuizController {
+public class QuizController {/*
     @FXML
     private Label question;
 
@@ -57,5 +57,5 @@ public class QuizController {
     // Method to handle the end of quiz
     private void handleEndOfQuiz() {
         // Implement end of quiz logic here
-    }
+    }*/
 }
