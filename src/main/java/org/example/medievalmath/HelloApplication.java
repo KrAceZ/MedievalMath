@@ -17,10 +17,10 @@ public class HelloApplication extends Application {
         //stage.setScene(scene);
         //stage.show();
         // Load the main page.fxml file
-        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
-        //primaryStage.setTitle("Home Page");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
-        primaryStage.setTitle("Tutorial Page");
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
+        primaryStage.setTitle("Home Page");
+        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
+        //primaryStage.setTitle("Tutorial Page");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
