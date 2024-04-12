@@ -1,36 +1,40 @@
 package org.example.medievalmath;
+
 import java.util.List;
 
-public class Quiz { /*
+public class Quiz {
+    // List of MathProblem objects that make up the quiz
     private List<MathProblem> problems;
+    // Index of the current problem being displayed
     private int currentProblemIndex; // To keep track of the current problem being displayed
 
-    public Quiz(List<MathProblem> problems) {
+    // Constructor that initializes the problems list and sets the current problem index to 0
+    public Quiz(List<MathProblem> problems) {   // constructor now takes MathProblem objects and no longer takes ProblemSet object
         this.problems = problems;
-        this.currentProblemIndex = 0; // Start from the first problem
-    }
-
-    // Method to load quiz data from a ProblemSet object
-    public void loadQuizData(ProblemSet problemSet) {
-        this.problems = problemSet.getProblems();
-        this.currentProblemIndex = 0; // Reset current index to start from the first problem
+        this.currentProblemIndex = 0;
     }
 
     // Method to get the current problem
     public MathProblem getCurrentProblem() {
+        // checks if problem index is valid
         if (currentProblemIndex >= 0 && currentProblemIndex < problems.size()) {
+            // returns current problem
             return problems.get(currentProblemIndex);
         } else {
-            return null; // No more problems left or invalid current index
+            // null if no more problems left or invalid current index
+            return null;
         }
     }
 
     // Method to check the answer for the current problem
     public boolean checkAnswer(String userAnswer) {
         MathProblem currentProblem = getCurrentProblem();
+        // check if current problem index is valid
         if (currentProblem != null) {
-            return currentProblem.checkAnswer(userAnswer);
+            // check user's answer then return results
+            return currentProblem.checkAnswer(Integer.parseInt(userAnswer));    // convert String to int
         } else {
+            // false if no problem to check
             return false; // No current problem to check
         }
     }
@@ -43,5 +47,5 @@ public class Quiz { /*
     // Method to check if the quiz has ended
     public boolean isQuizEnd() {
         return currentProblemIndex >= problems.size();
-    }*/
+    }
 }
