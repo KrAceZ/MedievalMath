@@ -57,5 +57,5 @@ public class QuizController {
     // Method to handle the end of quiz
     private void handleEndOfQuiz() {
         // Implement end of quiz logic here
-    }*/
+    }
 }
