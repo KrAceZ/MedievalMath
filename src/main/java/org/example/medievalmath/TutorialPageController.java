@@ -22,7 +22,7 @@ public class TutorialPageController
     public void initialize() {
         // Initialize the tutorial page with default background image
         Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
-        tutorialPage = new TutorialPage(defaultBackground);
+        tutorialPage = new TutorialPage(defaultBackground, "https://www.youtube.com/watch?v=AuX7nPBqDts");
 
         // Set the background image
         backgroundImageView.setImage(defaultBackground);
