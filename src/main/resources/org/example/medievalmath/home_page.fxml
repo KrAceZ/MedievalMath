@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
-    <!-- Background image -->
-    <ImageView fx:id="backgroundImageView" fitWidth="600" preserveRatio="true" />
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
+    <children>
+        <!-- Background image -->
+        <ImageView fx:id="backgroundImageView" fitWidth="600" preserveRatio="true" />
 
-    <!-- Container for buttons -->
-    <AnchorPane fx:id="buttonsContainer" prefHeight="380.0" prefWidth="600.0">
-        <Button alignment="CENTER" layoutX="276.0" layoutY="43.0" onAction="#navigateToLevelsPage" text="Levels" AnchorPane.leftAnchor="276.0" />
-        <Button alignment="CENTER" layoutX="275.0" layoutY="108.0" onAction="#navigateToProfilePage" text="Profile" AnchorPane.leftAnchor="275.0" />
-        <Button alignment="CENTER" layoutX="273.0" layoutY="178.0" onAction="#navigateToQuizzesPage" text="Quizzes" AnchorPane.leftAnchor="273.0" />
-        <Button alignment="CENTER" layoutX="278.0" layoutY="247.0" onAction="#navigateToShopPage" text="Shop" AnchorPane.leftAnchor="278.0" />
-        <Button alignment="CENTER" layoutX="269.0" layoutY="310.0" onAction="#navigateToTrophiesPage" text="Trophies" AnchorPane.leftAnchor="269.0" />
-      <Button layoutX="37.0" layoutY="108.0" mnemonicParsing="false" text="Exit" />
-    </AnchorPane>
+        <!-- Container for buttons -->
+        <AnchorPane fx:id="buttonsContainer" prefHeight="380.0" prefWidth="600.0">
+            <children>
+                <Button alignment="CENTER" layoutX="76.0" layoutY="118.0" onAction="#navigateToLevelsPage" opacity="0.0" text="Levels" AnchorPane.leftAnchor="76.0" />
+                <Button alignment="CENTER" layoutX="469.0" layoutY="118.0" onAction="#navigateToProfilePage" opacity="0.0" text="Profile" AnchorPane.leftAnchor="469.0" />
+                <Button alignment="CENTER" layoutX="242.0" layoutY="118.0" onAction="#navigateToQuizzesPage" opacity="0.0" text="Quests" AnchorPane.leftAnchor="242.0" />
+                <Button alignment="CENTER" layoutX="398.0" layoutY="118.0" onAction="#navigateToShopPage" opacity="0.0" text="Shop" AnchorPane.leftAnchor="398.0" />
+                <Button alignment="CENTER" layoutX="307.0" layoutY="118.0" onAction="#navigateToTrophiesPage" opacity="0.0" text="Trophies" AnchorPane.leftAnchor="307.0" />
+                <Button layoutX="514.0" layoutY="44.0" mnemonicParsing="false" opacity="0.0" text="Log Out" />
+                <Button alignment="CENTER" layoutX="152.0" layoutY="118.0" onAction="#navigateToTrophiesPage" opacity="0.0" text="Work Scrolls" />
+            </children>
+        </AnchorPane>
+    </children>
 
 </AnchorPane>
