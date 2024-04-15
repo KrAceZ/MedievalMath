@@ -7,9 +7,10 @@ public class TutorialPage extends Page
 {
     private WebView videoWebView;
 
-    public TutorialPage(Image backgroundImage) {
+    public TutorialPage(Image backgroundImage, String videoUrl) {
         super(backgroundImage);
         this.videoWebView = new WebView();
+        loadVideo(videoUrl);
         // Additional initialization if needed...
     }
 

@@ -22,7 +22,7 @@ public class BasicAdditionTutorialController
     public void initialize() {
         // Initialize the tutorial page with default background image
         Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
-        basicAdditionTut = new TutorialPage(defaultBackground);
+        basicAdditionTut = new TutorialPage(defaultBackground, "https://www.youtube.com/watch?v=AuX7nPBqDts");
 
         // Set the background image
         backgroundImageView.setImage(defaultBackground);
