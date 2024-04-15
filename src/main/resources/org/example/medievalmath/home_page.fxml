@@ -6,16 +6,19 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
     <!-- Background image -->
-    <ImageView fx:id="backgroundImageView" fitWidth="600" preserveRatio="true" />
+    <ImageView fx:id="backgroundImageView" fitWidth="600" preserveRatio="true">
+      <image>
+         <Image url="@Background.png" />
+      </image></ImageView>
 
     <!-- Container for buttons -->
     <AnchorPane fx:id="buttonsContainer" prefHeight="380.0" prefWidth="600.0">
-        <Button alignment="CENTER" layoutX="276.0" layoutY="43.0" onAction="#navigateToLevelsPage" text="Levels" AnchorPane.leftAnchor="276.0" />
-        <Button alignment="CENTER" layoutX="275.0" layoutY="108.0" onAction="#navigateToProfilePage" text="Profile" AnchorPane.leftAnchor="275.0" />
-        <Button alignment="CENTER" layoutX="273.0" layoutY="178.0" onAction="#navigateToQuizzesPage" text="Quizzes" AnchorPane.leftAnchor="273.0" />
-        <Button alignment="CENTER" layoutX="278.0" layoutY="247.0" onAction="#navigateToShopPage" text="Shop" AnchorPane.leftAnchor="278.0" />
-        <Button alignment="CENTER" layoutX="269.0" layoutY="310.0" onAction="#navigateToTrophiesPage" text="Trophies" AnchorPane.leftAnchor="269.0" />
-      <Button layoutX="37.0" layoutY="108.0" mnemonicParsing="false" text="Exit" />
+        <Button alignment="CENTER" layoutX="72.0" layoutY="121.0" onAction="#navigateToLevelsPage" text="Levels" AnchorPane.leftAnchor="72.0" />
+        <Button alignment="CENTER" layoutX="470.0" layoutY="121.0" onAction="#navigateToProfilePage" text="Profile" AnchorPane.leftAnchor="470.0" />
+        <Button alignment="CENTER" layoutX="231.0" layoutY="121.0" onAction="#navigateToQuizzesPage" text="Quizzes" AnchorPane.leftAnchor="231.0" />
+        <Button alignment="CENTER" layoutX="393.0" layoutY="121.0" onAction="#navigateToShopPage" text="Shop" AnchorPane.leftAnchor="393.0" />
+        <Button alignment="CENTER" layoutX="308.0" layoutY="121.0" onAction="#navigateToTrophiesPage" text="Trophies" AnchorPane.leftAnchor="308.0" />
+      <Button layoutX="520.0" layoutY="49.0" mnemonicParsing="false" text="Exit" />
     </AnchorPane>
 
 </AnchorPane>
