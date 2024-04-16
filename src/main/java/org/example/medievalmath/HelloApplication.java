@@ -12,13 +12,13 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        //Scene scene = new Scene(fxmlLoader.load(), 1123, 794);
         //stage.setTitle("Hello!");
         //stage.setScene(scene);
         //stage.show();
         // Load the main page.fxml file
-        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
-        //primaryStage.setTitle("Home Page");
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
+        primaryStage.setTitle("Home Page");
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_addition_tutorial.fxml"));
         //primaryStage.setTitle("Basic Addition Tutorial");
 
@@ -27,14 +27,15 @@ public class HelloApplication extends Application {
 
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
         //primaryStage.setTitle("Tutorial Page");
-        //primaryStage.setScene(new Scene(root, 800, 600));
-        //primaryStage.show();
+        primaryStage.setScene(new Scene(root, 1123, 794));
+        primaryStage.show();
+        primaryStage.setResizable(false);
 
         // Sirjana: Adding Shop
-        Parent shop = FXMLLoader.load(HelloApplication.class.getResource("ShopItem.fxml"));
-        primaryStage.setTitle("SHOP");
-        primaryStage.setScene(new Scene(shop, 800, 600));
-        primaryStage.show();
+        //Parent shop = FXMLLoader.load(HelloApplication.class.getResource("ShopItem.fxml"));
+        //primaryStage.setTitle("SHOP");
+        //primaryStage.setScene(new Scene(shop, 1123, 794));
+        //primaryStage.show();
     }
 
     public static void main(String[] args) {
