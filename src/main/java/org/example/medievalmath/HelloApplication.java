@@ -21,8 +21,8 @@ public class HelloApplication extends Application {
         //primaryStage.setTitle("Home Page");
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_addition_tutorial.fxml"));
         //primaryStage.setTitle("Basic Addition Tutorial");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_addition_quiz.fxml"));
-        primaryStage.setTitle("Basic Addition Quiz");
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_subtraction_quiz.fxml"));
+        primaryStage.setTitle("Basic Subtraction Quiz");
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
         //primaryStage.setTitle("Tutorial Page");
         primaryStage.setScene(new Scene(root, 800, 600));
