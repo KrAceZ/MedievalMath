@@ -21,14 +21,21 @@ public class HelloApplication extends Application {
         //primaryStage.setTitle("Home Page");
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_addition_tutorial.fxml"));
         //primaryStage.setTitle("Basic Addition Tutorial");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_add_subtract_test.fxml"));
-        primaryStage.setTitle("Basic Add Subtract Test");
+
+        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_add_subtract_test.fxml"));
+        //primaryStage.setTitle("Basic Add Subtract Test");
+
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
         //primaryStage.setTitle("Tutorial Page");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        //primaryStage.setScene(new Scene(root, 800, 600));
+        //primaryStage.show();
+
+        // Sirjana: Adding Shop
+        Parent shop = FXMLLoader.load(HelloApplication.class.getResource("ShopItem.fxml"));
+        primaryStage.setTitle("SHOP");
+        primaryStage.setScene(new Scene(shop, 800, 600));
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch();
