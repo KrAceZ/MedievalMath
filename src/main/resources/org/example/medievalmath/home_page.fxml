@@ -20,6 +20,7 @@
         <Button alignment="CENTER" layoutX="22.0" layoutY="70.0" onAction="#navigateToLevelsPage" text="Levels" />
         <Button alignment="CENTER" layoutX="220.0" layoutY="70.0" onAction="#navigateToProfilePage" text="Profile" />
         <Button alignment="CENTER" layoutX="80.0" layoutY="150.0" onAction="#navigateToQuizzesPage" text="Quizzes" />
+        <Button alignment="CENTER" layoutX="85.0" layoutY="155.0" onAction="#" text="Basic Subtraction" />
         <Button alignment="CENTER" layoutX="180.0" layoutY="150.0" onAction="#navigateToShopPage" text="Shop" />
         <Button alignment="CENTER" layoutX="280.0" layoutY="150.0" onAction="#navigateToTrophiesPage" text="Trophies" />
         <Button alignment="CENTER" layoutX="150.0" layoutY="121.0" onAction="#navigateToBasicAdditionPage" text="Basic Addition" AnchorPane.leftAnchor="150.0" />
