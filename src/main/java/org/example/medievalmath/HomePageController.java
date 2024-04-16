@@ -2,6 +2,7 @@ package org.example.medievalmath;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -9,7 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class HomePageController {
@@ -72,4 +75,24 @@ public class HomePageController {
     private void navigateToTrophiesPage() {
         // Implement navigation logic to Trophies page
     }
+
+    @FXML
+    public void navigateToBasicAdditionPage(javafx.event.ActionEvent event) {
+        try {
+            // Load the FXML file for the basic addition page
+            Parent basicAdditionPage = FXMLLoader.load(getClass().getResource("basic_addition_quiz.fxml"));
+
+            // Get the current stage
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene to the stage test
+            stage.setScene(new Scene(basicAdditionPage));
+
+            // Show the stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
