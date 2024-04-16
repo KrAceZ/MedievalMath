@@ -85,7 +85,7 @@ public class HomePageController {
             // Get the current stage
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            // Set the new scene to the stage
+            // Set the new scene to the stage test
             stage.setScene(new Scene(basicAdditionPage));
 
             // Show the stage
