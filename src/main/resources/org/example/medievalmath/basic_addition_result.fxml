@@ -2,13 +2,24 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0"
+
+
+<AnchorPane prefHeight="794.0" prefWidth="1123.0"
             xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.example.medievalmath.BasicAdditionResultController">
+
+    <!-- Background image -->
+    <ImageView fx:id="backgroundImageView" fitHeight="794" fitWidth="1123" preserveRatio="false">
+        <image>
+            <Image url="@Background.png" />
+        </image>
+    </ImageView>
+
     <children>
         <Label fx:id="resultTitle" layoutX="237.0" layoutY="84.0" text="Result">
             <font>

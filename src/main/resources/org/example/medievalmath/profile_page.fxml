@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 
-<AnchorPane prefHeight="407.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.ProfilePageController">
+<AnchorPane prefHeight="794.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.ProfilePageController">
    <children>
        <!-- Buttons corresponding to the text locations in the image -->
        <ImageView fx:id="ProfilePageBackgroundView" fitWidth="600" preserveRatio="true" />
    
-       <AnchorPane fx:id="profilePageContainer" layoutY="8.0" prefHeight="380.0" prefWidth="601.0">
+       <AnchorPane fx:id="profilePageContainer" layoutY="8.0" prefHeight="794.0" prefWidth="1123.0">
       <children>
               <Button fx:id="levelsButton" layoutX="81.0" layoutY="113.0" opacity="0.0" text="Levels" />
               <Button fx:id="workScrollsButton" layoutX="141.0" layoutY="113.0" opacity="0.0" text="Work: Scrolls" />

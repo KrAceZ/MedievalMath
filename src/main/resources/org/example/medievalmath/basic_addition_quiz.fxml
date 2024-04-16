@@ -4,17 +4,26 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0"
+<AnchorPane prefHeight="794.0" prefWidth="1123.0"
             xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.example.medievalmath.BasicAdditionQuizController">
 
+    <!-- Background image -->
+    <ImageView fx:id="backgroundImageView" fitHeight="794" fitWidth="1123" preserveRatio="false">
+        <image>
+            <Image url="@Background.png" />
+        </image>
+    </ImageView>
+
     <!-- Define the layout of the quiz interface here -->
     <children>
-        <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" prefHeight="200.0" prefWidth="517.0" text="" wrapText="true">
+        <VBox alignment="CENTER" spacing="30.0" prefWidth="1123.0" prefHeight="794.0">
+        <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" prefHeight="794.0" prefWidth="1123.0" text="" wrapText="true">
             <font>
                 <Font name="High Tower Text" size="36.0" />
             </font>
@@ -39,7 +48,8 @@
                 <Font name="High Tower Text" size="24.0" />
             </font>
         </Button>
-
-
+       <!-- Empty Region for spacing at bottom-->
+        <Region prefHeight="50.0"/>
+      </VBox>
     </children>
 </AnchorPane>
