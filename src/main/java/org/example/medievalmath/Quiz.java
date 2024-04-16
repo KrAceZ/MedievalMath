@@ -27,7 +27,7 @@ public class Quiz {
     }
 
     // Method to check the answer for the current problem
-    public boolean checkAnswer(String userAnswer) {
+    /*public boolean checkAnswer(String userAnswer) {
         MathProblem currentProblem = getCurrentProblem();
         // check if current problem index is valid
         if (currentProblem != null) {
@@ -37,8 +37,21 @@ public class Quiz {
             // false if no problem to check
             return false; // No current problem to check
         }
-    }
+    }*/
 
+    //**********************************************
+    public boolean checkAnswer(String userAnswer) {
+        MathProblem currentProblem = getCurrentProblem();
+        // check if current problem index is valid
+        if (currentProblem != null) {
+            // check user's answer then return results
+            return currentProblem.checkAnswer(userAnswer);    // convert String to int
+        } else {
+            // false if no problem to check
+            return false; // No current problem to check
+        }
+    }
+    //**********************************************
     // Method to move to the next problem
     public void moveToNextProblem() {
         currentProblemIndex++;
