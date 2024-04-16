@@ -16,24 +16,28 @@ public class HelloApplication extends Application {
         //stage.setTitle("Hello!");
         //stage.setScene(scene);
         //stage.show();
-        // Load the main page.fxml file
-        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
-        //primaryStage.setTitle("Home Page");
-        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_addition_tutorial.fxml"));
-        //primaryStage.setTitle("Basic Addition Tutorial");
+        //Load the main page.fxml file
 
-        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_add_subtract_test.fxml"));
-        //primaryStage.setTitle("Basic Add Subtract Test");
+        primaryStage.setTitle("Home Page");
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
 
+
+//        Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_addition_tutorial.fxml"));
+
+//        primaryStage.setTitle("Basic Addition Tutorial");
+//        Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_add_subtract_test.fxml"));
+//        primaryStage.setTitle("Basic Add Subtract Test");
+
+        // tutorial page test
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
         //primaryStage.setTitle("Tutorial Page");
-        //primaryStage.setScene(new Scene(root, 800, 600));
-        //primaryStage.show();
 
         // Sirjana: Adding Shop
-        Parent shop = FXMLLoader.load(HelloApplication.class.getResource("ShopItem.fxml"));
-        primaryStage.setTitle("SHOP");
-        primaryStage.setScene(new Scene(shop, 800, 600));
+//        Parent shop = FXMLLoader.load(HelloApplication.class.getResource("ShopItem.fxml"));
+//        primaryStage.setTitle("SHOP");
+
+
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 
