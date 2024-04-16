@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 
-public class TutorialPageController
+public class BasicAdditionTutorialController
 {
     @FXML
     private WebView videoWebView;
@@ -17,18 +17,18 @@ public class TutorialPageController
     @FXML
     private StackPane buttonsContainer;
 
-    private TutorialPage tutorialPage;
+    private TutorialPage basicAdditionTut;
 
     public void initialize() {
         // Initialize the tutorial page with default background image
         Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
-        tutorialPage = new TutorialPage(defaultBackground, "https://www.youtube.com/watch?v=AuX7nPBqDts");
+        basicAdditionTut = new TutorialPage(defaultBackground, "https://www.youtube.com/watch?v=AuX7nPBqDts");
 
         // Set the background image
         backgroundImageView.setImage(defaultBackground);
 
         // Add videoWebView to the layout
-        buttonsContainer.getChildren().add(tutorialPage.getVideoWebView());
+        buttonsContainer.getChildren().add(basicAdditionTut.getVideoWebView());
     }
 
     // Method to handle button clicks

@@ -19,8 +19,12 @@ public class HelloApplication extends Application {
         // Load the main page.fxml file
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
         //primaryStage.setTitle("Home Page");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
-        primaryStage.setTitle("Tutorial Page");
+        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_addition_tutorial.fxml"));
+        //primaryStage.setTitle("Basic Addition Tutorial");
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_add_subtract_test.fxml"));
+        primaryStage.setTitle("Basic Add Subtract Test");
+        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
+        //primaryStage.setTitle("Tutorial Page");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
