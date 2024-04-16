@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
-
-    <!-- Background image -->
-    <ImageView fx:id="backgroundImageView" fitWidth="1123" fitHeight="794" preserveRatio="false">
-        <image>
-            <Image url="@Background.png" />
-        </image>
-    </ImageView>
-
-    <!-- Container for buttons -->
-    <AnchorPane fx:id="buttonsContainer" prefHeight="794.0" prefWidth="1123.0">
-
-        <!-- Buttons -->
-        <Button alignment="CENTER" layoutX="22.0" layoutY="70.0" onAction="#navigateToLevelsPage" text="Levels" />
-        <Button alignment="CENTER" layoutX="220.0" layoutY="70.0" onAction="#navigateToProfilePage" text="Profile" />
-        <Button alignment="CENTER" layoutX="80.0" layoutY="150.0" onAction="#navigateToQuizzesPage" text="Quizzes" />
-        <Button alignment="CENTER" layoutX="85.0" layoutY="155.0" onAction="#" text="Basic Subtraction" />
-        <Button alignment="CENTER" layoutX="180.0" layoutY="150.0" onAction="#navigateToShopPage" text="Shop" />
-        <Button alignment="CENTER" layoutX="280.0" layoutY="150.0" onAction="#navigateToTrophiesPage" text="Trophies" />
-        <Button alignment="CENTER" layoutX="150.0" layoutY="121.0" onAction="#navigateToBasicAdditionPage" text="Basic Addition" AnchorPane.leftAnchor="150.0" />
-        <Button layoutX="210.0" layoutY="30.0" mnemonicParsing="false" text="Exit" />
-
-    </AnchorPane>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
+   <children>
+   
+       <!-- Background image -->
+       <ImageView fx:id="backgroundImageView" fitHeight="794" fitWidth="1123" preserveRatio="false">
+           <image>
+               <Image url="@Background.png" />
+           </image>
+       </ImageView>
+   
+       <!-- Container for buttons -->
+       <AnchorPane fx:id="buttonsContainer" prefHeight="794.0" prefWidth="1123.0">
+      <children>
+      
+              <!-- Buttons -->
+              <Button alignment="CENTER" layoutX="126.0" layoutY="209.0" onAction="#navigateToLevelsPage" text="Levels" />
+              <Button alignment="CENTER" layoutX="578.0" layoutY="209.0" onAction="#navigateToProfilePage" text="Profile" />
+              <Button alignment="CENTER" layoutX="249.0" layoutY="209.0" onAction="#navigateToQuizzesPage" text="Quizzes" />
+              <Button alignment="CENTER" layoutX="369.0" layoutY="209.0" onAction="#navigateToShopPage" text="Shop" />
+              <Button alignment="CENTER" layoutX="467.0" layoutY="209.0" onAction="#navigateToTrophiesPage" text="Trophies" />
+              <Button alignment="CENTER" layoutX="378.0" layoutY="313.0" onAction="#navigateToBasicAdditionPage" text="Basic Addition" AnchorPane.leftAnchor="378.0" />
+              <Button alignment="CENTER" layoutX="369.0" layoutY="370.0" onAction="#" text="Basic Subtraction" />
+              <Button alignment="CENTER" layoutX="405.0" layoutY="433.0" onAction="#" text="Test" />
+              <Button layoutX="767.0" layoutY="101.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="104.0" text="Exit" />
+      </children>
+   
+       </AnchorPane>
+   </children>
 </AnchorPane>
-
