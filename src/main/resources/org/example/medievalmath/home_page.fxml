@@ -6,8 +6,6 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-
-
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
    <children>
    
@@ -43,17 +41,17 @@
                <font>
                   <Font name="the rum is gone" size="25.0" />
                </font></Button>
-              <Button alignment="CENTER" layoutX="479.0" layoutY="337.0" onAction="#navigateToBasicAdditionPage" text="Basic Addition Quiz" AnchorPane.leftAnchor="479.0">
+              <Button alignment="CENTER" layoutX="475.0" layoutY="308.0" onAction="#navigateToBasicAdditionPage" text="Basic Addition Quiz" AnchorPane.leftAnchor="475.0">
                <font>
-                  <Font size="20.0" />
+                   <Font name="the rum is gone" size="15.0" />
                </font></Button>
-              <Button alignment="CENTER" layoutX="482.0" layoutY="410.0" onAction="#navigateToBasicSubtractionPage" text="Basic Subtraction Quiz">
+              <Button alignment="CENTER" layoutX="435.0" layoutY="386.0" onAction="#navigateToBasicSubtractionPage" text="Basic Subtraction Quiz">
                <font>
-                  <Font size="20.0" />
+                   <Font name="the rum is gone" size="15.0" />
                </font></Button>
-              <Button alignment="CENTER" layoutX="463.0" layoutY="506.0" onAction="#navigateToBasicAddSubtractPage" text="Addition and Subtraction Test">
+              <Button alignment="CENTER" layoutX="397.0" layoutY="471.0" onAction="#navigateToBasicAddSubtractPage" text="Addition and Subtraction Test">
                <font>
-                  <Font size="20.0" />
+                   <Font name="the rum is gone" size="15.0" />
                </font></Button>
               <Button layoutX="840.0" layoutY="63.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="225.0" text="Exit">
                <font>
