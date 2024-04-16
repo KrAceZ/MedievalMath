@@ -95,4 +95,42 @@ public class HomePageController {
         }
     }
 
+    @FXML
+    public void navigateToBasicSubtractionPage(javafx.event.ActionEvent event) {
+        try {
+            // Load the FXML file for the basic addition page
+            Parent basicSubtractionPage = FXMLLoader.load(getClass().getResource("basic_subtraction_quiz.fxml"));
+
+            // Get the current stage
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene to the stage test
+            stage.setScene(new Scene(basicSubtractionPage));
+
+            // Show the stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void navigateToBasicAddSubtractPage(javafx.event.ActionEvent event) {
+        try {
+            // Load the FXML file for the basic addition page
+            Parent BasicAddSubtractPage = FXMLLoader.load(getClass().getResource("basic_add_subtract_test.fxml"));
+
+            // Get the current stage
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene to the stage test
+            stage.setScene(new Scene(BasicAddSubtractPage));
+
+            // Show the stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
