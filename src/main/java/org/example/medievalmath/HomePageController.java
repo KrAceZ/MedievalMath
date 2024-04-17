@@ -166,7 +166,50 @@ public class HomePageController {
         }
     }
 
+    @FXML
+    public void navigateToAdditionTutorialPage(javafx.event.ActionEvent event) {
+        try {
+            // Load the FXML file for the addition tutorial page
+            Parent AdditionTutorialPage = FXMLLoader.load(getClass().getResource("tutorial_page.fxml")); // edit this
+
+            // Get the current stage
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene to the stage test
+            stage.setScene(new Scene(AdditionTutorialPage));
+
+            // Show the stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void navigateToSubtractionTutorialPage(javafx.event.ActionEvent event) {
+        try {
+            // Load the FXML file for the subtraction tutorial page
+            Parent SubtractionTutorialPage = FXMLLoader.load(getClass().getResource("subtraction_tutorial_page.fxml")); // edit this
+
+            // Get the current stage
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene to the stage test
+            stage.setScene(new Scene(SubtractionTutorialPage));
+
+            // Show the stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     public void exitApplication(ActionEvent actionEvent) {
+        // Exit application method
         Platform.exit();
     }
+
+
 }
