@@ -62,6 +62,16 @@ public class HomePageController {
     @FXML
     private void navigateToQuizzesPage() {
         // Implement navigation logic to Quizzes page
+        try {
+            // Load the profile page
+            Parent quizPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));
+
+            // Get the current scene and set the new root
+            Scene scene = buttonsContainer.getScene();
+            scene.setRoot(quizPage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Method to navigate to Shop page
@@ -76,11 +86,33 @@ public class HomePageController {
         // Implement navigation logic to Trophies page
     }
 
+    /* original
     @FXML
     public void navigateToBasicAdditionPage(javafx.event.ActionEvent event) {
         try {
             // Load the FXML file for the basic addition page
             Parent basicAdditionPage = FXMLLoader.load(getClass().getResource("basic_addition_quiz.fxml"));
+
+            // Get the current stage
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene to the stage test
+            stage.setScene(new Scene(basicAdditionPage));
+
+            // Show the stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+     */
+    //modified to go to quiz page with basic addition quiz
+    @FXML
+    public void navigateToBasicAdditionPage(javafx.event.ActionEvent event) {
+        try {
+            // Load the FXML file for the basic addition page
+            Parent basicAdditionPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));
 
             // Get the current stage
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
