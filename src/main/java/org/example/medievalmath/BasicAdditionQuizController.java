@@ -148,6 +148,8 @@ public class BasicAdditionQuizController {
         quiz.moveToNextProblem();
         if(quiz.isQuizEnd())
         {
+            handleEndOfQuiz();
+            /*
             try {
                 Stage thisStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 thisStage.close();
@@ -161,7 +163,7 @@ public class BasicAdditionQuizController {
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            }*/
         }
         else {
             // Load the next problem
@@ -172,5 +174,6 @@ public class BasicAdditionQuizController {
     // Method to handle the end of quiz
     private void handleEndOfQuiz() {
         // Implement end of quiz logic here
+        QuizPageController.getInstance().loadContent("basic_addition_result.fxml");
     }
 }
