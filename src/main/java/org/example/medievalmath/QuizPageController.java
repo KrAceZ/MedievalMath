@@ -1,6 +1,9 @@
 package org.example.medievalmath;
 
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -17,8 +20,6 @@ public class QuizPageController {
     private ImageView backgroundImageView;  // View for the background image directly linked with FXML
     @FXML
     private AnchorPane buttonsContainer;
-
-
 
     private static QuizPageController instance;
 
@@ -57,6 +58,20 @@ public class QuizPageController {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error loading FXML: " + fxmlPath);
+        }
+    }
+
+    @FXML
+    private void navigateToHomePage() {
+        try {
+            // Load the profile page
+            Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
+
+            // Get the current scene and set the new root
+            Scene scene = buttonsContainer.getScene();
+            scene.setRoot(homePage);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
