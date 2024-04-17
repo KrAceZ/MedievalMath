@@ -1,5 +1,7 @@
 package org.example.medievalmath;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,7 +14,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class HomePageController {
@@ -165,4 +166,7 @@ public class HomePageController {
         }
     }
 
+    public void exitApplication(ActionEvent actionEvent) {
+        Platform.exit();
+    }
 }
