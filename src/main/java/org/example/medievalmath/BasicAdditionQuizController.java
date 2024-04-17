@@ -35,7 +35,7 @@ public class BasicAdditionQuizController {
 
         // Generate a list of problems based on the profile level
         //List<MathProblem> problems = getProblems(profile); // Pass the profile to the getProblems method
-        List<MathProblem> problems = generateProblems(10, "+", 1);
+        List<MathProblem> problems = generateProblems(5, "+", 1);
         // Create a Quiz object with random problems
         this.quiz = new Quiz(problems);
     }
