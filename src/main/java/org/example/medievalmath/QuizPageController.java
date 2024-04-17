@@ -39,8 +39,8 @@ public class QuizPageController {
         // Ensure the path is correct; it should be relative to the classpath root
         if (backgroundImageView != null) {
             backgroundImageView.setImage(new Image(getClass().getResourceAsStream("Background.png")));
-            backgroundImageView.setFitWidth(800);  // Adjust to match the size of your mainContainer
-            backgroundImageView.setFitHeight(600);
+            backgroundImageView.setFitWidth(1123);  // Adjust to match the size of your mainContainer
+            backgroundImageView.setFitHeight(794);
             backgroundImageView.setPreserveRatio(true);
             backgroundImageView.toBack();  // Ensure the background image is behind all other content
         }
