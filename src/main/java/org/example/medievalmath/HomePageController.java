@@ -10,11 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class HomePageController {
     @FXML
@@ -25,7 +24,7 @@ public class HomePageController {
 
     public void initialize() {
         // Initialize the home page with background image
-        Image backgroundImage = new Image(getClass().getResourceAsStream("Background.png"));
+        Image backgroundImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Background.png")));
         Page homePage = new Page(backgroundImage);
 
         // Set the background image
@@ -63,16 +62,16 @@ public class HomePageController {
     @FXML
     private void navigateToQuizzesPage() {
         // Implement navigation logic to Quizzes page
-        try {
-            // Load the profile page
-            Parent quizPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));
-
-            // Get the current scene and set the new root
-            Scene scene = buttonsContainer.getScene();
-            scene.setRoot(quizPage);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            // Load the profile page
+//            Parent quizPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));
+//
+//            // Get the current scene and set the new root
+//            Scene scene = buttonsContainer.getScene();
+//            scene.setRoot(quizPage);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     // Method to navigate to Shop page

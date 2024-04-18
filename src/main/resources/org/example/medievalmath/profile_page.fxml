@@ -6,22 +6,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 
+<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="794.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.ProfilePageController">
    <children>
        <!-- Buttons corresponding to the text locations in the image -->
        <ImageView fx:id="ProfilePageBackgroundView" fitWidth="600" preserveRatio="true" />
-   
-       <AnchorPane fx:id="profilePageContainer" layoutY="8.0" prefHeight="794.0" prefWidth="1123.0">
-      <children>
-              <Button fx:id="levelsButton" layoutX="81.0" layoutY="113.0" opacity="0.0" text="Levels" />
-              <Button fx:id="workScrollsButton" layoutX="141.0" layoutY="113.0" opacity="0.0" text="Work: Scrolls" />
-              <Button fx:id="questsButton" layoutX="238.0" layoutY="113.0" opacity="0.0" text="Quests" />
-              <Button fx:id="trophiesButton" layoutX="307.0" layoutY="113.0" opacity="0.0" text="Trophies" />
-              <Button fx:id="shopButton" layoutX="401.0" layoutY="112.0" opacity="0.0" text="Shop" />
-              <Button fx:id="homeButton" layoutX="467.0" layoutY="113.0" opacity="0.0" text="Profile" />
-              <Button fx:id="logOutButton" layoutX="517.0" layoutY="38.0" opacity="0.0" text="Log Out" />
-      </children>
-       </AnchorPane>
+
+       <AnchorPane fx:id="buttonsContainer" prefHeight="794" prefWidth="1123">
+           <children>
+               <Button layoutX="851.0" layoutY="61.0" onAction="#navigateToHomePage" mnemonicParsing="false" prefHeight="54.0" prefWidth="212.0" text="Home" >
+                   <font>
+                       <Font name="the rum is gone" size="24.0" />
+                   </font></Button>
+           </children></AnchorPane>
    </children>
 
 </AnchorPane>

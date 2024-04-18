@@ -16,6 +16,9 @@ public class ProfilePageController {
     private ImageView ProfilePageBackgroundView;
 
     @FXML
+    private AnchorPane buttonsContainer;
+
+    @FXML
     private AnchorPane profilePageContainer;
 
     public void initialize() {
@@ -45,14 +48,15 @@ public class ProfilePageController {
 
 
     // Add methods to handle button actions if necessary
+    @FXML
     private void navigateToHomePage() {
         try {
             // Load the profile page
-            Parent profilePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
+            Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
 
             // Get the current scene and set the new root
-            Scene scene = profilePageContainer.getScene();
-            scene.setRoot(profilePage);
+            Scene scene = buttonsContainer.getScene();
+            scene.setRoot(homePage);
         } catch (IOException e) {
             e.printStackTrace();
         }
