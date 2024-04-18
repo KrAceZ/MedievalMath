@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 
@@ -20,9 +21,21 @@ public class BasicAdditionTutorialController
     private ImageView backgroundImageView;
 
     @FXML
-    private StackPane buttonsContainer;
+    private AnchorPane buttonsContainer;
+
+    @FXML
+    private StackPane webViewContainer;
 
     private TutorialPage basicAdditionTut;
+
+
+    private static BasicAdditionTutorialController instance;
+
+    public BasicAdditionTutorialController() {
+        if (instance == null) {
+            instance = this;
+        }
+    }
 
     public void initialize() {
         // Initialize the tutorial page with default background image
@@ -33,7 +46,7 @@ public class BasicAdditionTutorialController
         backgroundImageView.setImage(defaultBackground);
 
         // Add videoWebView to the layout
-        buttonsContainer.getChildren().add(basicAdditionTut.getVideoWebView());
+        webViewContainer.getChildren().add(basicAdditionTut.getVideoWebView());
     }
 
     // Method to handle button clicks
@@ -42,7 +55,7 @@ public class BasicAdditionTutorialController
         try {
             // Load the profile page
             Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
-
+            instance = null;
             // Get the current scene and set the new root
             Scene scene = buttonsContainer.getScene();
             scene.setRoot(homePage);

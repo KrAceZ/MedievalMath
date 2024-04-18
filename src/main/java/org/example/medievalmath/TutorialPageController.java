@@ -24,6 +24,14 @@ public class TutorialPageController
 
     private TutorialPage tutorialPage;
 
+    private static TutorialPageController instance;
+
+    public TutorialPageController() {
+        if (instance == null) {
+            instance = this;
+        }
+    }
+
     public void initialize() {
         // Initialize the tutorial page with default background image
         Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
@@ -42,7 +50,7 @@ public class TutorialPageController
         try {
             // Load the profile page
             Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
-
+            instance = null;
             // Get the current scene and set the new root
             Scene scene = buttonsContainer.getScene();
             scene.setRoot(homePage);
