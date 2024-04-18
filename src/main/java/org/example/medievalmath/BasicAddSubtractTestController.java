@@ -27,6 +27,10 @@ public class BasicAddSubtractTestController {
     //private Profile profile;
 
     public BasicAddSubtractTestController() {
+        // reset correct and wrong counters to 0 each time a quiz made
+        correct = 0;
+        wrong = 0;
+        
         // get the user profile
         //this.profile = getProfile();
 
