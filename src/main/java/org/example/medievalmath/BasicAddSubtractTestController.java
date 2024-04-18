@@ -9,10 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.example.medievalmath.MathProblem.generateProblems;
 
@@ -82,28 +79,8 @@ public class BasicAddSubtractTestController {
     }
 
     // method to generate problems
-    /*private List<MathProblem> getProblems(Profile profile) {
-        List<MathProblem> problems = new ArrayList<>();
-        String[] operators = {"+", "-", "*", "/"};
-        Random rand = new Random();
-
-        // get the level from the profile
-        int level = profile.getLevel();
-
-        // Generate 3 problems for normal quiz
-        for (int i = 0; i < 3; i++) {
-            // choose a random operator
-            String operator = operators[rand.nextInt(operators.length)];
-            // create a new MathProblem object with the chosen level and add it to the list
-            problems.add(new MathProblem(operator, level));
-        }
-
-        return problems;
-    }*/
-
-    // method to generate problems
     private List<MathProblem> getProblems(int numOfProbs, int level) {
-        List<MathProblem> problems = new ArrayList<>();
+        Set<MathProblem> problems = new HashSet<>();
         int numOfOps = 0;
         if(level ==1)
         {
@@ -116,19 +93,20 @@ public class BasicAddSubtractTestController {
         String[] operators = {"+", "-", "*", "/"};
         Random rand = new Random();
 
-        // Generate 3 problems for normal quiz
-        for (int i = 0; i < numOfProbs; i++) {
+        // Generate problems for normal quiz
+        while (problems.size() < numOfProbs) {
             // choose a random operator
             int op = rand.nextInt(numOfOps);
             String operator = operators[op];
-            // create a new MathProblem object with the chosen level and add it to the list
-            problems.add(new MathProblem(operator, level));
+            // create a new MathProblem object with the chosen level
+            MathProblem problem = new MathProblem(operator, level);
+            // add it to the set (duplicates will be ignored)
+            problems.add(problem);
         }
 
-        return problems;
+        // Convert the set to a list and return it
+        return new ArrayList<>(problems);
     }
-
-
 
     // method to load the next problem
     private void loadNextProblem() {

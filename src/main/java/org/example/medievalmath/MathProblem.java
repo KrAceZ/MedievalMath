@@ -73,6 +73,28 @@ public class MathProblem {
         }
     }
 
+    // method to only allow one a, b, or operator to appear at a time to prevent duplicates
+    @Override
+    public boolean equals(Object obj) {
+        // If the current instance(this) and obj are the same object, return true
+        if (this == obj) return true;
+        // If obj is null or if the classes of this and obj are different, return false
+        if (obj == null || getClass() != obj.getClass()) return false;
+        // Cast obj to MathProblem so we can compare the fields
+        MathProblem that = (MathProblem) obj;
+        // Return true if all fields are equal, false otherwise
+        return a == that.a && b == that.b && operator.equals(that.operator);
+    }
+
+    // method to store duplicate problems in the ADD/SUBTRACT test
+    @Override
+    public int hashCode() {
+        // Generate a hash code based on the values of a, b, and operator
+        // Objects.hash() returns a hash value that is based on the hash codes of its arguments
+        return Objects.hash(a, b, operator);
+    }
+
+
     // Method to display the problem as a string
     public String getProblem() {
         return a + " " + operator + " " + b + " = ";
