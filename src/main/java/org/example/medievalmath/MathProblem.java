@@ -19,7 +19,7 @@ public class MathProblem {
         this.level = level;
         if (level == 1) {
             this.a = rand.nextInt(11);   // choose random a 'a' value (0 - 10)
-            this.b = rand.nextInt(11);   // choose random a 'b' value (0 - 10)
+            this.b = rand.nextInt(this.a + 1);   // prevents negative numbers
         } else if (level == 2) {
             this.a = rand.nextInt(21) - 10;   // allows for negative numbers
             this.b = rand.nextInt(21) - 10;
@@ -50,6 +50,11 @@ public class MathProblem {
                 throw new IllegalArgumentException("Invalid operator. Operator must be one of '+', '-', '*', '/'.");
         }
         generateOptions();  // Call generateOptions at the end of the constructor
+    }
+
+    @Override
+    public String toString() {
+        return a + " " + operator + " " + b;
     }
 
     public MathProblem(int a, int b) {
@@ -124,6 +129,5 @@ public class MathProblem {
             }
         }
         return problems;
-        // example command to call this class -> List<MathProblem> problems = MathProblem.generateProblems(5, "+", 1);
     }
 }
