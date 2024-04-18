@@ -16,9 +16,6 @@ public class HelloApplication extends Application {
         // stage.setTitle("Hello!");
         //stage.setScene(scene);
         //stage.show();
-        // Load the main page.fxml file
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
-        primaryStage.setTitle("Home Page");
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_addition_tutorial.fxml"));
         //primaryStage.setTitle("Basic Addition Tutorial");
 
@@ -27,15 +24,20 @@ public class HelloApplication extends Application {
 
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
         //primaryStage.setTitle("Tutorial Page");
-        primaryStage.setScene(new Scene(root, 1123, 794));
-        primaryStage.show();
-        primaryStage.setResizable(false);
 
         // Sirjana: Adding Shop
         //Parent shop = FXMLLoader.load(HelloApplication.class.getResource("ShopItem.fxml"));
         //primaryStage.setTitle("SHOP");
         //primaryStage.setScene(new Scene(shop, 1123, 794));
         //primaryStage.show();
+
+        // Load the main page.fxml file
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
+        primaryStage.setTitle("Home Page");
+
+        primaryStage.setScene(new Scene(root, 1123, 794));
+        primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
     public static void main(String[] args) {
