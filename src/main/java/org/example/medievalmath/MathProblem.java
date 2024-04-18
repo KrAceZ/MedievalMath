@@ -7,10 +7,10 @@ public class MathProblem {
     // final class variables
     private int a;
     private int b;
-    private String operator;
-    private int answer;
+    private final String operator;
+    private final int answer;
     private Map<String, Integer> options;
-    private int level;
+    private final int level;
     private String correctOption;
 
     // random problem generator constructor
@@ -52,17 +52,7 @@ public class MathProblem {
         generateOptions();  // Call generateOptions at the end of the constructor
     }
 
-    @Override
-    public String toString() {
-        return a + " " + operator + " " + b;
-    }
-
-    public MathProblem(int a, int b) {
-        this.a = a;
-        this.b = b;
-    }
-
-    // Method to get the level of the problem
+    // getter for level of the problem
     public int getLevel() {
         return level;
     }
@@ -71,8 +61,9 @@ public class MathProblem {
     void generateOptions() {
         if (level == 1) {
             Random rand = new Random();
+            // hashmap to temporarily store/prevent duplicate generated problems
             options = new HashMap<>();
-            // Generate three incorrect options
+            // Generate 4 possible answers for multiple choice question
             for (char option = 'a'; option <= 'd'; option++) {
                 options.put(String.valueOf(option), answer + rand.nextInt(10) + 1);
             }
@@ -82,7 +73,7 @@ public class MathProblem {
         }
     }
 
-    // Method to get the problem as a string
+    // Method to display the problem as a string
     public String getProblem() {
         return a + " " + operator + " " + b + " = ";
     }
@@ -93,6 +84,12 @@ public class MathProblem {
             throw new IllegalArgumentException("Option must be one of 'a', 'b', 'c', 'd'.");
         }
         return  options.get(option).toString();
+    }
+
+    // override string method to display the problem
+    @Override
+    public String toString() {
+        return a + " " + operator + " " + b;
     }
 
     // getter for problems correct answer
@@ -114,7 +111,6 @@ public class MathProblem {
             throw new IllegalArgumentException("Invalid method call. This method should only be called for multiple-choice problems.");
         }
     }
-
 
     // Static method to generate list of math problems
     public static List<MathProblem> generateProblems(int numProblems, String operator, int level) {

@@ -207,8 +207,6 @@ public class HomePageController {
         }
     }
 
-
-
     public void exitApplication(ActionEvent actionEvent) {
         // Exit application method
         Platform.exit();
