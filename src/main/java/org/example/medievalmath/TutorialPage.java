@@ -11,7 +11,6 @@ public class TutorialPage extends Page
         super(backgroundImage);
         this.videoWebView = new WebView();
         loadVideo(videoUrl);
-        // Additional initialization if needed...
     }
 
     // Getter and setter for videoWebView
@@ -26,5 +25,7 @@ public class TutorialPage extends Page
     // Method to load and display video content
     public void loadVideo(String videoUrl) {
         videoWebView.getEngine().load(videoUrl);
+        videoWebView.setMaxWidth(500);
+        videoWebView.setMaxHeight(281);
     }
 }

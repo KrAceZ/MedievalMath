@@ -1,10 +1,15 @@
 package org.example.medievalmath;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
+
+import java.io.IOException;
 
 public class TutorialPageController
 {
@@ -33,7 +38,16 @@ public class TutorialPageController
 
     // Method to handle button clicks
     @FXML
-    private void handleButtonClick() {
-        // Implement button click logic here
+    private void navigateToHomePage() {
+        try {
+            // Load the profile page
+            Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
+
+            // Get the current scene and set the new root
+            Scene scene = buttonsContainer.getScene();
+            scene.setRoot(homePage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
