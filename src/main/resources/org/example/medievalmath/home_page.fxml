@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
    <children>
    
        <!-- Background image -->
@@ -40,15 +41,15 @@
                <font>
                   <Font name="the rum is gone" size="25.0" />
                </font></Button>
-              <Button alignment="CENTER" layoutX="475.0" layoutY="308.0" onAction="#navigateToBasicAdditionPage" text="Basic Addition Quiz" AnchorPane.leftAnchor="475.0">
+              <Button alignment="CENTER" layoutX="434.0" layoutY="452.0" onAction="#navigateToBasicAdditionPage" text="Basic Addition Practice" AnchorPane.leftAnchor="434.0">
                <font>
                    <Font name="the rum is gone" size="15.0" />
                </font></Button>
-              <Button alignment="CENTER" layoutX="435.0" layoutY="386.0" onAction="#navigateToBasicSubtractionPage" text="Basic Subtraction Quiz">
+              <Button alignment="CENTER" layoutX="414.0" layoutY="518.0" onAction="#navigateToBasicSubtractionPage" text="Basic Subtraction Practice">
                <font>
                    <Font name="the rum is gone" size="15.0" />
                </font></Button>
-              <Button alignment="CENTER" layoutX="397.0" layoutY="471.0" onAction="#navigateToBasicAddSubtractPage" text="Addition and Subtraction Test">
+              <Button alignment="CENTER" layoutX="397.0" layoutY="582.0" onAction="#navigateToBasicAddSubtractPage" text="Addition and Subtraction Test">
                <font>
                    <Font name="the rum is gone" size="15.0" />
                </font></Button>
@@ -56,11 +57,11 @@
                <font>
                   <Font name="the rum is gone" size="30.0" />
                </font></Button>
-            <Button alignment="CENTER" layoutX="524.0" layoutY="538.0" onAction="#navigateToAdditionTutorialPage" text="Addition Tutorial">
+            <Button alignment="CENTER" layoutX="473.0" layoutY="310.0" onAction="#navigateToAdditionTutorialPage" text="Addition Tutorial">
                <font>
                   <Font name="the rum is gone" size="15.0" />
                </font></Button>
-            <Button alignment="CENTER" layoutX="524.0" layoutY="599.0" onAction="#navigateToSubtractionTutorialPage" text="Subtraction Tutorial">
+            <Button alignment="CENTER" layoutX="446.0" layoutY="384.0" onAction="#navigateToSubtractionTutorialPage" text="Subtraction Tutorial">
                <font>
                   <Font name="the rum is gone" size="15.0" />
                </font></Button>
