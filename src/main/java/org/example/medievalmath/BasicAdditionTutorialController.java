@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class BasicAdditionTutorialController
 {
@@ -26,21 +27,20 @@ public class BasicAdditionTutorialController
     @FXML
     private StackPane webViewContainer;
 
-    private TutorialPage basicAdditionTut;
 
 
-    private static BasicAdditionTutorialController instance;
-
-    public BasicAdditionTutorialController() {
-        if (instance == null) {
-            instance = this;
-        }
-    }
+//    private static BasicAdditionTutorialController instance;
+//
+//    public BasicAdditionTutorialController() {
+//        if (instance == null) {
+//            instance = this;
+//        }
+//    }
 
     public void initialize() {
         // Initialize the tutorial page with default background image
-        Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
-        basicAdditionTut = new TutorialPage(defaultBackground, "https://www.youtube.com/embed/AuX7nPBqDts");
+        Image defaultBackground = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Background.png")));
+        TutorialPage basicAdditionTut = new TutorialPage(defaultBackground, "https://www.youtube.com/embed/AuX7nPBqDts");
 
         // Set the background image
         backgroundImageView.setImage(defaultBackground);
@@ -54,8 +54,8 @@ public class BasicAdditionTutorialController
     private void navigateToHomePage() {
         try {
             // Load the profile page
-            Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
-            instance = null;
+            Parent homePage = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home_page.fxml")));
+            // instance = null;
             // Get the current scene and set the new root
             Scene scene = buttonsContainer.getScene();
             scene.setRoot(homePage);

@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class BasicSubtractionTutorialController {
 
@@ -28,17 +29,17 @@ public class BasicSubtractionTutorialController {
 
     private TutorialPage basicSubtractionTut;
 
-    private static BasicSubtractionTutorialController instance;
-
-    public BasicSubtractionTutorialController() {
-        if (instance == null) {
-            instance = this;
-        }
-    }
+//    private static BasicSubtractionTutorialController instance;
+//
+//    public BasicSubtractionTutorialController() {
+//        if (instance == null) {
+//            instance = this;
+//        }
+//    }
 
     public void initialize() {
         // Initialize the tutorial page with default background image
-        Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
+        Image defaultBackground = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Background.png")));
         basicSubtractionTut = new TutorialPage(defaultBackground, "https://www.youtube.com/embed/aNqG4ChKShI");
 
         // Set the background image
@@ -53,8 +54,8 @@ public class BasicSubtractionTutorialController {
     private void navigateToHomePage() {
         try {
             // Load the profile page
-            Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
-            instance = null;
+            Parent homePage = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home_page.fxml")));
+            // instance = null;
             // Get the current scene and set the new root
             Scene scene = buttonsContainer.getScene();
             scene.setRoot(homePage);
