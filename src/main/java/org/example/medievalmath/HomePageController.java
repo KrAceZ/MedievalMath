@@ -170,7 +170,7 @@ public class HomePageController {
     public void navigateToAdditionTutorialPage(javafx.event.ActionEvent event) {
         try {
             // Load the FXML file for the addition tutorial page
-            Parent AdditionTutorialPage = FXMLLoader.load(getClass().getResource("tutorial_page.fxml")); // edit this
+            Parent AdditionTutorialPage = FXMLLoader.load(getClass().getResource("basic_addition_tutorial.fxml")); // edit this
 
             // Get the current stage
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -189,7 +189,7 @@ public class HomePageController {
     public void navigateToSubtractionTutorialPage(javafx.event.ActionEvent event) {
         try {
             // Load the FXML file for the subtraction tutorial page
-            Parent SubtractionTutorialPage = FXMLLoader.load(getClass().getResource("subtraction_tutorial_page.fxml")); // edit this
+            Parent SubtractionTutorialPage = FXMLLoader.load(getClass().getResource("basic_subtraction_tutorial.fxml")); // edit this
 
             // Get the current stage
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

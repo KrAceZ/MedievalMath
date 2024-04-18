@@ -11,8 +11,8 @@ import javafx.scene.web.WebView;
 
 import java.io.IOException;
 
-public class BasicAdditionTutorialController
-{
+public class BasicSubtractionTutorialController {
+
     @FXML
     private WebView videoWebView;
 
@@ -27,7 +27,7 @@ public class BasicAdditionTutorialController
     public void initialize() {
         // Initialize the tutorial page with default background image
         Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
-        basicAdditionTut = new TutorialPage(defaultBackground, "https://www.youtube.com/embed/AuX7nPBqDts");
+        basicAdditionTut = new TutorialPage(defaultBackground, "https://www.youtube.com/embed/aNqG4ChKShI");
 
         // Set the background image
         backgroundImageView.setImage(defaultBackground);
@@ -40,14 +40,15 @@ public class BasicAdditionTutorialController
     @FXML
     private void navigateToHomePage() {
         try {
-            // Load the profile page
+            // Load the home page
             Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
 
             // Get the current scene and set the new root
             Scene scene = buttonsContainer.getScene();
             scene.setRoot(homePage);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+
