@@ -9,10 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.example.medievalmath.MathProblem.generateProblems;
 
@@ -27,6 +24,7 @@ public class BasicAdditionQuizController {
     static int wrong = 0;
 
     private Quiz quiz;
+    private Set<String> generatedProblems = new HashSet<>();
     //private Profile profile;
 
     public BasicAdditionQuizController() {
@@ -35,7 +33,7 @@ public class BasicAdditionQuizController {
 
         // Generate a list of problems based on the profile level
         //List<MathProblem> problems = getProblems(profile); // Pass the profile to the getProblems method
-        List<MathProblem> problems = generateProblems(5, "+", 1);
+        List<MathProblem> problems = generateProblems(10, "+", 1);
         // Create a Quiz object with random problems
         this.quiz = new Quiz(problems);
     }
@@ -82,22 +80,31 @@ public class BasicAdditionQuizController {
     }
 
     // method to generate problems
-    private List<MathProblem> getProblems(Profile profile) {
+    private List<MathProblem> getProblems(int numOfProbs, int level) {
+        // Create a new list to store the problems
         List<MathProblem> problems = new ArrayList<>();
+        // Array of operators
         String[] operators = {"+", "-", "*", "/"};
+        // Create a new Random object
         Random rand = new Random();
+        // For each problem
+        for (int i = 0; i < numOfProbs; i++) {
+            // Randomly select an operator
+            int op = rand.nextInt(2);
+            String operator = operators[op];
 
-        // get the level from the profile
-        int level = profile.getLevel();
+            // Create a new MathProblem
+            MathProblem problem;
+            do {
+                problem = new MathProblem(operator, level);
+            } while (generatedProblems.contains(problem.toString()));
 
-        // Generate 3 problems for normal quiz
-        for (int i = 0; i < 3; i++) {
-            // choose a random operator
-            String operator = operators[rand.nextInt(operators.length)];
-            // create a new MathProblem object with the chosen level and add it to the list
-            problems.add(new MathProblem(operator, level));
+            // Add the problem to the list of problems
+            problems.add(problem);
+            // Add the problem to the set of generated problems
+            generatedProblems.add(problem.toString());
         }
-
+        // Return the list of problems
         return problems;
     }
 

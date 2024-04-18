@@ -9,10 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.example.medievalmath.MathProblem.generateProblems;
 
@@ -27,6 +24,7 @@ public class BasicSubtractionQuizController {
     static int wrong = 0;
 
     private Quiz quiz;
+    private Set<String> generatedProblems = new HashSet<>();
     //private Profile profile;
 
     public BasicSubtractionQuizController() {
@@ -82,22 +80,31 @@ public class BasicSubtractionQuizController {
     }
 
     // method to generate problems
-    private List<MathProblem> getProblems(Profile profile) {
+    private List<MathProblem> getProblems(int numOfProbs, int level) {
         List<MathProblem> problems = new ArrayList<>();
+        int numOfOps = 0;
+        if(level ==1)
+        {
+            numOfOps = 2;
+        }
+        else
+        {
+            numOfOps = 4;
+        }
         String[] operators = {"+", "-", "*", "/"};
         Random rand = new Random();
+        for (int i = 0; i < numOfProbs; i++) {
+            int op = rand.nextInt(numOfOps);
+            String operator = operators[op];
 
-        // get the level from the profile
-        int level = profile.getLevel();
+            MathProblem problem;
+            do {
+                problem = new MathProblem(operator, level);
+            } while (generatedProblems.contains(problem.toString()));
 
-        // Generate 3 problems for normal quiz
-        for (int i = 0; i < 3; i++) {
-            // choose a random operator
-            String operator = operators[rand.nextInt(operators.length)];
-            // create a new MathProblem object with the chosen level and add it to the list
-            problems.add(new MathProblem(operator, level));
+            problems.add(problem);
+            generatedProblems.add(problem.toString());
         }
-
         return problems;
     }
 
