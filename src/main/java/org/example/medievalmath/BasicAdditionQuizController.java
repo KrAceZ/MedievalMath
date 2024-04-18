@@ -181,6 +181,7 @@ public class BasicAdditionQuizController {
     // Method to handle the end of quiz
     private void handleEndOfQuiz() {
         // Implement end of quiz logic here
-        QuizPageController.getInstance().loadContent("basic_addition_result.fxml");
+        QuizPageController.setQuizFXML("basic_addition_result.fxml");
+        QuizPageController.getInstance().loadContent();
     }
 }

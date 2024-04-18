@@ -177,11 +177,13 @@ public class BasicAddSubtractTestController {
         quiz.moveToNextProblem();
         if(quiz.isQuizEnd())
         {
+            handleEndOfQuiz();
+            /*
             try {
                 Stage thisStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 thisStage.close();
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("basic_add_subtract_result.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("basic_addition_result.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
                 stage.setScene(scene);
@@ -190,7 +192,7 @@ public class BasicAddSubtractTestController {
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            }*/
         }
         else {
             // Load the next problem
@@ -201,5 +203,7 @@ public class BasicAddSubtractTestController {
     // Method to handle the end of quiz
     private void handleEndOfQuiz() {
         // Implement end of quiz logic here
+        QuizPageController.setQuizFXML("basic_add_subtract_result.fxml");
+        QuizPageController.getInstance().loadContent();
     }
 }

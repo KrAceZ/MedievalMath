@@ -81,30 +81,30 @@ public class BasicSubtractionQuizController {
 
     // method to generate problems
     private List<MathProblem> getProblems(int numOfProbs, int level) {
+        // Create a new list to store the problems
         List<MathProblem> problems = new ArrayList<>();
-        int numOfOps = 0;
-        if(level ==1)
-        {
-            numOfOps = 2;
-        }
-        else
-        {
-            numOfOps = 4;
-        }
+        // Array of operators
         String[] operators = {"+", "-", "*", "/"};
+        // Create a new Random object
         Random rand = new Random();
+        // For each problem
         for (int i = 0; i < numOfProbs; i++) {
-            int op = rand.nextInt(numOfOps);
+            // Randomly select an operator
+            int op = rand.nextInt(2);
             String operator = operators[op];
 
+            // Create a new MathProblem
             MathProblem problem;
             do {
                 problem = new MathProblem(operator, level);
             } while (generatedProblems.contains(problem.toString()));
 
+            // Add the problem to the list of problems
             problems.add(problem);
+            // Add the problem to the set of generated problems
             generatedProblems.add(problem.toString());
         }
+        // Return the list of problems
         return problems;
     }
 
@@ -155,11 +155,13 @@ public class BasicSubtractionQuizController {
         quiz.moveToNextProblem();
         if(quiz.isQuizEnd())
         {
+            handleEndOfQuiz();
+            /*
             try {
                 Stage thisStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 thisStage.close();
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("basic_subtraction_result.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("basic_addition_result.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
                 stage.setScene(scene);
@@ -168,7 +170,7 @@ public class BasicSubtractionQuizController {
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            }*/
         }
         else {
             // Load the next problem
@@ -179,5 +181,7 @@ public class BasicSubtractionQuizController {
     // Method to handle the end of quiz
     private void handleEndOfQuiz() {
         // Implement end of quiz logic here
+        QuizPageController.setQuizFXML("basic_subtraction_result.fxml");
+        QuizPageController.getInstance().loadContent();
     }
 }

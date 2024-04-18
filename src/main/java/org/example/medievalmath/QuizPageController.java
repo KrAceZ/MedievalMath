@@ -20,21 +20,27 @@ public class QuizPageController {
     private ImageView backgroundImageView;  // View for the background image directly linked with FXML
     @FXML
     private AnchorPane buttonsContainer;
-
+    private static String quizFXML; //the default quiz
     private static QuizPageController instance;
 
     public QuizPageController() {
-        instance = this;
+        if (instance == null) {
+            instance = this;
+        }
     }
+
 
     public static QuizPageController getInstance() {
         return instance;
     }
 
+    public static void setQuizFXML(String fxmlPath)
+    {
+        quizFXML = fxmlPath;
+    }
     @FXML
     public void initialize() {
         Image backgroundImage = new Image(getClass().getResourceAsStream("Background.png"));
-        String quizFXML = "basic_addition_quiz.fxml";
         QuizPage quizpage = new QuizPage(backgroundImage, quizFXML);
 
         // Ensure the path is correct; it should be relative to the classpath root
@@ -45,19 +51,19 @@ public class QuizPageController {
             backgroundImageView.setPreserveRatio(true);
             backgroundImageView.toBack();  // Ensure the background image is behind all other content
         }
-        loadContent(quizFXML);  // Load initial quiz content
+        loadContent();  // Load initial quiz content
     }
 
     // Method to load content dynamically into the quizContainer above the background
-    public void loadContent(String fxmlPath) {
+    public void loadContent() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(quizFXML));
             AnchorPane newContent = loader.load();
             quizContainer.getChildren().clear();  // Clear existing content in the quizContainer
             quizContainer.getChildren().add(newContent);  // Add new content to quizContainer
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error loading FXML: " + fxmlPath);
+            System.out.println("Error loading FXML: " + quizFXML);
         }
     }
 
@@ -66,7 +72,7 @@ public class QuizPageController {
         try {
             // Load the profile page
             Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
-
+            instance = null;
             // Get the current scene and set the new root
             Scene scene = buttonsContainer.getScene();
             scene.setRoot(homePage);
@@ -75,50 +81,3 @@ public class QuizPageController {
         }
     }
 }
-
-
-/*
-public class QuizPageController {
-    @FXML
-    private AnchorPane quizContainer;  // This Pane will contain the QuizPage
-
-    private QuizPage quizPage;
-
-
-
-
-    public void initialize() {
-        // Example data - replace these with dynamic sources if necessary
-        Image backgroundImage = new Image(getClass().getResourceAsStream("Background.png"));
-        String quizFXML = "basic_addition_quiz.fxml";
-
-        // Create the QuizPage with the specified background and quiz FXML
-        quizPage = new QuizPage(backgroundImage, quizFXML);
-
-        // Assuming quizPage is a Node (which it should be as it extends a Pane), add it to the container
-        quizContainer.getChildren().add(quizPage);
-    }
-
-    private static QuizPageController instance;
-
-    public QuizPageController() {
-        instance = this;
-    }
-
-    public static QuizPageController getInstance() {
-        return instance;
-    }
-
-    // Method to load content dynamically into the quizContainer
-    public void loadContent(String fxmlPath) {
-        try {
-            quizContainer.getChildren().clear(); // Clear existing content
-            AnchorPane newContent = FXMLLoader.load(getClass().getResource(fxmlPath));
-            quizContainer.getChildren().add(newContent);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading FXML: " + fxmlPath);
-        }
-    }
-}
-*/
