@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class LoginController {
     // Define the FXML elements as private instance variables
@@ -57,12 +58,12 @@ public class LoginController {
     // Method to handle the action of the show password check box
     @FXML
     protected void handleShowPasswordCheckBox(ActionEvent event) {
-        // If the check box is selected, show the password
+        // If the checkbox is selected, show the password
         if (showPasswordCheckBox.isSelected()) {
             passwordField.setPromptText(passwordField.getText());
             passwordField.clear();
         } else {
-            // If the check box is not selected, hide the password
+            // If the checkbox is not selected, hide the password
             passwordField.setPromptText("Password");
         }
     }
@@ -106,7 +107,7 @@ public class LoginController {
     private void loadHomePage() {
         try {
             // Load the home page
-            Parent root = FXMLLoader.load(getClass().getResource("home_page.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home_page.fxml")));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
