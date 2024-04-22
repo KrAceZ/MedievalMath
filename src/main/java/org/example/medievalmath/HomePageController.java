@@ -31,7 +31,7 @@ public class HomePageController {
         backgroundImageView.setImage(backgroundImage);
     }
 
-    // get background Image for HelloApplication to set window size based on background image
+    // get background Image for MainApplication to set window size based on background image
     public Image getBackgroundImage() {
         return backgroundImageView.getImage();
     }

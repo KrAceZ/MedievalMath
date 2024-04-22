@@ -9,35 +9,32 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class HelloApplication extends Application {
+public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load(), 1123, 794);
-        // stage.setTitle("Hello!");
         //stage.setScene(scene);
         //stage.show();
-        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_addition_tutorial.fxml"));
+        //Parent root = FXMLLoader.load(MainApplication.class.getResource("basic_addition_tutorial.fxml"));
         //primaryStage.setTitle("Basic Addition Tutorial");
 
-        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("basic_add_subtract_test.fxml"));
+        //Parent root = FXMLLoader.load(MainApplication.class.getResource("basic_add_subtract_test.fxml"));
         //primaryStage.setTitle("Basic Add Subtract Test");
 
-        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("tutorial_page.fxml"));
+        //Parent root = FXMLLoader.load(MainApplication.class.getResource("tutorial_page.fxml"));
         //primaryStage.setTitle("Tutorial Page");
 
         // Sirjana: Adding Shop
-        //Parent shop = FXMLLoader.load(HelloApplication.class.getResource("ShopItem.fxml"));
+        //Parent shop = FXMLLoader.load(MainApplication.class.getResource("ShopItem.fxml"));
         //primaryStage.setTitle("SHOP");
         //primaryStage.setScene(new Scene(shop, 1123, 794));
         //primaryStage.show();
 
         // Load the main page.fxml file
-        // Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
+        // Parent root = FXMLLoader.load(MainApplication.class.getResource("home_page.fxml"));
         // primaryStage.setTitle("Home Page");
 
         // LoginController tester
-        Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("login.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(MainApplication.class.getResource("login.fxml")));
         primaryStage.setTitle("Login Page");
 
         primaryStage.setScene(new Scene(root, 1123, 794));
