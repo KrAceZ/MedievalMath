@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class HelloApplication extends Application {
     @Override
@@ -32,8 +33,12 @@ public class HelloApplication extends Application {
         //primaryStage.show();
 
         // Load the main page.fxml file
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
-        primaryStage.setTitle("Home Page");
+        // Parent root = FXMLLoader.load(HelloApplication.class.getResource("home_page.fxml"));
+        // primaryStage.setTitle("Home Page");
+
+        // LoginController tester
+        Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("login.fxml")));
+        primaryStage.setTitle("Login Page");
 
         primaryStage.setScene(new Scene(root, 1123, 794));
         primaryStage.show();

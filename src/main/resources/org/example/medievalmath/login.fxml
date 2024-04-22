@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.medievalmath.LoginController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label fx:id="loginLabel" layoutX="200.0" layoutY="100.0" text="Login" />
+        <TextField fx:id="nameField" layoutX="200.0" layoutY="150.0" promptText="Name" visible="false" />
+        <TextField fx:id="usernameField" layoutX="200.0" layoutY="200.0" promptText="Username" />
+        <PasswordField fx:id="passwordField" layoutX="200.0" layoutY="250.0" promptText="Password" />
+        <CheckBox fx:id="showPasswordCheckBox" layoutX="400.0" layoutY="250.0" text="Show Password" onAction="#handleShowPasswordCheckBox" />
+        <PasswordField fx:id="confirmPasswordField" layoutX="200.0" layoutY="300.0" promptText="Confirm Password" visible="false" />
+        <TextField fx:id="gradeField" layoutX="400.0" layoutY="300.0" promptText="What is your grade?" visible="false" />
+        <Button layoutX="200.0" layoutY="350.0" text="Login" onAction="#handleLoginButton" />
+        <Hyperlink fx:id="switchLink" layoutX="200.0" layoutY="400.0" text="Create a new account" onAction="#handleSwitchLink" />
+    </children>
+</AnchorPane>
