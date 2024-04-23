@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class BasicSubtractionTutorialController {
 
@@ -26,36 +27,35 @@ public class BasicSubtractionTutorialController {
     @FXML
     private StackPane webViewContainer;
 
-    private TutorialPage basicSubtractionTut;
-
-    private static BasicSubtractionTutorialController instance;
-
-    public BasicSubtractionTutorialController() {
-        if (instance == null) {
-            instance = this;
-        }
-    }
-
     public void initialize() {
         // Initialize the tutorial page with default background image
-        Image defaultBackground = new Image(getClass().getResourceAsStream("Background.png"));
-        basicSubtractionTut = new TutorialPage(defaultBackground, "https://www.youtube.com/embed/aNqG4ChKShI");
+        Image defaultBackground = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Background.png")));
+        TutorialPage basicSubtractionTut = new TutorialPage(defaultBackground, "https://www.youtube.com/embed/aNqG4ChKShI");
 
         // Set the background image
         backgroundImageView.setImage(defaultBackground);
 
-        // Add videoWebView to the layout
-        webViewContainer.getChildren().add(basicSubtractionTut.getVideoWebView());
+        // Assign videoWebView and add it to the layout
+        videoWebView = basicSubtractionTut.getVideoWebView();
+        webViewContainer.getChildren().add(videoWebView);
+    }
+
+    // stop video from playing
+    private void destroyWebView() {
+        videoWebView.getEngine().load(null);
+        webViewContainer.getChildren().remove(videoWebView);
+        videoWebView = null;
     }
 
     // Method to handle button clicks
     @FXML
     private void navigateToHomePage() {
         try {
+            // stops video from playing
+            destroyWebView();
+
             // Load the profile page
-            Parent homePage = FXMLLoader.load(getClass().getResource("home_page.fxml"));
-            instance = null;
-            // Get the current scene and set the new root
+            Parent homePage = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home_page.fxml")));
             Scene scene = buttonsContainer.getScene();
             scene.setRoot(homePage);
         } catch (IOException e) {
