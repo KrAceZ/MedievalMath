@@ -37,7 +37,6 @@ public class BasicAdditionQuizController {
         // Create a Quiz object with random problems
         this.quiz = new Quiz(problems);
     }
-
     // Method to initialize the quiz
     @FXML
     private void initialize() {
@@ -50,7 +49,6 @@ public class BasicAdditionQuizController {
         // load the first problem
         loadNextProblem();
     }
-
     private Profile getProfile() {
         // The following code with replace the hardcoded profile info when the database is set up:
         // String username = getCurrentUsername();
@@ -66,7 +64,6 @@ public class BasicAdditionQuizController {
         // Create and return a new Profile object
         return new Profile(studentName, grade, username, password);
     }
-
     // temporary Scanner object to make profiles in getProfile() until database is added
     private String getUserInput(String prompt) {
         // Create a Scanner object for reading input

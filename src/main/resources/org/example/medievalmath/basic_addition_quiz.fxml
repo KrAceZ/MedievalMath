@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0"
-            xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.medievalmath.BasicAdditionQuizController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.BasicAdditionQuizController">
 <children>
     <!-- Background image -->
-    <ImageView fx:id="backgroundImageView" fitHeight="500" fitWidth="500" preserveRatio="false">
+    <ImageView fx:id="backgroundImageView" fitHeight="650" fitWidth="650" preserveRatio="false">
         <image>
-            <Image url="@Background.png" />
+            <Image url="@ScrollBackground.png" />
         </image>
     </ImageView>
 
     <!-- Define the layout of the quiz interface here -->
 
-        <VBox alignment="CENTER" spacing="30.0" prefWidth="500.0" prefHeight="500.0">
-            <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" prefHeight="10.0" prefWidth="250.0" text="" wrapText="true" style="-fx-background-color: white;">
+        <VBox alignment="CENTER" prefHeight="500.0" prefWidth="500.0" spacing="30.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="100.0">
+            <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" prefHeight="10.0" prefWidth="250.0" style="-fx-background-color: white;" text="" wrapText="true">
                 <font>
                     <Font name="the rum is gone" size="65.0" />
                 </font>
@@ -48,7 +43,7 @@
                 </font>
             </Button>
             <!-- Empty Region for spacing at bottom-->
-            <Region prefHeight="50.0"/>
+            <Region prefHeight="50.0" />
         </VBox>
 
 </children>
