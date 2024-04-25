@@ -3,18 +3,18 @@ package org.example.medievalmath;
 import java.util.*;
 
 // Class to generate and solve simple math problems
-public class MathProblem {
+public class MathProblems {
     // final class variables
-    private int a;
-    private int b;
-    private final String operator;
-    private final int answer;
-    private Map<String, Integer> options;
-    private final int level;
-    private String correctOption;
+    protected int a;
+    protected int b;
+    protected final String operator;
+    protected final int answer;
+    protected Map<String, Integer> options;
+    protected final int level;
+    String correctOption;
 
     // random problem generator constructor
-    public MathProblem(String operator, int level) {
+    public MathProblems(String operator, int level) {
         Random rand = new Random();
         this.level = level;
         if (level == 1) {
@@ -80,8 +80,8 @@ public class MathProblem {
         if (this == obj) return true;
         // If obj is null or if the classes of this and obj are different, return false
         if (obj == null || getClass() != obj.getClass()) return false;
-        // Cast obj to MathProblem so we can compare the fields
-        MathProblem that = (MathProblem) obj;
+        // Cast obj to MathProblems so we can compare the fields
+        MathProblems that = (MathProblems) obj;
         // Return true if all fields are equal, false otherwise
         return a == that.a && b == that.b && operator.equals(that.operator);
     }
@@ -135,11 +135,11 @@ public class MathProblem {
     }
 
     // Static method to generate list of math problems
-    public static List<MathProblem> generateProblems(int numProblems, String operator, int level) {
-        List<MathProblem> problems = new ArrayList<>();
+    public static List<MathProblems> generateProblems(int numProblems, String operator, int level) {
+        List<MathProblems> problems = new ArrayList<>();
         for (int i = 0; i < numProblems; i++) {
             try {
-                problems.add(new MathProblem(operator, level));    // Add a new problem to the list
+                problems.add(new MathProblems(operator, level));    // Add a new problem to the list
             } catch (ArithmeticException e) {
                 System.out.println(e.getMessage());
                 // If division by zero occurred, try again with the same index

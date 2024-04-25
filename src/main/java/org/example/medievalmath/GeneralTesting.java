@@ -26,14 +26,17 @@ public class GeneralTesting {
         Profile profile = new Profile(studentName, grade, username, password);
 
         // Generate problems
-        List<MathProblem> problems = MathProblem.generateProblems(3, "+", profile.getLevel());
+        List<MathProblems> problems = MathProblems.generateProblems(3, "+", profile.getLevel());
+
+        // Add a CountingProblems to the list of problems
+        problems.add(new CountingProblems(profile.getLevel()));
 
         // Create a quiz
         Quiz quiz = new Quiz(problems);
 
         // Loop through the problems
         while (!quiz.isQuizEnd()) {
-            MathProblem problem = quiz.getCurrentProblem();
+            MathProblems problem = quiz.getCurrentProblem();
             System.out.println(problem.getProblem());
             // If the problem level is 1, display the options
             if (problem.getLevel() == 1) {

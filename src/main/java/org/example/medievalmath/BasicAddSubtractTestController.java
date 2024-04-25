@@ -1,17 +1,10 @@
 package org.example.medievalmath;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.util.*;
-
-import static org.example.medievalmath.MathProblem.generateProblems;
 
 public class BasicAddSubtractTestController {
     @FXML
@@ -35,8 +28,8 @@ public class BasicAddSubtractTestController {
         //this.profile = getProfile();
 
         // Generate a list of problems based on the profile level
-        //List<MathProblem> problems = getProblems(profile); // Pass the profile to the getProblems method
-        List<MathProblem> problems = getProblems(20, 1);
+        //List<MathProblems> problems = getProblems(profile); // Pass the profile to the getProblems method
+        List<MathProblems> problems = getProblems(20, 1);
         // Create a Quiz object with random problems
         this.quiz = new Quiz(problems);
     }
@@ -46,7 +39,7 @@ public class BasicAddSubtractTestController {
     private void initialize() {
         // Load quiz data from a problem set (assuming it's provided externally)
 //        Profile profile = getProfile();
-//        List<MathProblem> problems = getProblems(profile);
+//        List<MathProblems> problems = getProblems(profile);
 //        quiz = new Quiz(problems);
 //        loadNextProblem();
 
@@ -83,8 +76,8 @@ public class BasicAddSubtractTestController {
     }
 
     // method to generate problems
-    private List<MathProblem> getProblems(int numOfProbs, int level) {
-        Set<MathProblem> problems = new HashSet<>();
+    private List<MathProblems> getProblems(int numOfProbs, int level) {
+        Set<MathProblems> problems = new HashSet<>();
         int numOfOps = 0;
         if(level ==1)
         {
@@ -102,8 +95,8 @@ public class BasicAddSubtractTestController {
             // choose a random operator
             int op = rand.nextInt(numOfOps);
             String operator = operators[op];
-            // create a new MathProblem object with the chosen level
-            MathProblem problem = new MathProblem(operator, level);
+            // create a new MathProblems object with the chosen level
+            MathProblems problem = new MathProblems(operator, level);
             // add it to the set (duplicates will be ignored)
             problems.add(problem);
         }
@@ -117,10 +110,10 @@ public class BasicAddSubtractTestController {
         // check if quiz has ended
         //if (!quiz.isQuizEnd()) {
         // get current problem
-        MathProblem currentProblem = quiz.getCurrentProblem();
+        MathProblems currentProblem = quiz.getCurrentProblem();
         // display the problem
         question.setText(currentProblem.getProblem());
-        // (I changed the following code to work with a different style of getters in the MathProblem class)
+        // (I changed the following code to work with a different style of getters in the MathProblems class)
         if (currentProblem.getLevel() == 1) {   // If the problem level is 1, set the text of the option buttons to the options of the problem
             option1.setText("a) " + currentProblem.getOption("a"));
             option2.setText("b) " + currentProblem.getOption("b"));

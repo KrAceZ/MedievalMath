@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 
 import java.util.*;
 
-import static org.example.medievalmath.MathProblem.generateProblems;
+import static org.example.medievalmath.MathProblems.generateProblems;
 
 public class BasicSubtractionQuizController {
     @FXML
@@ -33,8 +33,8 @@ public class BasicSubtractionQuizController {
         //this.profile = getProfile();
 
         // Generate a list of problems based on the profile level
-        //List<MathProblem> problems = getProblems(profile); // Pass the profile to the getProblems method
-        List<MathProblem> problems = generateProblems(10, "-", 1);
+        //List<MathProblems> problems = getProblems(profile); // Pass the profile to the getProblems method
+        List<MathProblems> problems = generateProblems(10, "-", 1);
         // Create a Quiz object with random problems
         this.quiz = new Quiz(problems);
     }
@@ -44,7 +44,7 @@ public class BasicSubtractionQuizController {
     private void initialize() {
         // Load quiz data from a problem set (assuming it's provided externally)
 //        Profile profile = getProfile();
-//        List<MathProblem> problems = getProblems(profile);
+//        List<MathProblems> problems = getProblems(profile);
 //        quiz = new Quiz(problems);
 //        loadNextProblem();
 
@@ -81,9 +81,9 @@ public class BasicSubtractionQuizController {
     }
 
     // method to generate problems
-    private List<MathProblem> getProblems(int numOfProbs, int level) {
+    private List<MathProblems> getProblems(int numOfProbs, int level) {
         // Create a new list to store the problems
-        List<MathProblem> problems = new ArrayList<>();
+        List<MathProblems> problems = new ArrayList<>();
         // Array of operators
         String[] operators = {"+", "-", "*", "/"};
         // Create a new Random object
@@ -94,10 +94,10 @@ public class BasicSubtractionQuizController {
             int op = rand.nextInt(2);
             String operator = operators[op];
 
-            // Create a new MathProblem
-            MathProblem problem;
+            // Create a new MathProblems
+            MathProblems problem;
             do {
-                problem = new MathProblem(operator, level);
+                problem = new MathProblems(operator, level);
             } while (generatedProblems.contains(problem.toString()));
 
             // Add the problem to the list of problems
@@ -114,10 +114,10 @@ public class BasicSubtractionQuizController {
         // check if quiz has ended
         //if (!quiz.isQuizEnd()) {
         // get current problem
-        MathProblem currentProblem = quiz.getCurrentProblem();
+        MathProblems currentProblem = quiz.getCurrentProblem();
         // display the problem
         question.setText(currentProblem.getProblem());
-        // (I changed the following code to work with a different style of getters in the MathProblem class)
+        // (I changed the following code to work with a different style of getters in the MathProblems class)
         if (currentProblem.getLevel() == 1) {   // If the problem level is 1, set the text of the option buttons to the options of the problem
             option1.setText("a) " + currentProblem.getOption("a"));
             option2.setText("b) " + currentProblem.getOption("b"));
