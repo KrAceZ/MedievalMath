@@ -111,6 +111,10 @@ public class HomePageController {
     @FXML
     public void navigateToBasicAdditionPage(javafx.event.ActionEvent event) {
         QuizPageController.setQuizFXML("basic_addition_quiz.fxml");
+        //QuizPageController.setQuizFXML("quiz.fxml");
+        //QuizController.setQuizLevel(level);
+        //QuizController.setQuizCompetency(competency);
+        //QuizController.setNumOfQuizProbs(num);
         try {
             // Load the FXML file for the basic addition page
             Parent basicAdditionPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));
@@ -120,7 +124,7 @@ public class HomePageController {
 
             // Set the new scene to the stage test
             stage.setScene(new Scene(basicAdditionPage));
-
+            //stage.setScene(new Scene(
             // Show the stage
             stage.show();
         } catch (IOException e) {
