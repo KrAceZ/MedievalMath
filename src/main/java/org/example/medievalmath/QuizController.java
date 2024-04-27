@@ -18,7 +18,7 @@ public class QuizController {
     private Quiz quiz;
     private Set<String> generatedProblems = new HashSet<>();
     static int quizLevel;
-    static char quizCompetency;
+    static String quizCompetency;
     static int numOfQuizProbs;
     private static QuizController instance;
 
@@ -45,7 +45,7 @@ public class QuizController {
     {
         quizLevel = level;
     }
-    public static void setQuizCompetency(char competency)
+    public static void setQuizCompetency(String competency)
     {
         quizCompetency = competency;
     }
@@ -128,12 +128,12 @@ public class QuizController {
         return problems;
     }
 
-//    private List<MathProblems> generateProblems(int numOfProbs, int level, int competency) {
+//    private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
 //        List<MathProblems> problems = new ArrayList<>();
 //        for (int i = 0; i < numOfProbs; i++) {
 //            MathProblems problem;
 //            do {
-//                problem = new CountingProblems(level);
+//                problem = new MathProblems(level, competency);
 //            } while (generatedProblems.contains(problem.toString()));
 //
 //            problems.add(problem);

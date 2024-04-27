@@ -30,11 +30,11 @@ public class MainApplication extends Application {
         //primaryStage.show();
 
         // Load the main page.fxml file
-        // Parent root = FXMLLoader.load(MainApplication.class.getResource("home_page.fxml"));
-        // primaryStage.setTitle("Home Page");
+        Parent root = FXMLLoader.load(MainApplication.class.getResource("home_page.fxml"));
+        primaryStage.setTitle("Home Page");
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(MainApplication.class.getResource("basic_counting_quiz.fxml")));
-        primaryStage.setTitle("Basic Counting Quiz");
+        //Parent root = FXMLLoader.load(Objects.requireNonNull(MainApplication.class.getResource("basic_counting_quiz.fxml")));
+        //primaryStage.setTitle("Basic Counting Quiz");
         // LoginController tester
         //Parent root = FXMLLoader.load(Objects.requireNonNull(MainApplication.class.getResource("login.fxml")));
         //primaryStage.setTitle("Login Page");
