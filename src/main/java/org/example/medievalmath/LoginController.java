@@ -40,6 +40,9 @@ public class LoginController {
     private Label errorLabel;
     @FXML
     private ImageView backgroundImageView;
+    public int currentGrade;
+    public int currentPoints;
+
 
     // Method to handle the action of the switch link
     @FXML
@@ -169,6 +172,9 @@ public class LoginController {
             while (profileReturn.next()){
                 if (profileReturn.getString(2).equals(username)){
                     if (BCrypt.checkpw(password, profileReturn.getString("password"))){
+                        int grade = profileReturn.getInt("currentGrade");
+                        int points = profileReturn.getInt("points");
+                        setUserInfo(grade, points);
                         return true;
                     }
                 }
@@ -179,5 +185,10 @@ public class LoginController {
             System.out.println("Error: " + e);
         }
     return false;
+    }
+    public void setUserInfo(int grade, int points){
+        currentGrade = grade;
+        currentPoints = points;
+        System.out.println("Grade: " + currentGrade);
     }
 }
