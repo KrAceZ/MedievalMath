@@ -8,9 +8,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Objects;
+import java.util.Random;
 
 public class LoginController {
     // Define the FXML elements as private instance variables
@@ -121,13 +127,57 @@ public class LoginController {
 
     // Method to create a new account
     private void createAccount(String name, String username, String password, String grade) {
-        // TODO: Implement this method to create a new account in the AWS database
+        String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
+        String user = "admin";
+        String adminPassword = "WbIofZIaebOVezZ2wy9u";
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        Random rand = new Random();
+        int userID = rand.nextInt(1000);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(myUrl, user, adminPassword);
+            String sql = "INSERT INTO profiles VALUES (?, ?, ?, ?, 0, ?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, userID);
+            preparedStatement.setString(2, username);
+            preparedStatement.setString(3, hashedPassword);
+            if (grade.equalsIgnoreCase("k") || grade.equalsIgnoreCase("kindergarten")){
+                preparedStatement.setInt(4, 0);
+            }
+            else{
+                preparedStatement.setInt(4, Integer.parseInt(grade));
+            }
+            preparedStatement.setString(5, name);
+            preparedStatement.execute();
+            conn.close();
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
     }
 
     private boolean checkCredentials(String username, String password) {
-        // TODO: Implement this method to check the user's credentials against the AWS database
-        // return false;    uncomment to actually check username and password
-        return true; // @Sadie: delete line when to actually check username/password
-
+        String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
+        String user = "admin";
+        String adminPassword = "WbIofZIaebOVezZ2wy9u";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(myUrl, user, adminPassword);
+            String sql = "SELECT * FROM profiles";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet profileReturn = preparedStatement.executeQuery();
+            while (profileReturn.next()){
+                if (profileReturn.getString(2).equals(username)){
+                    if (BCrypt.checkpw(password, profileReturn.getString("password"))){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    return false;
     }
 }
