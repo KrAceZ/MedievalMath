@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-
 public class ProfilePageController {
     @FXML
     private ImageView ProfilePageBackgroundView;

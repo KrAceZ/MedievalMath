@@ -78,6 +78,16 @@ public class HomePageController {
     @FXML
     private void navigateToShopPage() {
         // Implement navigation logic to Shop page
+        try {
+            // Load the profile page
+            Parent profilePage = FXMLLoader.load(getClass().getResource("ShopItem.fxml"));
+
+            // Get the current scene and set the new root
+            Scene scene = buttonsContainer.getScene();
+            scene.setRoot(profilePage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Method to navigate to Trophies page
@@ -210,6 +220,5 @@ public class HomePageController {
         // Exit application method
         Platform.exit();
     }
-
 
 }

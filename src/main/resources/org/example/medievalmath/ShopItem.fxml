@@ -10,35 +10,49 @@
 <?import javafx.collections.FXCollections?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.medievalmath.ShopItemController"
-            prefHeight="400.0" prefWidth="600.0"
-            style="-fx-background-color: yellow;">
+            fx:controller="org.example.medievalmath.ShopItemController">
 
-    <Label fx:id="welcomeText" layoutX="250.0" layoutY="50.0" text="Welcome to Medieval Reward"/>
+    <ImageView fx:id="ShopPageBackgroundView" fitWidth="800" fitHeight="760" preserveRatio="true"/>
 
-    <!-- Image views for SVG images -->
-    <ImageView fx:id="imageView1" layoutX="50.0" layoutY="100.0" onMouseClicked="#onImageSelect1" />
-    <ImageView fx:id="imageView2" layoutX="200.0" layoutY="100.0" onMouseClicked="#onImageSelect2" />
-    <ImageView fx:id="imageView3" layoutX="350.0" layoutY="100.0" onMouseClicked="#onImageSelect3" />
-    <ImageView fx:id="imageView4" layoutX="500.0" layoutY="100.0" onMouseClicked="#onImageSelect4" />
+    <!-- Buttons -->
+    <Button text="Click to Shop" layoutX="325" layoutY="107" onAction="#handleButtonShopClick" style="-fx-background-color: lightyellow;"/>
+    <Button text="CheckOut" layoutX="350" layoutY="680" onAction="#handleButtonCheckOutClick"
+            style="-fx-background-color: lightyellow;"
+            prefWidth="120" prefHeight="40"/>
 
-    <!-- Dropdown menu -->
-    <ComboBox fx:id="comboBox" layoutX="100.0" layoutY="100.0">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Hat - 50 Coins"/>
-                <String fx:value="Sword - 100 Coins"/>
-                <String fx:value="KiteHelmet - 200 Coins"/>
-                <String fx:value="Bridge - 300 Coins"/>
-            </FXCollections>
-        </items>
-    </ComboBox>
+    <!-- Button that will take back to homepage -->
+    <Button layoutX="851.0" layoutY="61.0" onAction="#navigateToHomePage" mnemonicParsing="false"
+            prefHeight="54.0" prefWidth="212.0" text="Back to Home" />
 
-    <Button layoutX="500.0" layoutY="350" mnemonicParsing="false" text="Checkout" onAction="#onCheckOutButtonClick"/>
-    <Button layoutX="500.0" layoutY="10" mnemonicParsing="false" text="Shop" onAction="#onShopButtonClick"/>
 
-    <!-- <Label fx:id="welcomeText"/> -->
-    <Label fx:id="checkOutText"/>
-    <Label fx:id="shopText"/>
 
+    <!-- Selectable Images -->
+    <ToggleButton  fx:id="hat" layoutX="100" layoutY="200" onAction="#handleImageSelection" graphicTextGap="10" text="50 Coins">
+        <graphic>
+            <ImageView fitWidth="120" fitHeight="120">
+                <Image url="@Hat.png" />
+            </ImageView>
+        </graphic>
+    </ToggleButton>
+    <ToggleButton  fx:id="sword" layoutX="320" layoutY="200" onAction="#handleImageSelection" graphicTextGap="10" text="100 Coins">
+        <graphic>
+            <ImageView fitWidth="120" fitHeight="120">
+                <Image url="@Sword.png" />
+            </ImageView>
+        </graphic>
+    </ToggleButton>
+    <ToggleButton  fx:id="kitehelmet" layoutX="100" layoutY="400" onAction="#handleImageSelection" graphicTextGap="10" text = "200 Coins">
+        <graphic>
+            <ImageView fitWidth="120" fitHeight="120">
+                <Image url="@Kite-Helmet.png" />
+            </ImageView>
+        </graphic>
+    </ToggleButton>
+    <ToggleButton  fx:id="bridge" layoutX="320" layoutY="400" onAction="#handleImageSelection" graphicTextGap="10" text = "300 Coins">
+        <graphic>
+            <ImageView fitWidth="120" fitHeight="120">
+                <Image url="@Bridge.png" />
+            </ImageView>
+        </graphic>
+    </ToggleButton>
 </AnchorPane>

@@ -1,98 +1,102 @@
 package org.example.medievalmath;
-
+import java.util.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import java.io.IOException;
+import javafx.scene.control.ToggleGroup;
 
 public class ShopItemController {
-    @FXML
-    private ComboBox<String> comboBox;
 
     @FXML
-    private Label checkOutText;
-    @FXML
-    private Label shopText;
-    @FXML
-    private  Label welcomeText;
+    private ImageView ShopPageBackgroundView;
 
     @FXML
-    private ImageView imageView1;
+    private Button button1;
 
     @FXML
-    private ImageView imageView2;
+    private Button button2;
 
     @FXML
-    private ImageView imageView3;
+    private ToggleButton hat;
 
     @FXML
-    private ImageView imageView4;
-    @FXML
-    private void initialize() {
-
-        loadImage("Hat.svg", imageView1);
-        loadImage("Sword.svg", imageView2);
-        loadImage("Kite-Helmet.svg", imageView3);
-        loadImage("Hat.svg", imageView4);
-
-        // Add listener to handle dropdown selection
-        comboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            // Handle selected item
-            handleSelectedItem(newValue);
-        });
-    }
-
-    // Method to handle selected item from dropdown
-    private void handleSelectedItem(String selectedItem) {
-        // Implement your logic based on the selected item
-        System.out.println("Selected Item: " + selectedItem);
-        // You can update UI elements or perform other actions based on the selected item
-    }
+    private ToggleButton sword;
 
     @FXML
-    protected void onCheckOutButtonClick() {
-        welcomeText.setText("Checking out the item");
-    }
-    @FXML
-    protected void onShopButtonClick(){
-        welcomeText.setText("Shopping the checked out button");
-    }
+    private ToggleButton kitehelmet;
 
-    // Method to handle image selection
     @FXML
-    private void onImageSelect1() {
-        // Load and display selected image
-        loadImage("Hat.svg", imageView1);
+    private ToggleButton bridge;
+
+    private ToggleGroup toggleGroup;
+
+    public void initialize() {
+
+        //Image ShopPageBackgroundImage = new Image(getClass().getResourceAsStream("ShopPageBackground.png"));
+        //Page ShopPage = new Page(ShopPageBackgroundImage);
+        //ShopPageBackgroundView.setImage(ShopPageBackgroundImage);
+
+        // Initialize toggle group
+        toggleGroup = new ToggleGroup();
+        hat.setToggleGroup(toggleGroup);
+        sword.setToggleGroup(toggleGroup);
+        kitehelmet.setToggleGroup(toggleGroup);
+        bridge.setToggleGroup(toggleGroup);
+
+        // Load background image
+        Image backgroundImage = new Image(getClass().getResourceAsStream("ShopPageBackground.png"));
+        ShopPageBackgroundView.setImage(backgroundImage);
     }
 
     @FXML
-    private void onImageSelect2() {
-        // Load and display selected image
-        loadImage("Sword.svg", imageView2);
+    private void handleButtonShopClick() {
+        // Handle button 1 click event
+        System.out.println("Shopping Started .....");
     }
 
     @FXML
-    private void onImageSelect3() {
-        // Load and display selected image
-        loadImage("Kite-Helmet.svg", imageView3);
+    private void handleButtonCheckOutClick() {
+        // Handle button 2 click event
+        System.out.println("Button 2 clicked");
     }
 
     @FXML
-    private void onImageSelect4() {
-        // Load and display selected image
-        loadImage("Hat.svg", imageView4);
-    }
-
-    // Method to load and display an image
-    private void loadImage(String imagePath, ImageView imageView) {
+    private void navigateToHomePage(ActionEvent event) {
         try {
-            Image image = new Image(getClass().getResourceAsStream(imagePath));
-            imageView.setImage(image);
-        } catch (Exception e) {
+            // Load the profile page
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("home_page.fxml"));
+            Parent homePage = loader.load();
+
+            // Get the scene from the event source
+            Scene scene = ((Node) event.getSource()).getScene();
+
+            // Set the new scene root
+            scene.setRoot(homePage);
+
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleImageSelection() {
+        ToggleButton selectedButton = (ToggleButton) toggleGroup.getSelectedToggle();
+        if (selectedButton != null) {
+//            ImageView imageView = (ImageView) selectedButton.getGraphic();
+//            Image selectedImage = imageView.getImage();
+//            System.out.println(selectedImage);
+            String imageId = selectedButton.getId();
+            System.out.println("Selected image id: " + imageId);
+
         }
     }
 }
