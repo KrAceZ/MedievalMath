@@ -3,19 +3,19 @@ package org.example.medievalmath;
 import java.util.List;
 
 public class Quiz {
-    // List of MathProblem objects that make up the quiz
-    private List<MathProblem> problems;
+    // List of MathProblems objects that make up the quiz
+    private List<MathProblems> problems;
     // Index of the current problem being displayed
     private int currentProblemIndex; // To keep track of the current problem being displayed
 
     // Constructor that initializes the problems list and sets the current problem index to 0
-    public Quiz(List<MathProblem> problems) {   // constructor now takes MathProblem objects and no longer takes ProblemSet object
+    public Quiz(List<MathProblems> problems) {   // constructor now takes MathProblems objects and no longer takes ProblemSet object
         this.problems = problems;
         this.currentProblemIndex = 0;
     }
 
     // Method to get the current problem
-    public MathProblem getCurrentProblem() {
+    public MathProblems getCurrentProblem() {
         // checks if problem index is valid
         if (currentProblemIndex >= 0 && currentProblemIndex < problems.size()) {
             // returns current problem
@@ -28,7 +28,7 @@ public class Quiz {
 
     // Method to check the answer for the current problem
     /*public boolean checkAnswer(String userAnswer) {
-        MathProblem currentProblem = getCurrentProblem();
+        MathProblems currentProblem = getCurrentProblem();
         // check if current problem index is valid
         if (currentProblem != null) {
             // check user's answer then return results
@@ -41,7 +41,7 @@ public class Quiz {
 
     //**********************************************
     public boolean checkAnswer(String userAnswer) {
-        MathProblem currentProblem = getCurrentProblem();
+        MathProblems currentProblem = getCurrentProblem();
         // check if current problem index is valid
         if (currentProblem != null) {
             // check user's answer then return results

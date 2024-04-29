@@ -11,7 +11,7 @@
         <!-- Background image -->
         <ImageView fx:id="backgroundImageView" fitHeight="500.0" fitWidth="500.0" preserveRatio="false">
             <image>
-                <Image url="@Background.png" />
+                <Image url="@ScrollBackground.png" />
             </image>
         </ImageView>
 

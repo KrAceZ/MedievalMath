@@ -2,7 +2,7 @@ package org.example.medievalmath;
 
 public class Profile {
     private String studentName;
-    private int grade;
+    private static int grade;
     private String username;
     private String password;
 
@@ -36,7 +36,7 @@ public class Profile {
     }
 
     // Method to get the level based on the student's grade
-    public int getLevel() {
+    public static int getLevel() {
         if (grade == 0 || grade == 1) {
             return 1;   // level 1 for grades k and 1
         } else if (grade == 2 || grade == 3) {

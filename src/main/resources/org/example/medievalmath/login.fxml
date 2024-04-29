@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.medievalmath.LoginController"
-            prefHeight="400.0" prefWidth="600.0">
-    <children>
-        <Label fx:id="loginLabel" layoutX="200.0" layoutY="100.0" text="Login" />
-        <TextField fx:id="nameField" layoutX="200.0" layoutY="150.0" promptText="Name" visible="false" />
-        <TextField fx:id="usernameField" layoutX="200.0" layoutY="200.0" promptText="Username" />
-        <PasswordField fx:id="passwordField" layoutX="200.0" layoutY="250.0" promptText="Password" />
-        <CheckBox fx:id="showPasswordCheckBox" layoutX="400.0" layoutY="250.0" text="Show Password" onAction="#handleShowPasswordCheckBox" />
-        <PasswordField fx:id="confirmPasswordField" layoutX="200.0" layoutY="300.0" promptText="Confirm Password" visible="false" />
-        <TextField fx:id="gradeField" layoutX="400.0" layoutY="300.0" promptText="What is your grade?" visible="false" />
-        <Button layoutX="200.0" layoutY="350.0" text="Login" onAction="#handleLoginButton" />
-        <Hyperlink fx:id="switchLink" layoutX="200.0" layoutY="400.0" text="Create a new account" onAction="#handleSwitchLink" />
-    </children>
+<AnchorPane prefHeight="794" prefWidth="1123" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.LoginController">
+
+    <ImageView fx:id="backgroundImageView" fitHeight="794" fitWidth="1123" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <image>
+            <Image url="@ClosedDrawbridge.png" />
+        </image>
+    </ImageView>
+    <VBox alignment="CENTER" layoutX="311.5" layoutY="100" prefHeight="594" prefWidth="500" spacing="10" AnchorPane.bottomAnchor="100" AnchorPane.leftAnchor="311.5" AnchorPane.rightAnchor="311.5" AnchorPane.topAnchor="100">
+        <children>
+            <Label fx:id="loginLabel" style="-fx-font-size: 24px;" text="Login" />
+            <TextField fx:id="nameField" prefWidth="200" promptText="Name" visible="false" />
+            <TextField fx:id="usernameField" prefWidth="200" promptText="Username" />
+            <PasswordField fx:id="passwordField" prefWidth="200" promptText="Password" />
+            <CheckBox fx:id="showPasswordCheckBox" text="Show Password" />
+            <PasswordField fx:id="confirmPasswordField" prefWidth="200" promptText="Confirm Password" visible="false" />
+            <TextField fx:id="gradeField" prefWidth="200" promptText="What is your grade?" visible="false" />
+            <Button onAction="#handleLoginButton" prefWidth="100" text="Login" />
+            <Hyperlink fx:id="switchLink" onAction="#handleSwitchLink" text="Create a new account" />
+        </children>
+    </VBox>
+
 </AnchorPane>

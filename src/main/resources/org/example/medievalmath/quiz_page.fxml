@@ -4,20 +4,16 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.text.Font?>
 <AnchorPane fx:id="mainContainer" prefHeight="794" prefWidth="1123" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.QuizPageController"> <!-- Main container for all content -->
     <children>
     <ImageView fx:id="backgroundImageView" fitHeight="794" fitWidth="1123" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
 
         <AnchorPane fx:id="buttonsContainer" prefHeight="794" prefWidth="1123">
          <children>
-            <Button layoutX="851.0" layoutY="61.0" onAction="#navigateToHomePage" mnemonicParsing="false" prefHeight="54.0" prefWidth="212.0" text="Home" >
-             <font>
-                 <Font name="the rum is gone" size="24.0" />
-             </font></Button>
+            <Button layoutX="851.0" layoutY="61.0" mnemonicParsing="false" onAction="#navigateToHomePage" prefHeight="54.0" prefWidth="212.0" text="Home" />
          </children></AnchorPane>
 
     <!-- Smaller container for the Quiz, centered within the main container -->
-    <StackPane fx:id="quizContainer" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-background-color: white;" AnchorPane.bottomAnchor="94.0" AnchorPane.leftAnchor="311.0" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="200.0" />
+    <StackPane fx:id="quizContainer" prefHeight="650.0" prefWidth="650.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="236.0" AnchorPane.rightAnchor="237.0" AnchorPane.topAnchor="130.0" />
     </children>
 </AnchorPane>
