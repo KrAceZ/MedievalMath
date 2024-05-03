@@ -1,5 +1,5 @@
 package org.example.medievalmath;
 
-public class AddQuizPage {
+public class QuizTypeGenerator {
 
 }
