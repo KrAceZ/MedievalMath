@@ -30,12 +30,7 @@ public class QuizController {
         }
     }
 
-//    public QuizController() {
-//        correct = 0;
-//        wrong = 0;
-//        List<MathProblems> problems = generateProblems(10, 1);
-//        this.quiz = new Quiz(problems);
-//    }
+
 
     public static QuizController getInstance()
     {
@@ -65,6 +60,88 @@ public class QuizController {
         // load the first problem
         loadNextProblem();
     }
+
+
+    private List<MathProblems> generateProblems(int numOfProbs, int level) {
+        List<MathProblems> problems = new ArrayList<>();
+        for (int i = 0; i < numOfProbs; i++) {
+            MathProblems problem;
+            do {
+                problem = QuizTypeDecider.generateProblems(QuizController.quizCompetency, level, 1).get(0); // Corrected problem generation
+            } while (generatedProblems.contains(problem.toString()));
+            problems.add(problem);
+            generatedProblems.add(problem.toString());
+        }
+        return problems;
+    }
+
+
+
+    // method to load the next problem
+    private void loadNextProblem() {
+        if (!quiz.isQuizEnd()) {
+            MathProblems currentProblem = quiz.getCurrentProblem();
+            question.setText(currentProblem.getProblem());
+            if (currentProblem.getLevel() == 1) {
+                option1.setText("a) " + currentProblem.getOption("a"));
+                option2.setText("b) " + currentProblem.getOption("b"));
+                option3.setText("c) " + currentProblem.getOption("c"));
+                option4.setText("d) " + currentProblem.getOption("d"));
+            } else {
+                option1.setText("Please input your answer.");
+                option2.setDisable(true);
+                option3.setDisable(true);
+                option4.setDisable(true);
+            }
+        } else {
+            // If there are no more problems left, handle the end of the quiz
+            handleEndOfQuiz();
+        }
+    }
+
+    // Method to handle when an option is clicked
+    @FXML
+    public void optionClicked(ActionEvent event) {
+        Button clickedOption = (Button) event.getSource();
+        String userAnswer = clickedOption.getText().split("\\)")[0].trim(); // Corrected button text extraction
+        boolean isCorrect = quiz.checkAnswer(userAnswer);
+
+        if (isCorrect) {
+            correct++;
+        } else {
+            wrong++;
+        }
+        // Move to the next problem
+        quiz.moveToNextProblem();
+        // Load the next problem
+        loadNextProblem();
+    }
+
+    // Method to handle the end of quiz
+    private void handleEndOfQuiz() {
+        // Implement end of quiz logic here
+    }
+//    public QuizController() {
+//        correct = 0;
+//        wrong = 0;
+//        List<MathProblems> problems = generateProblems(10, 1);
+//        this.quiz = new Quiz(problems);
+//    }
+
+//    private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
+//        List<MathProblems> problems = new ArrayList<>();
+//        for (int i = 0; i < numOfProbs; i++) {
+//            MathProblems problem;
+//            do {
+//                problem = new MathProblems(level, competency);
+//            } while (generatedProblems.contains(problem.toString()));
+//
+//            problems.add(problem);
+//            generatedProblems.add(problem.toString());
+//        }
+//        return problems;
+//    }
+
 
 //    private Profile getProfile() {
 //    // The following code with replace the hardcoded profile info when the database is set up:
@@ -113,77 +190,4 @@ public class QuizController {
 //
 //        return problems;
 //    }
-
-    private List<MathProblems> generateProblems(int numOfProbs, int level) {
-        List<MathProblems> problems = new ArrayList<>();
-        for (int i = 0; i < numOfProbs; i++) {
-            MathProblems problem;
-            do {
-                problem = new CountingProblems(level);
-            } while (generatedProblems.contains(problem.toString()));
-
-            problems.add(problem);
-            generatedProblems.add(problem.toString());
-        }
-        return problems;
-    }
-
-//    private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
-//        List<MathProblems> problems = new ArrayList<>();
-//        for (int i = 0; i < numOfProbs; i++) {
-//            MathProblems problem;
-//            do {
-//                problem = new MathProblems(level, competency);
-//            } while (generatedProblems.contains(problem.toString()));
-//
-//            problems.add(problem);
-//            generatedProblems.add(problem.toString());
-//        }
-//        return problems;
-//    }
-
-    // method to load the next problem
-    private void loadNextProblem() {
-        if (!quiz.isQuizEnd()) {
-            MathProblems currentProblem = quiz.getCurrentProblem();
-            question.setText(currentProblem.getProblem());
-            if (currentProblem.getLevel() == 1) {   // If the problem level is 1, set the text of the option buttons to the options of the problem
-                option1.setText("a) " + currentProblem.getOption("a"));
-                option2.setText("b) " + currentProblem.getOption("b"));
-                option3.setText("c) " + currentProblem.getOption("c"));
-                option4.setText("d) " + currentProblem.getOption("d"));
-            } else {     // If the problem level is 2 or above, disable the option buttons and prompt the user to input their answer
-                option1.setText("Please input your answer.");
-                option2.setDisable(true);
-                option3.setDisable(true);
-                option4.setDisable(true);
-            }
-        } else {
-            // If there are no more problems left, handle the end of the quiz
-            handleEndOfQuiz();
-        }
-    }
-
-    // Method to handle when an option is clicked
-    @FXML
-    public void optionClicked(ActionEvent event) {
-        Button clickedOption = (Button) event.getSource();
-        String userAnswer = clickedOption.getText().substring(0, 1);  // Get the option letter ("a", "b", "c", or "d")
-        boolean isCorrect = quiz.checkAnswer(userAnswer);
-
-        if (isCorrect) {
-            correct++;
-        } else {
-            wrong++;
-        }
-        // Move to the next problem
-        quiz.moveToNextProblem();
-        // Load the next problem
-        loadNextProblem();
-    }
-
-    // Method to handle the end of quiz
-    private void handleEndOfQuiz() {
-        // Implement end of quiz logic here
-    }
 }

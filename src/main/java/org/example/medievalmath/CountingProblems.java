@@ -8,8 +8,8 @@ public class CountingProblems extends MathProblems {
     private final int missingNumber;
     private static final Set<String> generatedProblems = new HashSet<>();
 
-    public CountingProblems(int level) {
-        super("+", level); // Call the superclass constructor
+    public CountingProblems(int level, String competency) {
+        super(level, competency);
         Random rand = new Random();
         int start;
         do {
@@ -27,7 +27,36 @@ public class CountingProblems extends MathProblems {
     }
 
     @Override
-    void generateOptions() {
+    protected void generateProblem() {
+        // Problem generation logic
+        StringBuilder problem = new StringBuilder();
+        Random rand = new Random();
+
+        for (int i = 0; i < sequence.size(); i++) {
+            if (i == missingNumberIndex) {
+                problem.append("_ ");
+            } else {
+                problem.append(sequence.get(i)).append(" ");
+            }
+        }
+        this.problem = problem.toString(); // Store the problem as a class variable
+    }
+
+    @Override
+    public String getProblem() {
+        StringBuilder problem = new StringBuilder();
+        for (int i = 0; i < 5; i++) {
+            if (i == missingNumberIndex) {
+                problem.append("_ ");
+            } else {
+                problem.append(sequence.get(i)).append(" ");
+            }
+        }
+        return problem.toString();
+    }
+
+    @Override
+    public void generateOptions() {
         Random rand = new Random();
         options = new HashMap<>();
         Set<Integer> generatedOptions = new HashSet<>();
@@ -44,16 +73,13 @@ public class CountingProblems extends MathProblems {
     }
 
     @Override
-    public String getProblem() {
-        StringBuilder problem = new StringBuilder();
-        for (int i = 0; i < 5; i++) {
-            if (i == missingNumberIndex) {
-                problem.append("_ ");
-            } else {
-                problem.append(sequence.get(i)).append(" ");
-            }
+    protected String getOption(String key) {
+        Integer optionValue = options.get(key);
+        if (optionValue != null) {
+            return String.valueOf(optionValue);
+        } else {
+            return null; // Or handle the case when the key is not found
         }
-        return problem.toString();
     }
 
     @Override
