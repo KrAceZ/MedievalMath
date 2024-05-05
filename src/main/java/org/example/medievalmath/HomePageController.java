@@ -48,9 +48,11 @@ public class HomePageController {
     @FXML
     public void navigateToQuiz(int numOfProbs, String quizComp, javafx.event.ActionEvent event) {
         QuizPageController.setQuizFXML("quiz.fxml");
-        QuizController.setQuizLevel(level);
-        QuizController.setQuizCompetency(quizComp);
-        QuizController.setNumOfQuizProbs(numOfProbs);
+        QuizTypeDecider.setNumberOfProblems(numOfProbs);
+        QuizTypeDecider.setCompetency(quizComp);
+        //QuizController.setQuizLevel(level);
+        //QuizController.setQuizCompetency(quizComp);
+        //QuizController.setNumOfQuizProbs(numOfProbs);
         try {
             // Load the FXML file for the basic addition page
             Parent quizPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));

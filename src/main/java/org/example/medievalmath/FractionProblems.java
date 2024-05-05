@@ -3,18 +3,17 @@ package org.example.medievalmath;
 import java.util.*;
 
 public class FractionProblems extends MathProblems {
-    private int numerator;
-    private int denominator;
+    private static int numerator;
+    private static int denominator;
 
     private static final List<Integer> denominators = Arrays.asList(2, 3, 4, 6, 8, 10, 12, 100);
 
     public FractionProblems(int level, String competency) {
         super(level, competency);
-        generateProblem();
+        generateFractionProblem();
     }
 
-    @Override
-    protected void generateProblem() {
+    public static void generateFractionProblem() {
         Random rand = new Random();
         denominator = denominators.get(rand.nextInt(denominators.size()));
         numerator = rand.nextInt(denominator) + 1;
@@ -36,7 +35,7 @@ public class FractionProblems extends MathProblems {
         }
     }
 
-    private void generateIdentifyFractionProblem() {
+    private static void generateIdentifyFractionProblem() {
         correctOption = numerator + "/" + denominator;
         options = new HashMap<>();
         options.put("a", Integer.valueOf(correctOption));
@@ -45,7 +44,7 @@ public class FractionProblems extends MathProblems {
         options.put("d", Integer.valueOf((numerator % 2 + 1) + "/" + (denominator % 2 + 2)));
     }
 
-    private void generateComparisonProblem() {
+    private static void generateComparisonProblem() {
         int otherNumerator = numerator + 1 + new Random().nextInt(denominator - 1);
         otherNumerator = (otherNumerator > denominator) ? otherNumerator % denominator : otherNumerator;
         String firstFraction = numerator + "/" + denominator;
@@ -58,7 +57,7 @@ public class FractionProblems extends MathProblems {
         options.put("d", Integer.valueOf((numerator - 1) + "/" + denominator));
     }
 
-    private void generateAdditionSubtractionProblem() {
+    private static void generateAdditionSubtractionProblem() {
         // Simplify by keeping the denominator same for addition/subtraction
         int addendNumerator = new Random().nextInt(denominator - 1) + 1;
         int resultNumerator = numerator + addendNumerator;
@@ -70,7 +69,7 @@ public class FractionProblems extends MathProblems {
         options.put("d", Integer.valueOf((numerator * 2) + "/" + denominator));
     }
 
-    private void generateMultiplicationProblem() {
+    private static void generateMultiplicationProblem() {
         int multiplier = new Random().nextInt(4) + 1;  // Multiplier between 1 and 4
         int resultNumerator = numerator * multiplier;
         correctOption = resultNumerator + "/" + denominator;
@@ -86,8 +85,8 @@ public class FractionProblems extends MathProblems {
         return "Solve the fraction problem: " + correctOption;
     }
 
-    @Override
-    protected void generateOptions () {
+
+    public static void generateOptions () {
         // Options are generated in specific problem methods
         // finish this
     }

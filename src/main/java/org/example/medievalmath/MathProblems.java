@@ -6,8 +6,8 @@ import java.util.*;
 public abstract class MathProblems {
     protected int level;
     protected String competency;
-    protected Map<String, Integer> options;
-    protected String correctOption;
+    protected static Map<String, Integer> options;
+    protected static String correctOption;
     protected String problem;
 
 
@@ -17,13 +17,14 @@ public abstract class MathProblems {
     }
 
     // Abstract method to generate the specific problem
-    abstract protected void generateProblem();
+    //abstract protected void generateProblem();
 
     // Abstract method to display the problem as a string
     abstract public String getProblem();
 
     // Abstract method to generate multiple choice options
-    abstract protected void generateOptions();
+    protected static void generateOptions() {
+    }
 
     // Abstract method to get an option by its key
     abstract protected String getOption(String key);

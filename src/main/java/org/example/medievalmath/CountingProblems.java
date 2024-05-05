@@ -3,9 +3,9 @@ package org.example.medievalmath;
 import java.util.*;
 
 public class CountingProblems extends MathProblems {
-    private final List<Integer> sequence;
-    private final int missingNumberIndex;
-    private final int missingNumber;
+    private static List<Integer> sequence;
+    private static int missingNumberIndex;
+    private static int missingNumber;
     private static final Set<String> generatedProblems = new HashSet<>();
 
     public CountingProblems(int level, String competency) {
@@ -26,8 +26,7 @@ public class CountingProblems extends MathProblems {
         generateOptions();
     }
 
-    @Override
-    protected void generateProblem() {
+    public static void generateCountingProblem() {
         // Problem generation logic
         StringBuilder problem = new StringBuilder();
         Random rand = new Random();
@@ -55,8 +54,7 @@ public class CountingProblems extends MathProblems {
         return problem.toString();
     }
 
-    @Override
-    public void generateOptions() {
+    public static void generateOptions() {
         Random rand = new Random();
         options = new HashMap<>();
         Set<Integer> generatedOptions = new HashSet<>();

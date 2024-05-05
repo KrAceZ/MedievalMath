@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class ArithmeticProblems extends MathProblems {
-    private int a, b;
-    private final String operator;
-    private int answer;
+    private static int a, b;
+    private static String operator;
+    private static int answer;
 
     public ArithmeticProblems(String operator, int level, String competency) {
         super(level, competency);
@@ -14,11 +14,11 @@ public class ArithmeticProblems extends MathProblems {
             throw new IllegalArgumentException("For level 1, operator must be '+' or '-'");
         }
         this.operator = operator;
-        generateProblem();
+        generateArithmeticProblem(level);
     }
 
-    @Override
-    protected void generateProblem() {
+
+    protected static MathProblems generateArithmeticProblem(int level) {
         Random rand = new Random();
         switch (level) {
             case 1:
@@ -55,6 +55,7 @@ public class ArithmeticProblems extends MathProblems {
                 throw new IllegalArgumentException("Invalid operator. Must be '+', '-', '*', '/'");
         }
         generateOptions();
+        return null;
     }
 
     @Override
@@ -62,8 +63,7 @@ public class ArithmeticProblems extends MathProblems {
         return a + " " + operator + " " + b + " = ";
     }
 
-    @Override
-    protected void generateOptions() {
+    protected static void generateOptions() {
         Random rand = new Random();
         options = new HashMap<>();
         for (char option = 'a'; option <= 'd'; option++) {

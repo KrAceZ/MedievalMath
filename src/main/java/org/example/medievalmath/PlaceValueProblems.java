@@ -1,21 +1,19 @@
 package org.example.medievalmath;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class PlaceValueProblems extends MathProblems {
-    private int number;
-    private int digit;
-    private String placeValue;
+    private static int number;
+    private static int digit;
+    private static String placeValue;
 
     public PlaceValueProblems(int level, String competency) {
         super(level, competency);
-        generateProblem();
+        generatePlaceValueProblem();
     }
 
-    @Override
-    protected void generateProblem() {
+    protected static MathProblems generatePlaceValueProblem() {
         Random rand = new Random();
         number = rand.nextInt(90) + 10; // Generate a number between 10 and 99
         boolean chooseTensPlace = rand.nextBoolean(); // Randomly choose tens or ones place
@@ -27,6 +25,7 @@ public class PlaceValueProblems extends MathProblems {
             placeValue = "Ones";
         }
         generateOptions();
+        return null;
     }
 
     @Override
@@ -34,8 +33,7 @@ public class PlaceValueProblems extends MathProblems {
         return "Is this the number " + digit + " in the number " + number + " part of the Ones or the Tens?";
     }
 
-    @Override
-    protected void generateOptions() {
+    protected static void generateOptions() {
         options = new HashMap<>();
         options.put("Ones", Integer.valueOf("Ones"));
         options.put("Tens", Integer.valueOf("Tens"));
