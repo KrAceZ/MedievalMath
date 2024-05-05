@@ -13,7 +13,7 @@ public abstract class MathProblems {
 
     public MathProblems(int level, String competency) {
         this.level = level;
-        this.competency = this.competency;
+        this.competency = competency;
     }
 
     // Abstract method to generate the specific problem

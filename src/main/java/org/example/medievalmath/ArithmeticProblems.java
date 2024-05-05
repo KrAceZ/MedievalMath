@@ -1,7 +1,6 @@
 package org.example.medievalmath;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class ArithmeticProblems extends MathProblems {
@@ -11,6 +10,9 @@ public class ArithmeticProblems extends MathProblems {
 
     public ArithmeticProblems(String operator, int level, String competency) {
         super(level, competency);
+        if (level == 1 && !operator.equals("+") && !operator.equals("-")) { // restricts level 1 to + and - problems
+            throw new IllegalArgumentException("For level 1, operator must be '+' or '-'");
+        }
         this.operator = operator;
         generateProblem();
     }
@@ -18,8 +20,20 @@ public class ArithmeticProblems extends MathProblems {
     @Override
     protected void generateProblem() {
         Random rand = new Random();
-        a = (level == 1) ? rand.nextInt(11) : rand.nextInt(21) - 10;
-        b = (level == 1) ? rand.nextInt(a + 1) : rand.nextInt(21) - 10;
+        switch (level) {
+            case 1:
+                a = rand.nextInt(11); // Generate a number between 0 and 10
+                b = rand.nextInt(a + 1); // Generate a number between 0 and a
+                break;
+            case 2:
+                a = rand.nextInt(101); // Generate a number between 0 and 100
+                b = rand.nextInt(101); // Generate a number between 0 and 100
+                break;
+            case 3:
+                a = rand.nextInt(145); // Generate a number between 0 and 144
+                b = rand.nextInt(145); // Generate a number between 0 and 144
+                break;
+        }
         switch (operator) {
             case "+":
                 answer = a + b;

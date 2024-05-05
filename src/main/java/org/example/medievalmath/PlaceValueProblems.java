@@ -1,0 +1,49 @@
+package org.example.medievalmath;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+public class PlaceValueProblems extends MathProblems {
+    private int number;
+    private int digit;
+    private String placeValue;
+
+    public PlaceValueProblems(int level, String competency) {
+        super(level, competency);
+        generateProblem();
+    }
+
+    @Override
+    protected void generateProblem() {
+        Random rand = new Random();
+        number = rand.nextInt(90) + 10; // Generate a number between 10 and 99
+        boolean chooseTensPlace = rand.nextBoolean(); // Randomly choose tens or ones place
+        if (chooseTensPlace) {
+            digit = number / 10;
+            placeValue = "Tens";
+        } else {
+            digit = number % 10;
+            placeValue = "Ones";
+        }
+        generateOptions();
+    }
+
+    @Override
+    public String getProblem() {
+        return "Is this the number " + digit + " in the number " + number + " part of the Ones or the Tens?";
+    }
+
+    @Override
+    protected void generateOptions() {
+        options = new HashMap<>();
+        options.put("Ones", Integer.valueOf("Ones"));
+        options.put("Tens", Integer.valueOf("Tens"));
+        correctOption = placeValue;
+    }
+
+    @Override
+    protected String getOption(String key) {
+        return String.valueOf(options.get(key));
+    }
+}

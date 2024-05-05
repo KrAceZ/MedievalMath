@@ -19,6 +19,9 @@ public class QuizTypeDecider
                 case "counting":
                     problems.add(new CountingProblems(level, competency));
                     break;
+                case "values":
+                    problems.add(new PlaceValueProblems(level, competency));
+                    break;
                 // Add cases for other competencies
             }
         }

@@ -1,6 +1,6 @@
 //package org.example.medievalmath;
 //
-//import javafx.event.ActionEvent;
+//
 //import javafx.fxml.FXML;
 //import javafx.scene.control.Button;
 //import javafx.scene.control.Label;
@@ -68,7 +68,7 @@
 //    }
 //
 //    @FXML
-//    public void optionClicked(ActionEvent event) {
+//    public void optionClicked(javafx.event.ActionEvent event) {
 //        Button clickedOption = (Button) event.getSource();
 //        String userAnswer = clickedOption.getText().substring(0, 1);
 //        boolean isCorrect = quiz.checkAnswer(userAnswer);
