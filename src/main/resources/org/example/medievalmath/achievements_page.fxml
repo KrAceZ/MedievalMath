@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.achievementsPageController">
+
+    <!-- Your other UI elements here -->
+
+    <!-- Add the ImageView with the background image -->
+    <children>
+        <ImageView>
+            <image>
+                <Image url="@Background.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="30" layoutY="130" fitWidth="400" fitHeight="565.59" fx:id="banner1">
+            <image>
+                <Image url="@Banner.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="380" layoutY="130" fitWidth="400" fitHeight="565.59" fx:id="banner2">
+            <image>
+                <Image url="@Banner.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="730" layoutY="130" fitWidth="400" fitHeight="565.59" fx:id="banner3">
+            <image>
+                <Image url="@Banner.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="135" layoutY="120" fitWidth="200" fitHeight="282.87" fx:id="crest1">
+            <image>
+                <Image url="@K-1Crest.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="480" layoutY="120" fitWidth="200" fitHeight="282.87" fx:id="crest2">
+            <image>
+                <Image url="@2-3Crest.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="825" layoutY="120" fitWidth="200" fitHeight="282.87" fx:id="crest3">
+            <image>
+                <Image url="@4Crest.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="130" layoutY="220" fitWidth="200" fitHeight="250"  fx:id="royalSumScribeButton" pickOnBounds="true" onMouseClicked="#royalSumScribeClick">
+            <image>
+                <Image url="@RoyalSumScribeButton.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="480" layoutY="220" fitWidth="200" fitHeight="250" fx:id="multiplicationMysticButton" pickOnBounds="true" onMouseClicked="#multiplicationMysticClick">
+            <image>
+                <Image url="@multiplicationMystic.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="130" layoutY="300" fitWidth="200" fitHeight="250" fx:id="subtractionSorcererButton" pickOnBounds="true" onMouseClicked="#subtractionSorcererClick">
+            <image>
+                <Image url="@subtractionSorcerer.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="480" layoutY="300" fitWidth="200" fitHeight="250" fx:id="divisionDragonSlayerButton" pickOnBounds="true" onMouseClicked="#divisionDragonSlayerClick">
+            <image>
+                <Image url="@divisionDragonSlayer.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="130" layoutY="450" fitWidth="200" fitHeight="250" fx:id="levelCompleted1" pickOnBounds="true" onMouseClicked="#firstLevelCompleteClick">
+            <image>
+                <Image url="@levelCompleted.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="483" layoutY="450" fitWidth="200" fitHeight="250" fx:id="levelCompleted2" pickOnBounds="true" onMouseClicked="#secondLevelCompleteClick">
+            <image>
+                <Image url="@levelCompleted.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="835" layoutY="450" fitWidth="200" fitHeight="250" fx:id="levelCompleted3" pickOnBounds="true" onMouseClicked="#thirdLevelCompleteClick">
+            <image>
+                <Image url="@levelCompleted.png" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="sumScribeCertificate" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@RoyalSumScribe.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="subSorcererCertificate" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@subSorcererCertificate.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="multMysticCertificate" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@multiplicationMysticCertificate.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="divDragonSlayerCert" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@divDragonSlayerCert.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="firstLevelComplete" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@firstLevelComplete.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="secondLevelComplete" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@levelTwoComplete.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="thirdLevelComplete" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@finalCert.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="goBack1" layoutX="800" layoutY="5" fitHeight="200" fitWidth="250" pickOnBounds="true" onMouseClicked="#goToHomePage">
+            <image>
+                <Image url="@goBack.png" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="goBack2" visible="false" layoutX="800" layoutY="5" fitHeight="200" fitWidth="250" pickOnBounds="true" onMouseClicked="#certGoBack">
+            <image>
+                <Image url="@goBack.png" />
+            </image>
+        </ImageView>
+
+    </children>
+</Pane>

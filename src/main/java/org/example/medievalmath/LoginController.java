@@ -6,10 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
+import javafx.scene.paint.Color;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -51,6 +54,7 @@ public class LoginController {
         if (loginLabel.getText().equals("Login")) {
             // Change the view to "Create a new account"
             loginLabel.setText("Create a new account");
+            loginLabel.setTextFill(Color.WHITE);
             switchLink.setText("Login as a returning user");
             // Make the name field, confirm password field, and grade field visible
             nameField.setVisible(true);
@@ -75,8 +79,8 @@ public class LoginController {
             passwordField.setPromptText(passwordField.getText());
             passwordField.clear();
         } else {
-            // If the checkbox is not selected, hide the password
-            passwordField.setPromptText("Password");
+            // If the checkbox is not selected, restore the original password
+            passwordField.setText(passwordField.getPromptText());
         }
     }
 
@@ -146,9 +150,11 @@ public class LoginController {
             preparedStatement.setString(3, hashedPassword);
             if (grade.equalsIgnoreCase("k") || grade.equalsIgnoreCase("kindergarten")){
                 preparedStatement.setInt(4, 0);
+                setUserInfo(0, 0);
             }
             else{
                 preparedStatement.setInt(4, Integer.parseInt(grade));
+                setUserInfo(Integer.parseInt(grade), 0);
             }
             preparedStatement.setString(5, name);
             preparedStatement.execute();

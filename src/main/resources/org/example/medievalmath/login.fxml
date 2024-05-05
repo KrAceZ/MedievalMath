@@ -18,15 +18,15 @@
 
     <VBox alignment="CENTER" layoutX="311.5" layoutY="100" prefHeight="594" prefWidth="500" spacing="10" AnchorPane.bottomAnchor="100" AnchorPane.leftAnchor="311.5" AnchorPane.rightAnchor="311.5" AnchorPane.topAnchor="100">
         <children>
-            <Label fx:id="loginLabel" style="-fx-font-size: 24px; -fx-font-weight: bold" text="Login"/>
+            <Label fx:id="loginLabel" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white" text="Login"/>
             <TextField fx:id="nameField" prefWidth="200" promptText="Name" visible="false" />
             <TextField fx:id="usernameField" prefWidth="200" promptText="Username" />
             <PasswordField fx:id="passwordField" prefWidth="200" promptText="Password" />
-            <CheckBox fx:id="showPasswordCheckBox" text="Show Password" />
+            <CheckBox fx:id="showPasswordCheckBox" style="-fx-font-weight: bold; -fx-text-fill: white" text="Show Password"  />
             <PasswordField fx:id="confirmPasswordField" prefWidth="200" promptText="Confirm Password" visible="false" />
             <TextField fx:id="gradeField" prefWidth="200" promptText="What is your grade?" visible="false" />
             <Button onAction="#handleLoginButton" prefWidth="100" text="Login" />
-            <Hyperlink fx:id="switchLink" onAction="#handleSwitchLink" text="Create a new account" />
+            <Hyperlink fx:id="switchLink" onAction="#handleSwitchLink" style="-fx-font-weight: bold" text="Create a new account" />
         </children>
     </VBox>
 
