@@ -109,7 +109,17 @@ public class HomePageController {
     // Method to navigate to Trophies page
     @FXML
     private void navigateToTrophiesPage() {
-        // Implement navigation logic to Trophies page
+        // Implement navigation logic to achievements page
+        try {
+            // Load the profile page
+            Parent profilePage = FXMLLoader.load(getClass().getResource("achievements_page.fxml"));
+
+            // Get the current scene and set the new root
+            Scene scene = buttonsContainer.getScene();
+            scene.setRoot(profilePage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     public void navigateToTutorial1Page(javafx.event.ActionEvent event) {
