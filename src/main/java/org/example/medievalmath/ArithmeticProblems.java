@@ -3,22 +3,18 @@ package org.example.medievalmath;
 import java.util.HashMap;
 import java.util.Random;
 
-public class ArithmeticProblems extends MathProblems {
+public class ArithmeticProblems extends MathProblems<Integer> {
     private static int a, b;
     private static String operator;
     private static int answer;
 
     public ArithmeticProblems(int level) {
         super(level);
-//        if (level == 1 && !operator.equals("+") && !operator.equals("-")) { // restricts level 1 to + and - problems
-//            throw new IllegalArgumentException("For level 1, operator must be '+' or '-'");
-//        }
-//        this.operator = operator;
         generateArithmeticProblem(level);
     }
 
 
-    protected static void generateArithmeticProblem(int level) {
+    protected void generateArithmeticProblem(int level) {
         Random rand = new Random();
         String[] operators = {"+", "-", "*", "/"};
         int opIndex = 0;
@@ -38,6 +34,11 @@ public class ArithmeticProblems extends MathProblems {
                 b = rand.nextInt(145); // Generate a number between 0 and 144
                 opIndex = rand.nextInt(4)+2;
                 break;
+        }
+        operator = operators[opIndex];
+        // Check operator after it's initialized
+        if (level == 1 && !operator.equals("+") && !operator.equals("-")) {
+            throw new IllegalArgumentException("For level 1, operator must be '+' or '-'");
         }
         operator = operators[opIndex];
         switch (operator) {
@@ -68,7 +69,7 @@ public class ArithmeticProblems extends MathProblems {
         return a + " " + operator + " " + b + " = ";
     }
 
-    protected static void generateOptions() {
+    protected void generateOptions() {
         Random rand = new Random();
         options = new HashMap<>();
         for (char option = 'a'; option <= 'd'; option++) {
@@ -79,13 +80,13 @@ public class ArithmeticProblems extends MathProblems {
     }
 
     // Implementing the abstract method from MathProblems
-//    @Override
-//    protected String getOption(String key) {
-//        Integer optionValue = options.get(key);
-//        if (optionValue != null) {
-//            return String.valueOf(optionValue);
-//        } else {
-//            return null; // Or handle the case when the key is not found
-//        }
-//    }
+    @Override
+    public String getOption(String key) {
+        Integer optionValue = options.get(key);
+        if (optionValue != null) {
+            return String.valueOf(optionValue);
+        } else {
+            return null; // Or handle the case when the key is not found
+        }
+    }
 }

@@ -6,15 +6,17 @@ public class FractionProblems extends MathProblems {
     private static int numerator;
     private static int denominator;
 
-    private static final List<Integer> denominators = Arrays.asList(2, 3, 4, 6, 8, 10, 12, 100);
+    private static final List<Integer> denominatorsLevel2 = Arrays.asList(2, 3, 4, 6, 8);
+    private static final List<Integer> denominatorsLevel3 = Arrays.asList(2, 3, 4, 5, 6, 8, 10, 12, 100);
 
     public FractionProblems(int level) {
         super(level);
         generateFractionProblem();
     }
 
-    public static void generateFractionProblem() {
+    private void generateFractionProblem() {
         Random rand = new Random();
+        List<Integer> denominators = (level == 2) ? denominatorsLevel2 : denominatorsLevel3;
         denominator = denominators.get(rand.nextInt(denominators.size()));
         numerator = rand.nextInt(denominator) + 1;
 
@@ -35,49 +37,48 @@ public class FractionProblems extends MathProblems {
         }
     }
 
-    private static void generateIdentifyFractionProblem() {
+    private void generateIdentifyFractionProblem() {
         correctOption = numerator + "/" + denominator;
         options = new HashMap<>();
-        options.put("a", Integer.valueOf(correctOption));
-        options.put("b", Integer.valueOf((numerator % 2 + 1) + "/" + denominator));
-        options.put("c", Integer.valueOf(numerator + "/" + (denominator % 2 + 1)));
-        options.put("d", Integer.valueOf((numerator % 2 + 1) + "/" + (denominator % 2 + 2)));
+        options.put("a", (numerator + "/" + denominator));
+        options.put("b", ((numerator % 2 + 1) + "/" + denominator));
+        options.put("c", (numerator + "/" + (denominator % 2 + 1)));
+        options.put("d", ((numerator % 2 + 1) + "/" + (denominator % 2 + 2)));
     }
 
-    private static void generateComparisonProblem() {
+    private void generateComparisonProblem() {
         int otherNumerator = numerator + 1 + new Random().nextInt(denominator - 1);
         otherNumerator = (otherNumerator > denominator) ? otherNumerator % denominator : otherNumerator;
         String firstFraction = numerator + "/" + denominator;
         String secondFraction = otherNumerator + "/" + denominator;
         correctOption = (numerator > otherNumerator) ? "a" : "b";
         options = new HashMap<>();
-        options.put("a", Integer.valueOf(firstFraction));
-        options.put("b", Integer.valueOf(secondFraction));
-        options.put("c", Integer.valueOf(numerator + "/" + (denominator + 1)));
-        options.put("d", Integer.valueOf((numerator - 1) + "/" + denominator));
+        options.put("a", firstFraction);
+        options.put("b", secondFraction);
+        options.put("c", (numerator + "/" + (denominator + 1)));
+        options.put("d", (numerator - 1) + "/" + denominator);
     }
 
-    private static void generateAdditionSubtractionProblem() {
-        // Simplify by keeping the denominator same for addition/subtraction
+    private void generateAdditionSubtractionProblem() {
         int addendNumerator = new Random().nextInt(denominator - 1) + 1;
         int resultNumerator = numerator + addendNumerator;
         correctOption = resultNumerator + "/" + denominator;
         options = new HashMap<>();
-        options.put("a", Integer.valueOf(correctOption));
-        options.put("b", Integer.valueOf(addendNumerator + "/" + denominator));
-        options.put("c", Integer.valueOf((numerator - addendNumerator) + "/" + denominator));
-        options.put("d", Integer.valueOf((numerator * 2) + "/" + denominator));
+        options.put("a", (correctOption));
+        options.put("b", addendNumerator + "/" + denominator);
+        options.put("c", (numerator - addendNumerator) + "/" + denominator);
+        options.put("d", (numerator * 2) + "/" + denominator);
     }
 
-    private static void generateMultiplicationProblem() {
+    private void generateMultiplicationProblem() {
         int multiplier = new Random().nextInt(4) + 1;  // Multiplier between 1 and 4
         int resultNumerator = numerator * multiplier;
         correctOption = resultNumerator + "/" + denominator;
         options = new HashMap<>();
-        options.put("a", Integer.valueOf(correctOption));
-        options.put("b", Integer.valueOf(numerator + "/" + denominator));
-        options.put("c", Integer.valueOf((numerator * 2) + "/" + denominator));
-        options.put("d", Integer.valueOf((numerator - 1) + "/" + denominator));
+        options.put("a", (correctOption));
+        options.put("b", numerator + "/" + denominator);
+        options.put("c", (numerator * 2) + "/" + denominator);
+        options.put("d", (numerator - 1) + "/" + denominator);
     }
 
     @Override
@@ -86,24 +87,25 @@ public class FractionProblems extends MathProblems {
     }
 
 
-    public static void generateOptions () {
+    protected void generateOptions() {
         // Options are generated in specific problem methods
-        // finish this
+        switch (level) {
+            case 2:
+            case 3:
+                generateIdentifyFractionProblem();
+                break;
+            // Add cases for other levels if needed
+        }
     }
 
-//    @Override
-//    protected String getOption(String key) {
-//        Integer optionValue = options.get(key);
-//        if (optionValue != null) {
-//            return String.valueOf(optionValue);
-//        } else {
-//            return null; // Or handle the case when the key is not found
-//        }
-//    }
-
     @Override
-    public boolean checkAnswer(String userOption) {
-        return userOption.equals(correctOption);
+    public String getOption(String key) {
+        String optionValue = String.valueOf(options.get(key));
+        if (optionValue != null) {
+            return optionValue;
+        } else {
+            return null; // Or handle the case when the key is not found
+        }
     }
 
     // Additional getters for pie chart visualization

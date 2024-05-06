@@ -2,7 +2,7 @@ package org.example.medievalmath;
 
 import java.util.*;
 
-public class CountingProblems extends MathProblems {
+public class CountingProblems extends MathProblems<Integer> {
     private static List<Integer> sequence;
     private static int missingNumberIndex;
     private static int missingNumber;
@@ -23,7 +23,7 @@ public class CountingProblems extends MathProblems {
         missingNumberIndex = rand.nextInt(5);
         missingNumber = sequence.get(missingNumberIndex);
         sequence.set(missingNumberIndex, null); // Set the missing number to null
-        generateOptions();
+        generateCountingProblem();
     }
 
     public void generateCountingProblem() {
@@ -39,6 +39,7 @@ public class CountingProblems extends MathProblems {
             }
         }
         this.problem = problem.toString(); // Store the problem as a class variable
+        generateOptions();
     }
 
     @Override
@@ -54,7 +55,7 @@ public class CountingProblems extends MathProblems {
         return problem.toString();
     }
 
-    public static void generateOptions() {
+    public void generateOptions() {
         Random rand = new Random();
         options = new HashMap<>();
         Set<Integer> generatedOptions = new HashSet<>();
@@ -70,18 +71,14 @@ public class CountingProblems extends MathProblems {
         options.put(correctOption, missingNumber);
     }
 
-//    @Override
-//    protected String getOption(String key) {
-//        Integer optionValue = options.get(key);
-//        if (optionValue != null) {
-//            return String.valueOf(optionValue);
-//        } else {
-//            return null; // Or handle the case when the key is not found
-//        }
-//    }
-
     @Override
-    public boolean checkAnswer(String userOption) {
-        return userOption.equals(correctOption);
+    public String getOption(String key) {
+        Integer optionValue = options.get(key);
+        if (optionValue != null) {
+            return String.valueOf(optionValue);
+        } else {
+            return null; // Or handle the case when the key is not found
+        }
     }
+
 }

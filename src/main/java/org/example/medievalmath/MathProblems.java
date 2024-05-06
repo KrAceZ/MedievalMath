@@ -3,27 +3,23 @@ package org.example.medievalmath;
 import java.util.*;
 
 // General class to define the structure of math problems
-public abstract class MathProblems {
+public abstract class MathProblems<T> {
     protected static int level;
-    protected String competency;
-    protected static Map<String, Integer> options;
+    protected Map<String, T> options;
     protected static String correctOption;
     protected String problem;
 
 
     public MathProblems(int level) {
-        this.level = level;
+        MathProblems.level = level;
         //this.competency = competency;
     }
-
-    // Abstract method to generate the specific problem
-    //abstract protected void generateProblem();
 
     // Abstract method to display the problem as a string
     abstract public String getProblem();
 
     // Abstract method to generate multiple choice options
-    protected static void generateOptions() {
+    protected void generateOptions() {
     }
 
     // Abstract method to get an option by its key
