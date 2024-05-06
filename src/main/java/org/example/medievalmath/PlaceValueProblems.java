@@ -2,21 +2,37 @@ package org.example.medievalmath;
 
 import java.util.*;
 
-public class PlaceValueProblems extends MathProblems {
+public class PlaceValueProblems extends MathProblems<String> {
     private int number;
     private int digit;
     private static String placeValue;
-    private static final List<String> PLACE_VALUES = Arrays.asList("Ones", "Tens", "Hundreds", "Thousands", "Ten Thousands", "Hundred Thousands", "Millions");
+    private static final List<String> PLACE_VALUES = Arrays.asList("Ones", "Tens", "Hundreds",
+            "Thousands", "Ten Thousands", "Hundred Thousands", "Millions");
 
     public PlaceValueProblems(int level) {
         super(level);
-        generateProblem();
+        generatePlaceValueProblem();
     }
 
-    protected void generateProblem() {
+    protected void generatePlaceValueProblem() {
         Random rand = new Random();
-        number = rand.nextInt((int) Math.pow(10, level + 1)); // Generate a number up to the maximum for the level
-        int place = rand.nextInt(level * 2); // Randomly choose a place value based on the level
+        int maxNumber;
+        int maxPlace;
+        switch (level) {
+            case 1:
+                maxNumber = 99; // Maximum number for level 1 is 99
+                maxPlace = 2; // Maximum place for level 1 is Tens
+                break;
+            case 2:
+                maxNumber = 999; // Maximum number for level 2 is 999
+                maxPlace = 3; // Maximum place for level 2 is Hundreds
+                break;
+            default:
+                maxNumber = (int) Math.pow(10, level + 1); // For other levels, use the existing logic
+                maxPlace = level * 2;
+        }
+        number = rand.nextInt(maxNumber) + 1; // Generate a number up to the maximum for the level
+        int place = rand.nextInt(maxPlace); // Randomly choose a place value based on the level
         digit = (number / (int) Math.pow(10, place)) % 10;
         placeValue = PLACE_VALUES.get(place);
         generateOptions();
@@ -24,25 +40,41 @@ public class PlaceValueProblems extends MathProblems {
 
     @Override
     public String getProblem() {
-        return "Is this the number " + digit + " in the number " + number + " part of the " + placeValue + "?";
+        return "What is the place value of the " + digit + " in the number " + number + "?";
     }
 
-    protected static void generateOptions() {
-        options = new HashMap<>();
-        List<String> choices = new ArrayList<>(PLACE_VALUES.subList(0, Math.min(level * 2, 7))); // Get possible place values based on the level
+    protected void generateOptions() {
+        options = new LinkedHashMap<>();
+        Random rand = new Random();
+        // Get possible place values based on the level
+        List<String> choices = new ArrayList<>(PLACE_VALUES.subList(0, Math.min(level * 2, PLACE_VALUES.size())));
         choices.remove(placeValue); // Remove the correct answer from the choices
         Collections.shuffle(choices); // Shuffle the choices
-        choices = choices.subList(0, 3); // Get the first 3 choices
-        choices.add(placeValue); // Add the correct answer to the choices
-        Collections.shuffle(choices); // Shuffle the choices again
+        choices = choices.subList(0, Math.min(3, choices.size())); // Get the first 3 choices or less if there are fewer than 3 choices
+
+        // Add the correct answer to the choices
+        choices.add(placeValue);
+
+        // Shuffle the choices
+        Collections.shuffle(choices);
+
+        // Map options to characters (a, b, c, d)
         for (int i = 0; i < 4; i++) {
-            options.put(String.valueOf((char) ('a' + i)), Integer.valueOf(choices.get(i)));
+            if (i < choices.size()) {
+                options.put(String.valueOf((char) ('a' + i)), choices.get(i));
+            }
         }
         correctOption = String.valueOf((char) ('a' + choices.indexOf(placeValue)));
     }
 
     @Override
     public String getOption(String key) {
-        return String.valueOf(options.get(key));
+        String optionValue = options.get(key);
+        if (optionValue != null) {
+            // Convert the integer option value back to a string
+            return optionValue;
+        } else {
+            return null; // Or handle the case when the key is not found
+        }
     }
 }
