@@ -11,9 +11,9 @@ public abstract class MathProblems {
     protected String problem;
 
 
-    public MathProblems(int level, String competency) {
+    public MathProblems(int level) {
         this.level = level;
-        this.competency = competency;
+        //this.competency = competency;
     }
 
     // Abstract method to generate the specific problem

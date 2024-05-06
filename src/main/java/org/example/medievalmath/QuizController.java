@@ -6,6 +6,11 @@ import javafx.scene.control.Label;
 
 import java.util.*;
 
+//import static org.example.medievalmath.ArithmeticProblems.generateArithmeticProblem;
+//import static org.example.medievalmath.CountingProblems.generateCountingProblem;
+//import static org.example.medievalmath.FractionProblems.generateFractionProblem;
+//import static org.example.medievalmath.PlaceValueProblems.generatePlaceValueProblem;
+
 public class QuizController {
     @FXML
     private Label question;
@@ -53,27 +58,87 @@ public class QuizController {
     private void initialize() {
         correct = 0;
         wrong = 0;
+        quizLevel = Profile.getLevel();
         //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-        List<MathProblems> problems = generateProblems(10, 1);
+        List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
         this.quiz = new Quiz(problems);
 
         // load the first problem
         loadNextProblem();
     }
 
-
-    private List<MathProblems> generateProblems(int numOfProbs, int level) {
-        List<MathProblems> problems = new ArrayList<>();
-        for (int i = 0; i < numOfProbs; i++) {
-            MathProblems problem;
-            do {
-                problem = QuizTypeDecider.generateProblems(QuizController.quizCompetency, level, 1).get(0); // Corrected problem generation
-            } while (generatedProblems.contains(problem.toString()));
-            problems.add(problem);
-            generatedProblems.add(problem.toString());
-        }
-        return problems;
+    public void setQuiz(List<MathProblems> problems) {
+        quiz = new Quiz(problems);
+        loadNextProblem();  // Load the first problem when the quiz is set
     }
+
+     private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
+         List<MathProblems> probs = new ArrayList<>();
+         switch (competency){
+             case "a":
+                 for (int i = 0; i < numOfProbs; i++) {
+                     MathProblems problem;
+                     do {
+                         problem = new ArithmeticProblems(level);
+                     } while (generatedProblems.contains(problem.toString()));
+
+                     probs.add(problem);
+                     generatedProblems.add(problem.toString());
+                 }
+                 break;
+             case "b":
+                 if(level == 1) {
+                     for (int i = 0; i < numOfProbs; i++) {
+                         MathProblems problem;
+                         do {
+                             problem = new CountingProblems(level);
+                         } while (generatedProblems.contains(problem.toString()));
+
+                         probs.add(problem);
+                         generatedProblems.add(problem.toString());
+                     }
+                 }
+                 else{
+                     for (int i = 0; i < numOfProbs; i++) {
+                         MathProblems problem;
+                         do {
+                             problem = new FractionProblems(level);
+                         } while (generatedProblems.contains(problem.toString()));
+
+                         probs.add(problem);
+                         generatedProblems.add(problem.toString());
+                     }
+                 }
+                 break;
+             case "c":
+                 for (int i = 0; i < numOfProbs; i++) {
+                    MathProblems problem;
+                    do {
+                         problem = new PlaceValueProblems(level);
+                    } while (generatedProblems.contains(problem.toString()));
+
+                    probs.add(problem);
+                    generatedProblems.add(problem.toString());
+                 }
+                 break;
+         }
+
+         return probs;
+     }
+
+
+//    private List<MathProblems> generateProblems(int numOfProbs, int level) {
+//        List<MathProblems> problems = new ArrayList<>();
+//        for (int i = 0; i < numOfProbs; i++) {
+//            MathProblems problem;
+//            do {
+//                problem = QuizTypeDecider.generateProblems(QuizController.quizCompetency, level, 1).get(0); // Corrected problem generation
+//            } while (generatedProblems.contains(problem.toString()));
+//            problems.add(problem);
+//            generatedProblems.add(problem.toString());
+//        }
+//        return problems;
+//    }
 
 
 

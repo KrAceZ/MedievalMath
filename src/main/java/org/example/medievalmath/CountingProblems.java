@@ -8,8 +8,8 @@ public class CountingProblems extends MathProblems {
     private static int missingNumber;
     private static final Set<String> generatedProblems = new HashSet<>();
 
-    public CountingProblems(int level, String competency) {
-        super(level, competency);
+    public CountingProblems(int level) {
+        super(level);
         Random rand = new Random();
         int start;
         do {
@@ -26,7 +26,7 @@ public class CountingProblems extends MathProblems {
         generateOptions();
     }
 
-    public static void generateCountingProblem() {
+    public void generateCountingProblem() {
         // Problem generation logic
         StringBuilder problem = new StringBuilder();
         Random rand = new Random();

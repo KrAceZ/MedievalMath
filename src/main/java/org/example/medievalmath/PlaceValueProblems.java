@@ -8,12 +8,12 @@ public class PlaceValueProblems extends MathProblems {
     private static int digit;
     private static String placeValue;
 
-    public PlaceValueProblems(int level, String competency) {
-        super(level, competency);
+    public PlaceValueProblems(int level) {
+        super(level);
         generatePlaceValueProblem();
     }
 
-    protected static MathProblems generatePlaceValueProblem() {
+    protected static void generatePlaceValueProblem() {
         Random rand = new Random();
         number = rand.nextInt(90) + 10; // Generate a number between 10 and 99
         boolean chooseTensPlace = rand.nextBoolean(); // Randomly choose tens or ones place
@@ -25,7 +25,6 @@ public class PlaceValueProblems extends MathProblems {
             placeValue = "Ones";
         }
         generateOptions();
-        return null;
     }
 
     @Override

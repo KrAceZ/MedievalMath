@@ -8,8 +8,8 @@ public class FractionProblems extends MathProblems {
 
     private static final List<Integer> denominators = Arrays.asList(2, 3, 4, 6, 8, 10, 12, 100);
 
-    public FractionProblems(int level, String competency) {
-        super(level, competency);
+    public FractionProblems(int level) {
+        super(level);
         generateFractionProblem();
     }
 
