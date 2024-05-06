@@ -3,6 +3,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 import java.util.*;
 
@@ -12,6 +13,7 @@ import java.util.*;
 //import static org.example.medievalmath.PlaceValueProblems.generatePlaceValueProblem;
 
 public class QuizController {
+    public ImageView backgroundImageView;
     @FXML
     private Label question;
 
@@ -20,8 +22,8 @@ public class QuizController {
     static int correct = 0;
     static int wrong = 0;
 
-    private Quiz quiz;
-    private Set<String> generatedProblems = new HashSet<>();
+    private static Quiz quiz;
+    private final Set<String> generatedProblems = new HashSet<>();
     static int quizLevel;
     static String quizCompetency;
     static int numOfQuizProbs;
@@ -29,18 +31,25 @@ public class QuizController {
 
     public QuizController()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
+//        if(instance == null)
+//        {
+//            instance = this;
+//        }
+        correct = 0;
+        wrong = 0;
+        quizLevel = Profile.getLevel();
+        //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
+        List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
+        this.quiz = new Quiz(problems);
+        System.out.println("number of problems: "+ problems.size());
     }
 
 
 
-    public static QuizController getInstance()
-    {
-        return instance;
-    }
+//    public static QuizController getInstance()
+//    {
+//        return instance;
+//    }
     public static void setQuizLevel(int level)
     {
         quizLevel = level;
@@ -56,12 +65,13 @@ public class QuizController {
     // Method to initialize the quiz
     @FXML
     private void initialize() {
-        correct = 0;
-        wrong = 0;
-        quizLevel = Profile.getLevel();
-        //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-        List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-        this.quiz = new Quiz(problems);
+//        correct = 0;
+//        wrong = 0;
+//        quizLevel = Profile.getLevel();
+//        //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
+//        List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
+//        this.quiz = new Quiz(problems);
+//        System.out.println("number of problems: "+ problems.size());
 
         // load the first problem
         loadNextProblem();
@@ -81,9 +91,10 @@ public class QuizController {
                      do {
                          problem = new ArithmeticProblems(level);
                      } while (generatedProblems.contains(problem.toString()));
-
+                     //problem = new ArithmeticProblems(level);
                      probs.add(problem);
                      generatedProblems.add(problem.toString());
+                     System.out.println(problem);
                  }
                  break;
              case "b":
@@ -144,24 +155,14 @@ public class QuizController {
 
     // method to load the next problem
     private void loadNextProblem() {
-        if (!quiz.isQuizEnd()) {
             MathProblems currentProblem = quiz.getCurrentProblem();
             question.setText(currentProblem.getProblem());
-            if (currentProblem.getLevel() == 1) {
-                option1.setText("a) " + currentProblem.getOption("a"));
-                option2.setText("b) " + currentProblem.getOption("b"));
-                option3.setText("c) " + currentProblem.getOption("c"));
-                option4.setText("d) " + currentProblem.getOption("d"));
-            } else {
-                option1.setText("Please input your answer.");
-                option2.setDisable(true);
-                option3.setDisable(true);
-                option4.setDisable(true);
-            }
-        } else {
-            // If there are no more problems left, handle the end of the quiz
-            handleEndOfQuiz();
-        }
+            System.out.println(currentProblem.getProblem());
+
+            option1.setText("a) " + currentProblem.getOption("a"));
+            option2.setText("b) " + currentProblem.getOption("b"));
+            option3.setText("c) " + currentProblem.getOption("c"));
+            option4.setText("d) " + currentProblem.getOption("d"));
     }
 
     // Method to handle when an option is clicked
@@ -170,6 +171,7 @@ public class QuizController {
         Button clickedOption = (Button) event.getSource();
         String userAnswer = clickedOption.getText().split("\\)")[0].trim(); // Corrected button text extraction
         boolean isCorrect = quiz.checkAnswer(userAnswer);
+        System.out.println(isCorrect);
 
         if (isCorrect) {
             correct++;
@@ -178,13 +180,22 @@ public class QuizController {
         }
         // Move to the next problem
         quiz.moveToNextProblem();
-        // Load the next problem
-        loadNextProblem();
+        if(quiz.isQuizEnd())
+        {
+            handleEndOfQuiz();
+        }
+        else {
+            // Load the next problem
+            System.out.println("Loading next problem");
+            loadNextProblem();
+        }
     }
 
     // Method to handle the end of quiz
     private void handleEndOfQuiz() {
         // Implement end of quiz logic here
+        QuizPageController.setQuizFXML("quiz_result.fxml");
+        QuizPageController.getInstance().loadContent();
     }
 //    public QuizController() {
 //        correct = 0;

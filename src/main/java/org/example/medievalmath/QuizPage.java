@@ -6,7 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class QuizPage extends Page {
-    private String quizFXML;
+    private String quizFXML = "quiz.fxml";
 
     public QuizPage(Image backgroundImage, String quizFXML) {
         super(backgroundImage);  // Pass the background image to the super class (Page)

@@ -70,15 +70,15 @@ public class CountingProblems extends MathProblems {
         options.put(correctOption, missingNumber);
     }
 
-    @Override
-    protected String getOption(String key) {
-        Integer optionValue = options.get(key);
-        if (optionValue != null) {
-            return String.valueOf(optionValue);
-        } else {
-            return null; // Or handle the case when the key is not found
-        }
-    }
+//    @Override
+//    protected String getOption(String key) {
+//        Integer optionValue = options.get(key);
+//        if (optionValue != null) {
+//            return String.valueOf(optionValue);
+//        } else {
+//            return null; // Or handle the case when the key is not found
+//        }
+//    }
 
     @Override
     public boolean checkAnswer(String userOption) {

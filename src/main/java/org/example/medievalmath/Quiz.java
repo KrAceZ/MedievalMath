@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Quiz {
     // List of MathProblems objects that make up the quiz
-    private List<MathProblems> problems;
+    public final List<MathProblems> problems;
     // Index of the current problem being displayed
-    private int currentProblemIndex; // To keep track of the current problem being displayed
+    public int currentProblemIndex; // To keep track of the current problem being displayed
 
     // Constructor that initializes the problems list and sets the current problem index to 0
     public Quiz(List<MathProblems> problems) {   // constructor now takes MathProblems objects and no longer takes ProblemSet object
@@ -54,7 +54,10 @@ public class Quiz {
     //**********************************************
     // Method to move to the next problem
     public void moveToNextProblem() {
+        System.out.println(currentProblemIndex);
+
         currentProblemIndex++;
+        System.out.println(currentProblemIndex);
     }
 
     // Method to check if the quiz has ended

@@ -27,7 +27,12 @@ public abstract class MathProblems {
     }
 
     // Abstract method to get an option by its key
-    abstract protected String getOption(String key);
+    public String getOption(String option){
+        if (!options.containsKey(option)) {
+            throw new IllegalArgumentException("Option must be one of 'a', 'b', 'c', 'd'.");
+        }
+        return  options.get(option).toString();
+    }
 
     // Method to check if the user's answer is correct
     public boolean checkAnswer(String userOption) {
@@ -37,5 +42,11 @@ public abstract class MathProblems {
     // Getter for the problem level
     public int getLevel() {
         return level;
+    }
+
+    @Override
+    public String toString()
+    {
+        return getProblem();
     }
 }

@@ -20,7 +20,7 @@ public class QuizPageController {
     private ImageView backgroundImageView;  // View for the background image directly linked with FXML
     @FXML
     private AnchorPane buttonsContainer;
-    private static String quizFXML; //the default quiz
+    private static String quizFXML = "quiz.fxml"; //the default quiz
     private static QuizPageController instance;
 
     public QuizPageController() {
@@ -57,13 +57,13 @@ public class QuizPageController {
     // Method to load content dynamically into the quizContainer above the background
     public void loadContent() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(quizFXML));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("quiz.fxml"));
             AnchorPane newContent = loader.load();
             quizContainer.getChildren().clear();  // Clear existing content in the quizContainer
             quizContainer.getChildren().add(newContent);  // Add new content to quizContainer
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error loading FXML: " + quizFXML);
+            System.out.println("Error loading FXML: " + "quiz.fxml");
         }
     }
 
