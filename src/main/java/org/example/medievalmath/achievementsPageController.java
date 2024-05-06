@@ -78,6 +78,36 @@ public class achievementsPageController {
     private ImageView goBack2;
 
     @FXML
+    private ImageView countingButton;
+
+    @FXML
+    private ImageView countingCert;
+
+    @FXML
+    private ImageView fractionForgingButton;
+
+    @FXML
+    private ImageView fractionForgerCert;
+
+    @FXML
+    private ImageView fractionFellowshipButton;
+
+    @FXML
+    private ImageView fractionFellowshipCert;
+
+    @FXML
+    private ImageView placeValuePauperButton;
+
+    @FXML
+    private ImageView placeValuePauperCert;
+
+    @FXML
+    private ImageView placeValuePrinceButton;
+
+    @FXML
+    private ImageView placeValuePrinceCert;
+
+    @FXML
     public void royalSumScribeClick() {
         // Show the certificate for this button
         sumScribeCertificate.setVisible(!sumScribeCertificate.isVisible());
@@ -90,6 +120,11 @@ public class achievementsPageController {
         multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
         subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
         divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
         banner1.setVisible(!banner1.isVisible());
         banner2.setVisible(!banner2.isVisible());
         banner3.setVisible(!banner3.isVisible());
@@ -111,6 +146,11 @@ public class achievementsPageController {
         multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
         subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
         divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
         banner1.setVisible(!banner1.isVisible());
         banner2.setVisible(!banner2.isVisible());
         banner3.setVisible(!banner3.isVisible());
@@ -132,6 +172,11 @@ public class achievementsPageController {
         multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
         subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
         divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
         banner1.setVisible(!banner1.isVisible());
         banner2.setVisible(!banner2.isVisible());
         banner3.setVisible(!banner3.isVisible());
@@ -153,6 +198,11 @@ public class achievementsPageController {
         multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
         subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
         divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
         banner1.setVisible(!banner1.isVisible());
         banner2.setVisible(!banner2.isVisible());
         banner3.setVisible(!banner3.isVisible());
@@ -174,6 +224,11 @@ public class achievementsPageController {
         multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
         subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
         divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
         banner1.setVisible(!banner1.isVisible());
         banner2.setVisible(!banner2.isVisible());
         banner3.setVisible(!banner3.isVisible());
@@ -195,6 +250,11 @@ public class achievementsPageController {
         multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
         subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
         divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
         banner1.setVisible(!banner1.isVisible());
         banner2.setVisible(!banner2.isVisible());
         banner3.setVisible(!banner3.isVisible());
@@ -216,6 +276,11 @@ public class achievementsPageController {
         multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
         subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
         divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
         banner1.setVisible(!banner1.isVisible());
         banner2.setVisible(!banner2.isVisible());
         banner3.setVisible(!banner3.isVisible());
@@ -223,6 +288,137 @@ public class achievementsPageController {
         crest2.setVisible(!crest2.isVisible());
         crest3.setVisible(!crest3.isVisible());
     }
+
+    @FXML
+    public void countingCertClick(){
+        // Show the certificate for this button
+        countingCert.setVisible(!countingCert.isVisible());
+        goBack2.setVisible(!goBack2.isVisible());
+        // Remove all other images for this button
+        levelCompleted1.setVisible(!levelCompleted1.isVisible());
+        levelCompleted2.setVisible(!levelCompleted2.isVisible());
+        levelCompleted3.setVisible(!levelCompleted3.isVisible());
+        royalSumScribeButton.setVisible(!royalSumScribeButton.isVisible());
+        multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
+        subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
+        divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
+        banner1.setVisible(!banner1.isVisible());
+        banner2.setVisible(!banner2.isVisible());
+        banner3.setVisible(!banner3.isVisible());
+        crest1.setVisible(!crest1.isVisible());
+        crest2.setVisible(!crest2.isVisible());
+        crest3.setVisible(!crest3.isVisible());
+    }
+
+    @FXML
+    public void fractionForgingClick(){
+        // Show the certificate for this button
+        fractionForgerCert.setVisible(!fractionForgerCert.isVisible());
+        goBack2.setVisible(!goBack2.isVisible());
+        // Remove all other images for this button
+        levelCompleted1.setVisible(!levelCompleted1.isVisible());
+        levelCompleted2.setVisible(!levelCompleted2.isVisible());
+        levelCompleted3.setVisible(!levelCompleted3.isVisible());
+        royalSumScribeButton.setVisible(!royalSumScribeButton.isVisible());
+        multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
+        subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
+        divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
+        banner1.setVisible(!banner1.isVisible());
+        banner2.setVisible(!banner2.isVisible());
+        banner3.setVisible(!banner3.isVisible());
+        crest1.setVisible(!crest1.isVisible());
+        crest2.setVisible(!crest2.isVisible());
+        crest3.setVisible(!crest3.isVisible());
+    }
+
+    @FXML
+    public void fractionFellowshipClick(){
+        // Show the certificate for this button
+        fractionFellowshipCert.setVisible(!fractionFellowshipCert.isVisible());
+        goBack2.setVisible(!goBack2.isVisible());
+        // Remove all other images for this button
+        levelCompleted1.setVisible(!levelCompleted1.isVisible());
+        levelCompleted2.setVisible(!levelCompleted2.isVisible());
+        levelCompleted3.setVisible(!levelCompleted3.isVisible());
+        royalSumScribeButton.setVisible(!royalSumScribeButton.isVisible());
+        multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
+        subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
+        divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
+        banner1.setVisible(!banner1.isVisible());
+        banner2.setVisible(!banner2.isVisible());
+        banner3.setVisible(!banner3.isVisible());
+        crest1.setVisible(!crest1.isVisible());
+        crest2.setVisible(!crest2.isVisible());
+        crest3.setVisible(!crest3.isVisible());
+    }
+
+    @FXML
+    public void placeValuePauperClick(){
+        // Show the certificate for this button
+        placeValuePauperCert.setVisible(!placeValuePauperCert.isVisible());
+        goBack2.setVisible(!goBack2.isVisible());
+        // Remove all other images for this button
+        levelCompleted1.setVisible(!levelCompleted1.isVisible());
+        levelCompleted2.setVisible(!levelCompleted2.isVisible());
+        levelCompleted3.setVisible(!levelCompleted3.isVisible());
+        royalSumScribeButton.setVisible(!royalSumScribeButton.isVisible());
+        multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
+        subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
+        divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
+        banner1.setVisible(!banner1.isVisible());
+        banner2.setVisible(!banner2.isVisible());
+        banner3.setVisible(!banner3.isVisible());
+        crest1.setVisible(!crest1.isVisible());
+        crest2.setVisible(!crest2.isVisible());
+        crest3.setVisible(!crest3.isVisible());
+    }
+
+    @FXML
+    public void placeValuePrinceClick() {
+        // Show the certificate for this button
+        placeValuePrinceCert.setVisible(!placeValuePrinceCert.isVisible());
+        goBack2.setVisible(!goBack2.isVisible());
+        // Remove all other images for this button
+        levelCompleted1.setVisible(!levelCompleted1.isVisible());
+        levelCompleted2.setVisible(!levelCompleted2.isVisible());
+        levelCompleted3.setVisible(!levelCompleted3.isVisible());
+        royalSumScribeButton.setVisible(!royalSumScribeButton.isVisible());
+        multiplicationMysticButton.setVisible(!multiplicationMysticButton.isVisible());
+        subtractionSorcererButton.setVisible(!subtractionSorcererButton.isVisible());
+        divisionDragonSlayerButton.setVisible(!divisionDragonSlayerButton.isVisible());
+        countingButton.setVisible(!countingButton.isVisible());
+        fractionForgingButton.setVisible(!fractionForgingButton.isVisible());
+        fractionFellowshipButton.setVisible(!fractionFellowshipButton.isVisible());
+        placeValuePauperButton.setVisible(!placeValuePauperButton.isVisible());
+        placeValuePrinceButton.setVisible(!placeValuePrinceButton.isVisible());
+        banner1.setVisible(!banner1.isVisible());
+        banner2.setVisible(!banner2.isVisible());
+        banner3.setVisible(!banner3.isVisible());
+        crest1.setVisible(!crest1.isVisible());
+        crest2.setVisible(!crest2.isVisible());
+        crest3.setVisible(!crest3.isVisible());
+    }
+
     public void certGoBack(){
         if (thirdLevelComplete.isVisible()){
             thirdLevelCompleteClick();
@@ -242,6 +438,16 @@ public class achievementsPageController {
             subtractionSorcererClick();
         } else if (sumScribeCertificate.isVisible()) {
             royalSumScribeClick();
+        } else if (countingCert.isVisible()){
+            countingCertClick();
+        } else if (fractionFellowshipCert.isVisible()){
+            fractionFellowshipClick();
+        } else if (placeValuePauperCert.isVisible()){
+            placeValuePauperClick();
+        } else if (fractionForgerCert.isVisible()){
+            fractionForgingClick();
+        } else if (placeValuePrinceCert.isVisible()){
+            placeValuePrinceClick();
         }
         else{
             System.out.println("Error. Please check code.");

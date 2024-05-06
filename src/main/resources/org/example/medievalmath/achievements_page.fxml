@@ -69,7 +69,7 @@
             </image>
         </ImageView>
 
-        <ImageView layoutX="480" layoutY="300" fitWidth="200" fitHeight="250" fx:id="divisionDragonSlayerButton" pickOnBounds="true" onMouseClicked="#divisionDragonSlayerClick">
+        <ImageView layoutX="835" layoutY="220" fitWidth="200" fitHeight="250" fx:id="divisionDragonSlayerButton" pickOnBounds="true" onMouseClicked="#divisionDragonSlayerClick">
             <image>
                 <Image url="@divisionDragonSlayer.png" />
             </image>
@@ -78,6 +78,36 @@
         <ImageView layoutX="130" layoutY="450" fitWidth="200" fitHeight="250" fx:id="levelCompleted1" pickOnBounds="true" onMouseClicked="#firstLevelCompleteClick">
             <image>
                 <Image url="@levelCompleted.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="130" layoutY="375" fitWidth="200" fitHeight="250"  fx:id="countingButton" pickOnBounds="true" onMouseClicked="#countingCertClick">
+            <image>
+                <Image url="@countingButton.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="835" layoutY="300" fitWidth="200" fitHeight="250"  fx:id="fractionForgingButton" pickOnBounds="true" onMouseClicked="#fractionForgingClick">
+            <image>
+                <Image url="@fractionForgerButton.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="480" layoutY="300" fitWidth="200" fitHeight="250"  fx:id="fractionFellowshipButton" pickOnBounds="true" onMouseClicked="#fractionFellowshipClick">
+            <image>
+                <Image url="@fractionFelloshipButton.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="480" layoutY="375" fitWidth="200" fitHeight="250"  fx:id="placeValuePauperButton" pickOnBounds="true" onMouseClicked="#placeValuePauperClick">
+            <image>
+                <Image url="@placeValuePauperButton.png" />
+            </image>
+        </ImageView>
+
+        <ImageView layoutX="835" layoutY="375" fitWidth="200" fitHeight="250"  fx:id="placeValuePrinceButton" pickOnBounds="true" onMouseClicked="#placeValuePrinceClick">
+            <image>
+                <Image url="@placeValuePrinceButton.png" />
             </image>
         </ImageView>
 
@@ -99,6 +129,24 @@
             </image>
         </ImageView>
 
+        <ImageView fx:id="fractionForgerCert" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@fractionForgerCert.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="fractionFellowshipCert" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@fractionFellowshipCert.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="placeValuePauperCert" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@placeValuePauperCert.PNG" />
+            </image>
+        </ImageView>
+
         <ImageView fx:id="subSorcererCertificate" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
             <image>
                 <Image url="@subSorcererCertificate.PNG" />
@@ -117,6 +165,12 @@
             </image>
         </ImageView>
 
+        <ImageView fx:id="countingCert" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@countingCert.PNG" />
+            </image>
+        </ImageView>
+
         <ImageView fx:id="firstLevelComplete" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
             <image>
                 <Image url="@firstLevelComplete.PNG" />
@@ -126,6 +180,12 @@
         <ImageView fx:id="secondLevelComplete" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
             <image>
                 <Image url="@levelTwoComplete.PNG" />
+            </image>
+        </ImageView>
+
+        <ImageView fx:id="placeValuePrinceCert" visible="false" fitHeight="384.53" fitWidth="500" layoutX="300" layoutY="200">
+            <image>
+                <Image url="@placeValuePrinceCert.PNG" />
             </image>
         </ImageView>
 
@@ -146,6 +206,8 @@
                 <Image url="@goBack.png" />
             </image>
         </ImageView>
+
+
 
     </children>
 </Pane>
