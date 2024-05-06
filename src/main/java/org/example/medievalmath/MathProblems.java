@@ -4,7 +4,7 @@ import java.util.*;
 
 // General class to define the structure of math problems
 public abstract class MathProblems {
-    protected int level;
+    protected static int level;
     protected String competency;
     protected static Map<String, Integer> options;
     protected static String correctOption;
