@@ -1,33 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="794" prefWidth="1123" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.LoginController">
-    <ImageView fx:id="backgroundImageView" pickOnBounds="true" preserveRatio="true" x="-490.0">
-        <image>
-            <Image url="@ClosedDrawbridge.png" />
-        </image>
-      <viewport>
-         <Rectangle2D />
-      </viewport>
-    </ImageView>
+<AnchorPane prefHeight="794" prefWidth="1123" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.LoginController">
+    <children>
+        <ImageView fx:id="backgroundImageView" pickOnBounds="true" preserveRatio="true" x="-490.0">
+            <image>
+                <Image url="@ClosedDrawbridge.png" />
+            </image>
+            <viewport>
+                <Rectangle2D />
+            </viewport>
+        </ImageView>
 
+        <Label fx:id="loginLabel" layoutX="488.0" layoutY="231.0" text="Login">
+            <font>
+                <Font name="the rum is gone" size="38.0" />
+            </font>
+         <effect>
+            <Blend />
+         </effect>
+        </Label>
 
-    <VBox alignment="CENTER" layoutX="311.5" layoutY="100" prefHeight="594" prefWidth="500" spacing="10" AnchorPane.bottomAnchor="100" AnchorPane.leftAnchor="311.5" AnchorPane.rightAnchor="311.5" AnchorPane.topAnchor="100">
-        <children>
-            <Label fx:id="loginLabel" style="-fx-font-size: 24px; -fx-font-weight: bold" text="Login"/>
-            <TextField fx:id="nameField" prefWidth="200" promptText="Name" visible="false" />
-            <TextField fx:id="usernameField" prefWidth="200" promptText="Username" />
-            <PasswordField fx:id="passwordField" prefWidth="200" promptText="Password" />
-            <CheckBox fx:id="showPasswordCheckBox" text="Show Password" />
-            <PasswordField fx:id="confirmPasswordField" prefWidth="200" promptText="Confirm Password" visible="false" />
-            <TextField fx:id="gradeField" prefWidth="200" promptText="What is your grade?" visible="false" />
-            <Button onAction="#handleLoginButton" prefWidth="100" text="Login" />
-            <Hyperlink fx:id="switchLink" onAction="#handleSwitchLink" text="Create a new account" />
-        </children>
-    </VBox>
-
+        <TextField fx:id="nameField" layoutX="311.5" layoutY="134" prefWidth="200" promptText="Name" visible="false" />
+        <TextField fx:id="usernameField" layoutX="438.0" layoutY="316.0" prefHeight="29.0" prefWidth="251.0" promptText="Username">
+            <effect>
+                <InnerShadow />
+            </effect>
+            <font>
+                <Font name="the rum is gone" size="13.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="passwordField" layoutX="438.0" layoutY="351.0" prefHeight="29.0" prefWidth="250.0" promptText="Password">
+            <font>
+                <Font name="the rum is gone" size="13.0" />
+            </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+        </PasswordField>
+        <CheckBox fx:id="showPasswordCheckBox" layoutX="470.0" layoutY="398.0" text="Show Password">
+            <font>
+                <Font name="the rum is gone" size="13.0" />
+            </font>
+         <effect>
+            <Blend />
+         </effect>
+        </CheckBox>
+        <PasswordField fx:id="confirmPasswordField" layoutX="311.5" layoutY="270" prefWidth="200" promptText="Confirm Password" visible="false" />
+        <TextField fx:id="gradeField" layoutX="311.5" layoutY="304" prefWidth="200" promptText="What is your grade?" visible="false" />
+        <Button layoutX="522.0" layoutY="448.0" onAction="#handleLoginButton" prefWidth="100" text="Login">
+            <font>
+                <Font name="the rum is gone" size="13.0" />
+            </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+        </Button>
+        <Hyperlink fx:id="switchLink" layoutX="447.0" layoutY="504.0" onAction="#handleSwitchLink" text="Create a new account">
+            <font>
+                <Font name="the rum is gone" size="13.0" />
+            </font>
+            <effect>
+                <Blend />
+            </effect>
+        </Hyperlink>
+    </children>
 </AnchorPane>

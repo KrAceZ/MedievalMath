@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="mainContainer" prefHeight="794" prefWidth="1123" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.QuizPageController"> <!-- Main container for all content -->
+<AnchorPane fx:id="mainContainer" prefHeight="794" prefWidth="1123" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.QuizPageController"> <!-- Main container for all content -->
     <children>
     <ImageView fx:id="backgroundImageView" fitHeight="794" fitWidth="1123" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
 
         <AnchorPane fx:id="buttonsContainer" prefHeight="794" prefWidth="1123">
          <children>
-            <Button layoutX="851.0" layoutY="61.0" mnemonicParsing="false" onAction="#navigateToHomePage" prefHeight="54.0" prefWidth="212.0" text="Home" />
+            <Button layoutX="851.0" layoutY="61.0" mnemonicParsing="false" onAction="#navigateToHomePage" prefHeight="54.0" prefWidth="212.0" text="Home">
+               <font>
+                  <Font name="the rum is gone" size="36.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect></Button>
+      
+          <!-- Smaller container for the Quiz, centered within the main container -->
+          <StackPane fx:id="quizContainer" layoutX="287.0" layoutY="173.0" prefHeight="650.0" prefWidth="650.0" AnchorPane.bottomAnchor="-29.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="173.0">
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </StackPane>
          </children></AnchorPane>
-
-    <!-- Smaller container for the Quiz, centered within the main container -->
-    <StackPane fx:id="quizContainer" prefHeight="650.0" prefWidth="650.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="236.0" AnchorPane.rightAnchor="237.0" AnchorPane.topAnchor="130.0" />
     </children>
 </AnchorPane>
