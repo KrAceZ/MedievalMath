@@ -11,7 +11,7 @@ public class QuizPage extends Page {
     public QuizPage(Image backgroundImage, String quizFXML) {
         super(backgroundImage);  // Pass the background image to the super class (Page)
         this.quizFXML = quizFXML;
-        loadQuizContent();
+        //loadQuizContent();
     }
 
     private void loadQuizContent() {

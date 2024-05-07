@@ -48,8 +48,6 @@ public class HomePageController {
     @FXML
     public void navigateToQuiz(int numOfProbs, String quizComp, javafx.event.ActionEvent event) {
         QuizPageController.setQuizFXML("quiz.fxml");
-        //QuizTypeDecider.setNumberOfProblems(numOfProbs);
-        //QuizTypeDecider.setCompetency(quizComp);
         QuizController.setQuizLevel(level);
         QuizController.setQuizCompetency(quizComp);
         QuizController.setNumOfQuizProbs(numOfProbs);

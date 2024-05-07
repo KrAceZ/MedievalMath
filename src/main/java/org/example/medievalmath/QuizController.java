@@ -7,10 +7,7 @@ import javafx.scene.image.ImageView;
 
 import java.util.*;
 
-//import static org.example.medievalmath.ArithmeticProblems.generateArithmeticProblem;
-//import static org.example.medievalmath.CountingProblems.generateCountingProblem;
-//import static org.example.medievalmath.FractionProblems.generateFractionProblem;
-//import static org.example.medievalmath.PlaceValueProblems.generatePlaceValueProblem;
+import static org.example.medievalmath.Quiz.problem;
 
 public class QuizController {
     public ImageView backgroundImageView;
@@ -28,6 +25,8 @@ public class QuizController {
     static String quizCompetency;
     static int numOfQuizProbs;
     private static QuizController instance;
+    static String quizType;
+
 
     public QuizController()
     {
@@ -39,9 +38,11 @@ public class QuizController {
         wrong = 0;
         quizLevel = Profile.getLevel();
         //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-        List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-        this.quiz = new Quiz(problems);
-        System.out.println("number of problems: "+ problems.size());
+        //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
+        quizType = setQuizType(numOfQuizProbs, quizLevel, quizCompetency);
+        //quiz = new Quiz(problems);
+        quiz = new Quiz(quizType, numOfQuizProbs);
+        //System.out.println("number of problems: "+ problems.size());
     }
 
 
@@ -74,67 +75,72 @@ public class QuizController {
 //        System.out.println("number of problems: "+ problems.size());
 
         // load the first problem
-        loadNextProblem();
+        System.out.println("Loading problem from QuizController.initialize");
+        quiz.currentProblemIndex = 0;
+        loadNextProblem(quizType);
     }
 
-    public void setQuiz(List<MathProblems> problems) {
-        quiz = new Quiz(problems);
-        loadNextProblem();  // Load the first problem when the quiz is set
-    }
-
-     private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
-         List<MathProblems> probs = new ArrayList<>();
+     //private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
+    private String setQuizType(int numOfProbs, int level, String competency){
+         //List<MathProblems> probs = new ArrayList<>();
+        String type = "";
          switch (competency){
              case "a":
-                 for (int i = 0; i < numOfProbs; i++) {
-                     MathProblems problem;
-                     do {
-                         problem = new ArithmeticProblems(level);
-                     } while (generatedProblems.contains(problem.toString()));
-                     //problem = new ArithmeticProblems(level);
-                     probs.add(problem);
-                     generatedProblems.add(problem.toString());
-                     System.out.println(problem);
-                 }
+                 //probs = generateArithmeticProblems(numOfProbs, level, competency);
+//                 for (int i = 0; i < numOfProbs; i++) {
+//                     //MathProblems problem;
+//                     ArithmeticProblems problem;
+//                     do {
+//                         problem = new ArithmeticProblems(level);
+//                     } while (generatedProblems.contains(problem.toString()));
+//                     //problem = new ArithmeticProblems(level);
+//                     probs.add(problem);
+//                     generatedProblems.add(problem.toString());
+//                     System.out.println(problem);
+//                 }
+                 type = "Arithmetic";
                  break;
              case "b":
                  if(level == 1) {
-                     for (int i = 0; i < numOfProbs; i++) {
-                         MathProblems problem;
-                         do {
-                             problem = new CountingProblems(level);
-                         } while (generatedProblems.contains(problem.toString()));
-
-                         probs.add(problem);
-                         generatedProblems.add(problem.toString());
-                     }
+                     type = "Counting";
+//                     for (int i = 0; i < numOfProbs; i++) {
+//                         MathProblems problem;
+//                         do {
+//                             problem = new CountingProblems(level);
+//                         } while (generatedProblems.contains(problem.toString()));
+//
+//                         probs.add(problem);
+//                         generatedProblems.add(problem.toString());
+//                     }
                  }
                  else{
-                     for (int i = 0; i < numOfProbs; i++) {
-                         MathProblems problem;
-                         do {
-                             problem = new FractionProblems(level);
-                         } while (generatedProblems.contains(problem.toString()));
-
-                         probs.add(problem);
-                         generatedProblems.add(problem.toString());
-                     }
+                     type = "Fraction";
+//                     for (int i = 0; i < numOfProbs; i++) {
+//                         MathProblems problem;
+//                         do {
+//                             problem = new FractionProblems(level);
+//                         } while (generatedProblems.contains(problem.toString()));
+//
+//                         probs.add(problem);
+//                         generatedProblems.add(problem.toString());
+//                     }
                  }
                  break;
              case "c":
-                 for (int i = 0; i < numOfProbs; i++) {
-                    MathProblems problem;
-                    do {
-                         problem = new PlaceValueProblems(level);
-                    } while (generatedProblems.contains(problem.toString()));
-
-                    probs.add(problem);
-                    generatedProblems.add(problem.toString());
-                 }
+                 type = "PlaceValue";
+//                 for (int i = 0; i < numOfProbs; i++) {
+//                    MathProblems problem;
+//                    do {
+//                         problem = new PlaceValueProblems(level);
+//                    } while (generatedProblems.contains(problem.toString()));
+//
+//                    probs.add(problem);
+//                    generatedProblems.add(problem.toString());
+//                 }
                  break;
          }
 
-         return probs;
+         return type;
      }
 
 
@@ -154,15 +160,40 @@ public class QuizController {
 
 
     // method to load the next problem
-    private void loadNextProblem() {
-            MathProblems currentProblem = quiz.getCurrentProblem();
-            question.setText(currentProblem.getProblem());
-            System.out.println(currentProblem.getProblem());
+//    private void loadNextProblem() {
+//            MathProblems currentProblem = quiz.getCurrentProblem();
+//            question.setText(currentProblem.getProblem());
+//            System.out.println(currentProblem.getProblem());
+//
+//            option1.setText("a) " + currentProblem.getOption("a"));
+//            option2.setText("b) " + currentProblem.getOption("b"));
+//            option3.setText("c) " + currentProblem.getOption("c"));
+//            option4.setText("d) " + currentProblem.getOption("d"));
+//    }
+    private void loadNextProblem(String type) {
+        switch(type){
+            case "Arithmetic":
+                problem = new ArithmeticProblems(quizLevel);
+                break;
+            case "Counting":
+                problem = new CountingProblems(quizLevel);
+                break;
+            case "Fraction":
+                problem = new FractionProblems(quizLevel);
+                break;
+            case "PlaceValue":
+                problem = new PlaceValueProblems(quizLevel);
+                break;
+        }
 
-            option1.setText("a) " + currentProblem.getOption("a"));
-            option2.setText("b) " + currentProblem.getOption("b"));
-            option3.setText("c) " + currentProblem.getOption("c"));
-            option4.setText("d) " + currentProblem.getOption("d"));
+        //ArithmeticProblems problem = new ArithmeticProblems(quizLevel);
+        question.setText(problem.getProblem());
+        System.out.println(problem.getProblem());
+
+        option1.setText("a) " + problem.getOption("a"));
+        option2.setText("b) " + problem.getOption("b"));
+        option3.setText("c) " + problem.getOption("c"));
+        option4.setText("d) " + problem.getOption("d"));
     }
 
     // Method to handle when an option is clicked
@@ -186,8 +217,8 @@ public class QuizController {
         }
         else {
             // Load the next problem
-            System.out.println("Loading next problem");
-            loadNextProblem();
+            System.out.println("Loading next problem from QuizController.optionClicked");
+            loadNextProblem(quizType);
         }
     }
 

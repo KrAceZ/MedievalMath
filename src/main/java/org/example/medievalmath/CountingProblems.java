@@ -38,7 +38,7 @@ public class CountingProblems extends MathProblems<Integer> {
                 problem.append(sequence.get(i)).append(" ");
             }
         }
-        this.problem = problem.toString(); // Store the problem as a class variable
+        //this.problem = problem.toString(); // Store the problem as a class variable
         generateOptions();
     }
 

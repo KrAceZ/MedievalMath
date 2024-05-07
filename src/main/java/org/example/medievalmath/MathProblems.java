@@ -7,7 +7,7 @@ public abstract class MathProblems<T> {
     protected static int level;
     protected Map<String, T> options;
     protected static String correctOption;
-    protected String problem;
+
 
 
     public MathProblems(int level) {
@@ -17,6 +17,7 @@ public abstract class MathProblems<T> {
 
     // Abstract method to display the problem as a string
     abstract public String getProblem();
+
 
     // Abstract method to generate multiple choice options
     protected void generateOptions() {
