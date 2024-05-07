@@ -21,13 +21,13 @@
    <children>
                <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" prefHeight="101.0" prefWidth="453.0" style="-fx-background-color: white;" text="" wrapText="true">
                    <font>
-                       <Font size="36.0" />
+                       <Font name="the rum is gone" size="23.0"/>
                    </font>
                <effect>
                   <InnerShadow />
                </effect>
                </Label>
-               <Button fx:id="option1" layoutX="89.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="71.0" prefWidth="196.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="WHITE">
+               <Button fx:id="option1" layoutX="89.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="71.0" prefWidth="196.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -35,7 +35,7 @@
                   <InnerShadow />
                </effect>
                </Button>
-               <Button fx:id="option2" layoutX="315.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="71.0" prefWidth="196.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="WHITE">
+               <Button fx:id="option2" layoutX="315.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="71.0" prefWidth="196.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -43,7 +43,7 @@
                   <InnerShadow />
                </effect>
                </Button>
-               <Button fx:id="option3" layoutX="89.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="71.0" prefWidth="196.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="WHITE">
+               <Button fx:id="option3" layoutX="89.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="71.0" prefWidth="196.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -51,7 +51,7 @@
                   <InnerShadow />
                </effect>
                </Button>
-               <Button fx:id="option4" layoutX="315.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="71.0" prefWidth="196.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="WHITE">
+               <Button fx:id="option4" layoutX="315.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="71.0" prefWidth="196.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>

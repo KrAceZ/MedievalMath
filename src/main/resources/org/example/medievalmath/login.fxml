@@ -51,7 +51,7 @@
             <InnerShadow />
          </effect>
         </PasswordField>
-        <CheckBox fx:id="showPasswordCheckBox" layoutX="470.0" layoutY="398.0" text="Show Password">
+        <CheckBox fx:id="showPasswordCheckBox" layoutX="442.0" layoutY="395.0" text="Show Password">
             <font>
                 <Font name="the rum is gone" size="13.0" />
             </font>
@@ -66,7 +66,7 @@
          <effect>
             <InnerShadow />
          </effect></TextField>
-        <Button layoutX="522.0" layoutY="448.0" onAction="#handleLoginButton" prefWidth="100" text="Login">
+        <Button layoutX="514.0" layoutY="448.0" onAction="#handleLoginButton" prefWidth="100" text="Login">
             <font>
                 <Font name="the rum is gone" size="13.0" />
             </font>
