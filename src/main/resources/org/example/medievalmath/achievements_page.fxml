@@ -51,73 +51,73 @@
             </image>
         </ImageView>
 
-        <ImageView layoutX="130" layoutY="220" fitWidth="200" fitHeight="250"  fx:id="royalSumScribeButton" pickOnBounds="true" onMouseClicked="#royalSumScribeClick">
+        <ImageView layoutX="160" layoutY="330" fitHeight="50" preserveRatio="true" fx:id="royalSumScribeButton" pickOnBounds="true" onMouseClicked="#royalSumScribeClick">
             <image>
                 <Image url="@RoyalSumScribeButton.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="480" layoutY="220" fitWidth="200" fitHeight="250" fx:id="multiplicationMysticButton" pickOnBounds="true" onMouseClicked="#multiplicationMysticClick">
+        <ImageView layoutX="510" layoutY="330" fitHeight="50" preserveRatio="true" fx:id="multiplicationMysticButton" pickOnBounds="true" onMouseClicked="#multiplicationMysticClick">
             <image>
                 <Image url="@multiplicationMystic.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="130" layoutY="300" fitWidth="200" fitHeight="250" fx:id="subtractionSorcererButton" pickOnBounds="true" onMouseClicked="#subtractionSorcererClick">
+        <ImageView layoutX="160" layoutY="400" fitHeight="50" preserveRatio="true" fx:id="subtractionSorcererButton" pickOnBounds="true" onMouseClicked="#subtractionSorcererClick">
             <image>
                 <Image url="@subtractionSorcerer.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="835" layoutY="220" fitWidth="200" fitHeight="250" fx:id="divisionDragonSlayerButton" pickOnBounds="true" onMouseClicked="#divisionDragonSlayerClick">
+        <ImageView layoutX="860" layoutY="330" fitHeight="36" preserveRatio="true" fx:id="divisionDragonSlayerButton" pickOnBounds="true" onMouseClicked="#divisionDragonSlayerClick">
             <image>
                 <Image url="@divisionDragonSlayer.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="130" layoutY="450" fitWidth="200" fitHeight="250" fx:id="levelCompleted1" pickOnBounds="true" onMouseClicked="#firstLevelCompleteClick">
+        <ImageView layoutX="160" layoutY="550" fitHeight="50" preserveRatio="true" fx:id="levelCompleted1" pickOnBounds="true" onMouseClicked="#firstLevelCompleteClick">
             <image>
                 <Image url="@levelCompleted.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="130" layoutY="375" fitWidth="200" fitHeight="250"  fx:id="countingButton" pickOnBounds="true" onMouseClicked="#countingCertClick">
+        <ImageView layoutX="160" layoutY="470" fitHeight="50" preserveRatio="true"  fx:id="countingButton" pickOnBounds="true" onMouseClicked="#countingCertClick">
             <image>
                 <Image url="@countingButton.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="835" layoutY="300" fitWidth="200" fitHeight="250"  fx:id="fractionForgingButton" pickOnBounds="true" onMouseClicked="#fractionForgingClick">
+        <ImageView layoutX="860" layoutY="400" fitHeight="50" preserveRatio="true"  fx:id="fractionForgingButton" pickOnBounds="true" onMouseClicked="#fractionForgingClick">
             <image>
                 <Image url="@fractionForgerButton.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="480" layoutY="300" fitWidth="200" fitHeight="250"  fx:id="fractionFellowshipButton" pickOnBounds="true" onMouseClicked="#fractionFellowshipClick">
+        <ImageView layoutX="510" layoutY="400" fitHeight="50" preserveRatio="true"  fx:id="fractionFellowshipButton" pickOnBounds="true" onMouseClicked="#fractionFellowshipClick">
             <image>
                 <Image url="@fractionFelloshipButton.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="480" layoutY="375" fitWidth="200" fitHeight="250"  fx:id="placeValuePauperButton" pickOnBounds="true" onMouseClicked="#placeValuePauperClick">
+        <ImageView layoutX="510" layoutY="470" fitHeight="50" preserveRatio="true"  fx:id="placeValuePauperButton" pickOnBounds="true" onMouseClicked="#placeValuePauperClick">
             <image>
                 <Image url="@placeValuePauperButton.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="835" layoutY="375" fitWidth="200" fitHeight="250"  fx:id="placeValuePrinceButton" pickOnBounds="true" onMouseClicked="#placeValuePrinceClick">
+        <ImageView layoutX="860" layoutY="470" fitHeight="50" preserveRatio="true"  fx:id="placeValuePrinceButton" pickOnBounds="true" onMouseClicked="#placeValuePrinceClick">
             <image>
                 <Image url="@placeValuePrinceButton.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="483" layoutY="450" fitWidth="200" fitHeight="250" fx:id="levelCompleted2" pickOnBounds="true" onMouseClicked="#secondLevelCompleteClick">
+        <ImageView layoutX="510" layoutY="550" fitHeight="50" preserveRatio="true" fx:id="levelCompleted2" pickOnBounds="true" onMouseClicked="#secondLevelCompleteClick">
             <image>
                 <Image url="@levelCompleted.png" />
             </image>
         </ImageView>
 
-        <ImageView layoutX="835" layoutY="450" fitWidth="200" fitHeight="250" fx:id="levelCompleted3" pickOnBounds="true" onMouseClicked="#thirdLevelCompleteClick">
+        <ImageView layoutX="860" layoutY="550" fitHeight="50" preserveRatio="true" fx:id="levelCompleted3" pickOnBounds="true" onMouseClicked="#thirdLevelCompleteClick">
             <image>
                 <Image url="@levelCompleted.png" />
             </image>
@@ -195,13 +195,13 @@
             </image>
         </ImageView>
 
-        <ImageView fx:id="goBack1" layoutX="800" layoutY="5" fitHeight="200" fitWidth="250" pickOnBounds="true" onMouseClicked="#goToHomePage">
+        <ImageView fx:id="goBack1" layoutX="830" layoutY="50" fitHeight="50" preserveRatio="true" pickOnBounds="true" onMouseClicked="#goToHomePage">
             <image>
                 <Image url="@goBack.png" />
             </image>
         </ImageView>
 
-        <ImageView fx:id="goBack2" visible="false" layoutX="800" layoutY="5" fitHeight="200" fitWidth="250" pickOnBounds="true" onMouseClicked="#certGoBack">
+        <ImageView fx:id="goBack2" visible="false" layoutX="830" layoutY="50" fitHeight="50" preserveRatio="true" pickOnBounds="true" onMouseClicked="#certGoBack">
             <image>
                 <Image url="@goBack.png" />
             </image>

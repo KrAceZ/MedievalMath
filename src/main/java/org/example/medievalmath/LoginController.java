@@ -45,6 +45,7 @@ public class LoginController {
     private ImageView backgroundImageView;
     public int currentGrade;
     public int currentPoints;
+    private String username;
 
 
     // Method to handle the action of the switch link
@@ -148,19 +149,17 @@ public class LoginController {
             preparedStatement.setInt(1, userID);
             preparedStatement.setString(2, username);
             preparedStatement.setString(3, hashedPassword);
-            if (grade.equalsIgnoreCase("k") || grade.equalsIgnoreCase("kindergarten")){
+            if (grade.equalsIgnoreCase("k") || grade.equalsIgnoreCase("kindergarten")) {
                 preparedStatement.setInt(4, 0);
-                setUserInfo(0, 0);
-            }
-            else{
+                setUserInfo(username, 0, 0);
+            } else {
                 preparedStatement.setInt(4, Integer.parseInt(grade));
-                setUserInfo(Integer.parseInt(grade), 0);
+                setUserInfo(username, Integer.parseInt(grade), 0);
             }
             preparedStatement.setString(5, name);
             preparedStatement.execute();
             conn.close();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e);
         }
     }
@@ -175,26 +174,59 @@ public class LoginController {
             String sql = "SELECT * FROM profiles";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             ResultSet profileReturn = preparedStatement.executeQuery();
-            while (profileReturn.next()){
-                if (profileReturn.getString(2).equals(username)){
-                    if (BCrypt.checkpw(password, profileReturn.getString("password"))){
+            while (profileReturn.next()) {
+                if (profileReturn.getString(2).equals(username)) {
+                    if (BCrypt.checkpw(password, profileReturn.getString("password"))) {
                         int grade = profileReturn.getInt("currentGrade");
                         int points = profileReturn.getInt("points");
-                        setUserInfo(grade, points);
+                        setUserInfo(username, grade, points);
                         return true;
                     }
                 }
             }
             return false;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e);
         }
-    return false;
+        return false;
     }
-    public void setUserInfo(int grade, int points){
+
+    public void setUserInfo(String userName, int grade, int points) {
+        username = userName;
         currentGrade = grade;
         currentPoints = points;
-        System.out.println("Grade: " + currentGrade);
+    }
+
+    public int getPoints() {
+        return currentPoints;
+    }
+
+    public int getStudentGrade() {
+        return currentGrade;
+    }
+
+    public int addPoints(int newPoints) {
+        currentPoints = currentPoints + newPoints;
+        return currentPoints;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void saveProfile() {
+        String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
+        String user = "admin";
+        String adminPassword = "WbIofZIaebOVezZ2wy9u";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(myUrl, user, adminPassword);
+            String sql = "UPDATE profiles SET POINTS = '" + getPoints() + "' WHERE userName = '" + getUsername() + "'";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.execute();
+            conn.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

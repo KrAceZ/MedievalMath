@@ -433,7 +433,7 @@ public class achievementsPageController {
             divisionDragonSlayerClick();
         }
         else if (multMysticCertificate.isVisible()) {
-            divisionDragonSlayerClick();
+            multiplicationMysticClick();
         } else if (subSorcererCertificate.isVisible()) {
             subtractionSorcererClick();
         } else if (sumScribeCertificate.isVisible()) {
