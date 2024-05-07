@@ -53,7 +53,11 @@ public class LoginController {
             // Change the view to "Create a new account"
             loginLabel.setText("Create a new account");
             switchLink.setText("Login as a returning user");
-            // Make the name field, confirm password field, and grade field visible
+            // Hide the login-related fields
+            usernameField.setVisible(false);
+            passwordField.setVisible(false);
+            showPasswordCheckBox.setVisible(false);
+            // Show the new account-related fields
             nameField.setVisible(true);
             confirmPasswordField.setVisible(true);
             gradeField.setVisible(true);
@@ -61,7 +65,11 @@ public class LoginController {
             // If the current view is "Create a new account", change the view to "Login"
             loginLabel.setText("Login");
             switchLink.setText("Create a new account");
-            // Hide the name field, confirm password field, and grade field
+            // Show the login-related fields
+            usernameField.setVisible(true);
+            passwordField.setVisible(true);
+            showPasswordCheckBox.setVisible(true);
+            // Hide the new account-related fields
             nameField.setVisible(false);
             confirmPasswordField.setVisible(false);
             gradeField.setVisible(false);
@@ -189,7 +197,7 @@ public class LoginController {
         catch (Exception e){
             System.out.println("Error: " + e);
         }
-    return false;
+        return false;
     }
     public void setUserInfo(int grade, int points){
         currentGrade = grade;
