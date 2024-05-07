@@ -3,6 +3,7 @@ package org.example.medievalmath;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -96,7 +97,7 @@ public class LoginController {
             if (password.equals(confirmPassword)) {
                 createAccount(name, username, password, grade);
                 // Load the home page
-                loadHomePage();
+                loadHomePage(event);
             } else {
                 // If the password and confirm password do not match, show an error message
                 errorLabel.setText("Passwords do not match");
@@ -107,7 +108,7 @@ public class LoginController {
 
             // If the credentials are valid, load the home page
             if (isValidUser) {
-                loadHomePage();
+                loadHomePage(event);
             } else {
                 // If the credentials are not valid, show an error message
                 errorLabel.setText("Incorrect");
@@ -116,13 +117,17 @@ public class LoginController {
     }
 
     // Method to load the home page
-    private void loadHomePage() {
+    private void loadHomePage(javafx.event.ActionEvent event) {
         try {
-            // Load the home page
+            // Load the home page FXML
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home_page.fxml")));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+
+            // Get the current stage via the event source (which is a Node)
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene to the existing stage
+            currentStage.setScene(new Scene(root, 1123, 794));
+            currentStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
