@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -43,6 +44,10 @@ public class LoginController {
     private Label errorLabel;
     @FXML
     private ImageView backgroundImageView;
+    @FXML
+    private Button createAccountButton;
+    @FXML
+    private Button loginButton;
     public int currentGrade;
     public int currentPoints;
     public String currentUsername;
@@ -58,13 +63,14 @@ public class LoginController {
             loginLabel.setText(""); // FIX THIS
             switchLink.setText("Login as a returning user");
             // Hide the login-related fields
-            usernameField.setVisible(false);
-            passwordField.setVisible(false);
             showPasswordCheckBox.setVisible(false);
             // Show the new account-related fields
             nameField.setVisible(true);
+            usernameField.setVisible(true);
+            passwordField.setVisible(true);
             confirmPasswordField.setVisible(true);
             gradeField.setVisible(true);
+            createAccountButton.setVisible(true);
         } else {
             // If the current view is "Create a new account", change the view to "Login"
             loginLabel.setText("Login");
@@ -77,6 +83,7 @@ public class LoginController {
             nameField.setVisible(false);
             confirmPasswordField.setVisible(false);
             gradeField.setVisible(false);
+            createAccountButton.setVisible(false);
         }
     }
 
@@ -103,33 +110,33 @@ public class LoginController {
         String confirmPassword = confirmPasswordField.getText();
         String grade = gradeField.getText();
 
+        // Check the user's credentials
+        boolean isValidUser = checkCredentials(username, password);
+
+        // If the credentials are valid, load the home page
+        if (isValidUser) {
+            loadHomePage(event);
+        } else {
+            // If the credentials are not valid, show an error message
+            errorLabel.setText("Incorrect");
+        }
+    }
+
+    @FXML
+    protected void handleCreateAccountButton(ActionEvent event){
         // If the current view is "Create a new account"
-        if (loginLabel.getText().equals("Create a new account")) {
-            // If the password and confirm password match, create a new account
-            if (password.equals(confirmPassword)) {
-                createAccount(name, username, password, grade);
+            if (passwordField.getText().equals(confirmPasswordField.getText())) {
+                createAccount();
                 // Load the home page
                 loadHomePage(event);
             } else {
                 // If the password and confirm password do not match, show an error message
                 errorLabel.setText("Passwords do not match");
             }
-        } else {
-            // If the current view is "Login", check the user's credentials
-            boolean isValidUser = checkCredentials(username, password);
-
-            // If the credentials are valid, load the home page
-            if (isValidUser) {
-                loadHomePage(event);
-            } else {
-                // If the credentials are not valid, show an error message
-                errorLabel.setText("Incorrect");
-            }
         }
-    }
 
     // Method to load the home page
-    private void loadHomePage(javafx.event.ActionEvent event) {
+    private void loadHomePage(ActionEvent event) {
         try {
             Profile user = new Profile(currentStudentName, currentUsername, currentGrade, currentPoints);
             setTutorialUrls();
@@ -148,7 +155,11 @@ public class LoginController {
     }
 
     // Method to create a new account
-    private void createAccount(String name, String username, String password, String grade) {
+    private void createAccount() {
+        String name = nameField.getText();
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String grade = gradeField.getText();
         String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
         String user = "admin";
         String adminPassword = "WbIofZIaebOVezZ2wy9u";
