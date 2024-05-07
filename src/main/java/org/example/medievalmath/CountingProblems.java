@@ -23,13 +23,9 @@ public class CountingProblems extends MathProblems<Integer> {
         missingNumberIndex = rand.nextInt(5);
         missingNumber = sequence.get(missingNumberIndex);
         sequence.set(missingNumberIndex, null); // Set the missing number to null
-        generateCountingProblem();
-    }
-
-    public void generateCountingProblem() {
-        // Problem generation logic
+        //generateCountingProblem();
         StringBuilder problem = new StringBuilder();
-        Random rand = new Random();
+        //Random rand = new Random();
 
         for (int i = 0; i < sequence.size(); i++) {
             if (i == missingNumberIndex) {
@@ -41,6 +37,22 @@ public class CountingProblems extends MathProblems<Integer> {
         //this.problem = problem.toString(); // Store the problem as a class variable
         generateOptions();
     }
+
+//    public void generateCountingProblem() {
+//        // Problem generation logic
+//        StringBuilder problem = new StringBuilder();
+//        Random rand = new Random();
+//
+//        for (int i = 0; i < sequence.size(); i++) {
+//            if (i == missingNumberIndex) {
+//                problem.append("_ ");
+//            } else {
+//                problem.append(sequence.get(i)).append(" ");
+//            }
+//        }
+//        //this.problem = problem.toString(); // Store the problem as a class variable
+//        generateOptions();
+//    }
 
     @Override
     public String getProblem() {

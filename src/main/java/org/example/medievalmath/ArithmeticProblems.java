@@ -130,8 +130,7 @@ public class ArithmeticProblems extends MathProblems<Integer> {
 
     @Override
     public String getProblem() {
-        question = a + " " + operator + " " + b + " = ";
-        return question;
+        return a + " " + operator + " " + b + " = ";
     }
 
     protected void generateOptions() {
