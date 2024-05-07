@@ -1,5 +1,10 @@
 package org.example.medievalmath;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Profile {
     private String studentName;
     public static int grade;
@@ -8,6 +13,7 @@ public class Profile {
     private String username;
     private String password;
     public static int points;
+    public static Map<Integer, Boolean> earnedAchievements = new HashMap<>();
 
     // Constructor to initializes the instance variables
     public Profile(String studentName, String username, int grade, int points) {
@@ -17,6 +23,7 @@ public class Profile {
         this.points = points;
         level = getLevel();
         //this.password = password;
+        for()
     }
 
     // Getters
@@ -47,7 +54,16 @@ public class Profile {
     public static void setPoints(int newPoints){
         points = newPoints;
     }
+    public static void addPoints(int addedPoints){
+        points += addedPoints;
+    }
+    public static void spendPoints(int spentPoints){
+        points -= spentPoints;
+    }
 
+    public void addAchievement(int level, String comp){
+
+    }
     public void setGrade(int newGrade){
         grade = newGrade;
     }

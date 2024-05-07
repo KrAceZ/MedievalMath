@@ -138,13 +138,13 @@ public class HomePageController {
     @FXML
     public void navigateToPractice1Page(javafx.event.ActionEvent event) {
         String competency = "a";
-        int numOfProbs = 10;
+        int numOfProbs = QuizController.QUIZSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
     public void navigateToTest1Page(javafx.event.ActionEvent event) {
         String competency = "a";
-        int numOfProbs = 20;
+        int numOfProbs = QuizController.TESTSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
@@ -166,13 +166,13 @@ public class HomePageController {
     @FXML
     public void navigateToPractice2Page(javafx.event.ActionEvent event) {
         String competency = "b";
-        int numOfProbs = 10;
+        int numOfProbs = QuizController.QUIZSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
     public void navigateToTest2Page(javafx.event.ActionEvent event) {
         String competency = "b";
-        int numOfProbs = 20;
+        int numOfProbs = QuizController.TESTSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
@@ -194,13 +194,13 @@ public class HomePageController {
     @FXML
     public void navigateToPractice3Page(javafx.event.ActionEvent event) {
         String competency = "c";
-        int numOfProbs = 10;
+        int numOfProbs = QuizController.QUIZSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
     public void navigateToTest3Page(javafx.event.ActionEvent event) {
         String competency = "c";
-        int numOfProbs = 20;
+        int numOfProbs = QuizController.TESTSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
 }

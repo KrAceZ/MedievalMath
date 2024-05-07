@@ -43,5 +43,27 @@ public class QuizResultController {
         else{
             remark.setText("Failed. Almost there! Keep Practicing!");
         }
+
+        int level = QuizController.quizLevel;
+        String type = QuizController.quizType;
+        if(correctf>= 0.7)
+        {
+            Profile.addPoints(5*numOfProbs);
+            if(numOfProbs==QuizController.TESTSIZE){
+                int compID = 1;
+                switch(QuizController.quizCompetency){
+                    case "a":
+                        compID = level*1;
+                        break;
+                    case "b":
+                        compID = level*2;
+                        break;
+                    case "c":
+                        compID = level*3;
+                        break;
+                }
+                Profile.earnedAchievements.put(compID, true);
+            }
+        }
     }
 }

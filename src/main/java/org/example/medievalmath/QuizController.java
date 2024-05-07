@@ -21,10 +21,12 @@ public class QuizController {
     static int correct = 0;
     static int wrong = 0;
 
+    public static final int QUIZSIZE = 10;
+    public static final int TESTSIZE = 20;
     private static Quiz quiz;
     private final Set<String> generatedProblems = new HashSet<>();
     static int quizLevel;
-    static String quizCompetency;
+    public static String quizCompetency;
     static int numOfQuizProbs;
     private static QuizController instance;
     static String quizType;
