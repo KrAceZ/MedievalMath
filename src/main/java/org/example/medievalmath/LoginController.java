@@ -16,6 +16,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 
@@ -43,7 +45,9 @@ public class LoginController {
     private ImageView backgroundImageView;
     public int currentGrade;
     public int currentPoints;
-
+    public String currentUsername;
+    public String currentStudentName;
+    public static Map<Integer, String> videoURLs = new HashMap<>();
 
     // Method to handle the action of the switch link
     @FXML
@@ -127,6 +131,8 @@ public class LoginController {
     // Method to load the home page
     private void loadHomePage(javafx.event.ActionEvent event) {
         try {
+            Profile user = new Profile(currentStudentName, currentUsername, currentGrade, currentPoints);
+            setTutorialUrls();
             // Load the home page FXML
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home_page.fxml")));
 
@@ -187,7 +193,9 @@ public class LoginController {
                     if (BCrypt.checkpw(password, profileReturn.getString("password"))){
                         int grade = profileReturn.getInt("currentGrade");
                         int points = profileReturn.getInt("points");
-                        setUserInfo(grade, points);
+                        String userName = profileReturn.getString("userName");
+                        String studentName = profileReturn.getString("name");
+                        setUserInfo(grade, points, userName, studentName);
                         return true;
                     }
                 }
@@ -199,9 +207,37 @@ public class LoginController {
         }
         return false;
     }
-    public void setUserInfo(int grade, int points){
+    public void setTutorialUrls(){
+        String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
+        String user = "admin";
+        String adminPassword = "WbIofZIaebOVezZ2wy9u";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(myUrl, user, adminPassword);
+            String sql = "SELECT * FROM standards";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet standardsReturn = preparedStatement.executeQuery();
+            while (standardsReturn.next()){
+                System.out.println("accessing standards in database...");
+                int comp = standardsReturn.getInt("competencyID");
+                System.out.println("comp id: "+ comp);
+                String url = standardsReturn.getString("videoURL");
+                System.out.println("url: "+ url);
+                videoURLs.put(comp, url);
+            }
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+    public void setUserInfo(int grade, int points, String userName, String studentName){
         currentGrade = grade;
         currentPoints = points;
+        currentUsername = userName;
+        currentStudentName = studentName;
+        System.out.println("Student Name: " + currentStudentName);
+        System.out.println("User Name: " + currentUsername);
         System.out.println("Grade: " + currentGrade);
+        System.out.println("Points: " + currentPoints);
     }
 }

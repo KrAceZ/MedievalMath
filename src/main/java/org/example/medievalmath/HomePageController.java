@@ -14,7 +14,11 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+
+//import static org.example.medievalmath.LoginController.videoURLs;
 
 public class HomePageController {
     @FXML
@@ -24,12 +28,14 @@ public class HomePageController {
     private AnchorPane buttonsContainer;
 
     public static int level;
+    public static Map<Integer, String> urls = new HashMap<>();
 
     public void initialize() {
         // Initialize the home page with background image
         Image backgroundImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Background.png")));
         Page homePage = new Page(backgroundImage);
         level = Profile.getLevel();
+        urls = LoginController.videoURLs;
 
         // Set the background image
         backgroundImageView.setImage(backgroundImage);
@@ -114,7 +120,19 @@ public class HomePageController {
     }
     @FXML
     public void navigateToTutorial1Page(javafx.event.ActionEvent event) {
-        String url = "https://www.youtube.com/embed/AuX7nPBqDts";
+
+        String url = "";
+        switch(level){
+            case 1:
+                url = urls.get(1);
+                break;
+            case 2:
+                url = urls.get(4);
+                break;
+            case 3:
+                url = urls.get(7);
+                break;
+        }
         navigateToTutorialPage(url, event);
     }
     @FXML
@@ -131,7 +149,18 @@ public class HomePageController {
     }
     @FXML
     public void navigateToTutorial2Page(javafx.event.ActionEvent event) {
-        String url = "https://www.youtube.com/embed/aNqG4ChKShI";
+        String url = "";
+        switch(level){
+            case 1:
+                url = urls.get(2);
+                break;
+            case 2:
+                url = urls.get(5);
+                break;
+            case 3:
+                url = urls.get(8);
+                break;
+        }
         navigateToTutorialPage(url, event);
     }
     @FXML
@@ -148,7 +177,18 @@ public class HomePageController {
     }
     @FXML
     public void navigateToTutorial3Page(javafx.event.ActionEvent event) {
-        String url = "https://www.youtube.com/embed/aNqG4ChKShI";
+        String url = "";
+        switch(level){
+            case 1:
+                url = urls.get(3);
+                break;
+            case 2:
+                url = urls.get(6);
+                break;
+            case 3:
+                url = urls.get(9);
+                break;
+        }
         navigateToTutorialPage(url, event);
     }
     @FXML

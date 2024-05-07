@@ -2,17 +2,19 @@ package org.example.medievalmath;
 
 public class Profile {
     private String studentName;
-    private static int grade;
+    public static int grade;
 
     private String username;
     private String password;
+    public static int points;
 
     // Constructor to initializes the instance variables
-    public Profile(String studentName, int grade, String username, String password) {
+    public Profile(String studentName, String username, int grade, int points) {
         this.studentName = studentName;
-        this.grade = grade;
         this.username = username;
-        this.password = password;
+        this.grade = grade;
+        this.points = points;
+        //this.password = password;
     }
 
     // Getters
