@@ -7,11 +7,10 @@ import javafx.scene.image.ImageView;
 
 import java.util.*;
 
-<<<<<<< HEAD
+
 import static org.example.medievalmath.Quiz.problem;
 
-=======
->>>>>>> c824f0bdc9bc055a79d992e1763c21436f015cb5
+
 public class QuizController {
     public ImageView backgroundImageView;
     @FXML
@@ -37,17 +36,17 @@ public class QuizController {
         wrong = 0;
         quizLevel = Profile.getLevel();
         //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-<<<<<<< HEAD
+
         //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
         quizType = setQuizType(numOfQuizProbs, quizLevel, quizCompetency);
         //quiz = new Quiz(problems);
         quiz = new Quiz(quizType, numOfQuizProbs);
         //System.out.println("number of problems: "+ problems.size());
-=======
-        List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-        quiz = new Quiz(problems);
-        System.out.println("number of problems: "+ problems.size());
->>>>>>> c824f0bdc9bc055a79d992e1763c21436f015cb5
+
+        //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
+        //quiz = new Quiz(problems);
+       // System.out.println("number of problems: "+ problems.size());
+
     }
 
     public static void setQuizLevel(int level)
@@ -71,16 +70,15 @@ public class QuizController {
         loadNextProblem(quizType);
     }
 
-<<<<<<< HEAD
+
      //private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
     private String setQuizType(int numOfProbs, int level, String competency){
          //List<MathProblems> probs = new ArrayList<>();
         String type = "";
-=======
 
-     private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
-         List<MathProblems> probs = new ArrayList<>();
->>>>>>> c824f0bdc9bc055a79d992e1763c21436f015cb5
+
+     //private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
+         //List<MathProblems> probs = new ArrayList<>();
          switch (competency){
              case "a":
                  //probs = generateArithmeticProblems(numOfProbs, level, competency);

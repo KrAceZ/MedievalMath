@@ -36,10 +36,10 @@ public class ArithmeticProblems extends MathProblems<Integer> {
         }
         operator = operators[opIndex];
         // Check operator after it's initialized
-        if (level == 1 && !operator.equals("+") && !operator.equals("-")) {
-            throw new IllegalArgumentException("For level 1, operator must be '+' or '-'");
-        }
-        operator = operators[opIndex];
+//        if (level == 1 && !operator.equals("+") && !operator.equals("-")) {
+//            throw new IllegalArgumentException("For level 1, operator must be '+' or '-'");
+//        }
+//        operator = operators[opIndex];
         switch (operator) {
             case "+":
                 answer = a + b;

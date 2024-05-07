@@ -23,13 +23,13 @@ public class HomePageController {
     @FXML
     private AnchorPane buttonsContainer;
 
-    public static int level =1;
+    public static int level;
 
     public void initialize() {
         // Initialize the home page with background image
         Image backgroundImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Background.png")));
         Page homePage = new Page(backgroundImage);
-        //level = Profile.getLevel();
+        level = Profile.getLevel();
 
         // Set the background image
         backgroundImageView.setImage(backgroundImage);

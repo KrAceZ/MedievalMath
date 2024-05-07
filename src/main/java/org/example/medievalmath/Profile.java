@@ -2,7 +2,7 @@ package org.example.medievalmath;
 
 public class Profile {
     private String studentName;
-    private static int grade = 1;
+    private static int grade;
 
     private String username;
     private String password;

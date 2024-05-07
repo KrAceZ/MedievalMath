@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.QuizController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.QuizController">
     <children>
         <!-- Background image -->
         <ImageView fx:id="backgroundImageView" fitHeight="500" fitWidth="500" preserveRatio="false">
@@ -24,7 +21,7 @@
    <children>
                <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" prefHeight="101.0" prefWidth="453.0" style="-fx-background-color: white;" text="" wrapText="true">
                    <font>
-                       <Font name="the rum is gone" size="48.0" />
+                       <Font size="36.0" />
                    </font>
                <effect>
                   <InnerShadow />

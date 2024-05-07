@@ -5,10 +5,8 @@ import java.util.List;
 public class Quiz {
     // List of MathProblems objects that make up the quiz
     public List<MathProblems> problems;
-<<<<<<< HEAD
+
     public static MathProblems problem;
-=======
->>>>>>> c824f0bdc9bc055a79d992e1763c21436f015cb5
     // Index of the current problem being displayed
     public String type;
     public int numOfProblems;
