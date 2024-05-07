@@ -152,16 +152,28 @@ public class QuizController {
     private void loadNextProblem(String type) {
         switch(type){
             case "Arithmetic":
-                problem = new ArithmeticProblems(quizLevel);
+                do {
+                    problem = new ArithmeticProblems(quizLevel);
+                } while (generatedProblems.contains(problem.toString()));
+                generatedProblems.add(problem.toString());
                 break;
             case "Counting":
-                problem = new CountingProblems(quizLevel);
+                do {
+                    problem = new CountingProblems(quizLevel);
+                } while (generatedProblems.contains(problem.toString()));
+                generatedProblems.add(problem.toString());
                 break;
             case "Fraction":
-                problem = new FractionProblems(quizLevel);
+                do {
+                    problem = new FractionProblems(quizLevel);
+                } while (generatedProblems.contains(problem.toString()));
+                generatedProblems.add(problem.toString());
                 break;
             case "PlaceValue":
-                problem = new PlaceValueProblems(quizLevel);
+                do {
+                    problem = new PlaceValueProblems(quizLevel);
+                } while (generatedProblems.contains(problem.toString()));
+                generatedProblems.add(problem.toString());
                 break;
         }
 
