@@ -4,6 +4,7 @@ public class Profile {
     private String studentName;
     public static int grade;
 
+    public static int level;
     private String username;
     private String password;
     public static int points;
@@ -14,6 +15,7 @@ public class Profile {
         this.username = username;
         this.grade = grade;
         this.points = points;
+        level = getLevel();
         //this.password = password;
     }
 
@@ -38,6 +40,21 @@ public class Profile {
         return password;
     }
 
+    public static int getPoints(){
+        return points;
+    }
+
+    public static void setPoints(int newPoints){
+        points = newPoints;
+    }
+
+    public void setGrade(int newGrade){
+        grade = newGrade;
+    }
+
+    public void setLevel(int newLevel){
+        level = newLevel;
+    }
     // Method to get the level based on the student's grade
     public static int getLevel() {
         if (grade == 0 || grade == 1) {
