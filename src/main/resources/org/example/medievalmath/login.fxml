@@ -31,7 +31,10 @@
         <TextField fx:id="nameField" layoutX="438.0" layoutY="316.0" prefHeight="27.0" prefWidth="250.0" promptText="Name" visible="false">
          <effect>
             <InnerShadow />
-         </effect></TextField>
+         </effect>
+         <font>
+            <Font name="the rum is gone" size="13.0" />
+         </font></TextField>
         <TextField fx:id="usernameField" layoutX="438.0" layoutY="316.0" prefHeight="29.0" prefWidth="251.0" promptText="Username">
             <effect>
                 <InnerShadow />
@@ -56,7 +59,13 @@
             <Blend />
          </effect>
         </CheckBox>
-        <TextField fx:id="gradeField" layoutX="438.0" layoutY="351.0" prefHeight="27.0" prefWidth="250.0" promptText="What is your grade?" visible="false" />
+        <TextField fx:id="gradeField" layoutX="438.0" layoutY="351.0" prefHeight="27.0" prefWidth="250.0" promptText="What is your grade?" visible="false">
+         <font>
+            <Font name="the rum is gone" size="13.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect></TextField>
         <Button layoutX="522.0" layoutY="448.0" onAction="#handleLoginButton" prefWidth="100" text="Login">
             <font>
                 <Font name="the rum is gone" size="13.0" />
@@ -65,7 +74,7 @@
             <InnerShadow />
          </effect>
         </Button>
-        <Hyperlink fx:id="switchLink" layoutX="447.0" layoutY="504.0" onAction="#handleSwitchLink" text="Create a new account">
+        <Hyperlink fx:id="switchLink" layoutX="442.0" layoutY="503.0" onAction="#handleSwitchLink" text="Create a new account">
             <font>
                 <Font name="the rum is gone" size="13.0" />
             </font>
@@ -73,6 +82,12 @@
                 <Blend />
             </effect>
         </Hyperlink>
-        <PasswordField fx:id="confirmPasswordField" layoutX="438.0" layoutY="390.0" prefHeight="27.0" prefWidth="250.0" promptText="Confirm Password" visible="false" />
+        <PasswordField fx:id="confirmPasswordField" layoutX="438.0" layoutY="390.0" prefHeight="27.0" prefWidth="250.0" promptText="Confirm Password" visible="false">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <font>
+            <Font name="the rum is gone" size="13.0" />
+         </font></PasswordField>
     </children>
 </AnchorPane>

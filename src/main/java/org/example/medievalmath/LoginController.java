@@ -51,7 +51,7 @@ public class LoginController {
         // If the current view is "Login"
         if (loginLabel.getText().equals("Login")) {
             // Change the view to "Create a new account"
-            loginLabel.setText("Create a new account");
+            loginLabel.setText(""); // FIX THIS
             switchLink.setText("Login as a returning user");
             // Hide the login-related fields
             usernameField.setVisible(false);
