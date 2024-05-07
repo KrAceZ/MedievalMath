@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
    <children>
 
        <!-- Background image -->
@@ -21,69 +23,209 @@
               <Button alignment="CENTER" layoutX="859.0" layoutY="200.0" onAction="#navigateToProfilePage" prefHeight="50.0" prefWidth="250.0" text="Profile">
                <font>
                   <Font name="the rum is gone" size="25.0" />
-               </font></Button>
+               </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
               <Button alignment="CENTER" layoutX="285.0" layoutY="200.0" onAction="#navigateToShopPage" prefHeight="50.0" prefWidth="250.0" text="Shop">
                <font>
                   <Font name="the rum is gone" size="25.0" />
-               </font></Button>
+               </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
               <Button alignment="CENTER" layoutX="565.0" layoutY="200.0" onAction="#navigateToTrophiesPage" prefHeight="50.0" prefWidth="250.0" text="Trophies">
                <font>
                   <Font name="the rum is gone" size="25.0" />
-               </font></Button>
-          <Button layoutX="60.0" layoutY="65.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="67.0" prefWidth="225.0" text="Exit">
+               </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+          <Button layoutX="27.0" layoutY="65.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="67.0" prefWidth="225.0" text="Exit">
           <font>
               <Font name="the rum is gone" size="30.0" />
-          </font></Button>
+          </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
           <Button alignment="CENTER" layoutX="14.0" layoutY="200.0" onAction="#navigateToShopPage" prefHeight="50.0" prefWidth="250.0" text="Home">
           <font>
               <Font name="the rum is gone" size="25.0" />
           </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
       </Button>
           <Button alignment="CENTER" layoutX="104.0" layoutY="325.0" onAction="#navigateToTutorial1Page" prefHeight="100.0" prefWidth="250.0" text="Competency 1 Tutorial" textAlignment="CENTER" wrapText="true">
           <font>
               <Font name="the rum is gone" size="15.0" />
-          </font></Button>
+          </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
               <Button alignment="CENTER" layoutX="440.0" layoutY="325.0" onAction="#navigateToPractice1Page" prefHeight="100.0" prefWidth="250.0" text="Competency 1 Practice" textAlignment="CENTER" wrapText="true">
                <font>
                    <Font name="the rum is gone" size="15.0" />
-               </font></Button>
+               </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
           <Button alignment="CENTER" layoutX="777.0" layoutY="325.0" onAction="#navigateToTest1Page" prefHeight="100.0" prefWidth="250.0" text="Competency 1 Test" textAlignment="CENTER" wrapText="true">
           <font>
               <Font name="the rum is gone" size="15.0" />
-          </font></Button>
+          </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
           <Button alignment="CENTER" layoutX="104.0" layoutY="475.0" onAction="#navigateToTutorial2Page" prefHeight="100.0" prefWidth="250.0" text="Competency 2 Tutorial" textAlignment="CENTER" wrapText="true">
           <font>
               <Font name="the rum is gone" size="15.0" />
-          </font></Button>
-              <Button alignment="CENTER" layoutX="436.0" layoutY="475.0" onAction="#navigateToPractice2Page" prefHeight="100.0" prefWidth="250.0" text="Competency 2 Practice" textAlignment="CENTER" wrapText="true">
+          </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+              <Button alignment="CENTER" layoutX="440.0" layoutY="475.0" onAction="#navigateToPractice2Page" prefHeight="100.0" prefWidth="250.0" text="Competency 2 Practice" textAlignment="CENTER" wrapText="true">
                <font>
                    <Font name="the rum is gone" size="15.0" />
-               </font></Button>
+               </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
             <Button alignment="CENTER" layoutX="777.0" layoutY="475.0" onAction="#navigateToTest2Page" prefHeight="100.0" prefWidth="250.0" text="Competency 2 Test" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="the rum is gone" size="15.0" />
                </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
             </Button>
           <Button alignment="CENTER" layoutX="104.0" layoutY="625.0" onAction="#navigateToTutorial3Page" prefHeight="100.0" prefWidth="250.0" text="Competency 3 Tutorial" textAlignment="CENTER" wrapText="true">
           <font>
               <Font name="the rum is gone" size="15.0" />
           </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
       </Button>
           <Button alignment="CENTER" layoutX="440.0" layoutY="625.0" onAction="#navigateToPractice3Page" prefHeight="100.0" prefWidth="250.0" text="Competency 3 Practice" textAlignment="CENTER" wrapText="true">
           <font>
               <Font name="the rum is gone" size="15.0" />
           </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
       </Button>
             <Button alignment="CENTER" layoutX="777.0" layoutY="625.0" onAction="#navigateToTest3Page" prefHeight="100.0" prefWidth="250.0" text="Competency 3 Test" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="the rum is gone" size="15.0" />
                </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
             </Button>
 
 
 
       </children>
-   
+
        </AnchorPane>
    </children>
 </AnchorPane>

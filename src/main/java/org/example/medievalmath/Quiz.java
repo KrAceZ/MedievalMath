@@ -5,7 +5,10 @@ import java.util.List;
 public class Quiz {
     // List of MathProblems objects that make up the quiz
     public List<MathProblems> problems;
+<<<<<<< HEAD
     public static MathProblems problem;
+=======
+>>>>>>> c824f0bdc9bc055a79d992e1763c21436f015cb5
     // Index of the current problem being displayed
     public String type;
     public int numOfProblems;
@@ -37,20 +40,6 @@ public class Quiz {
         }
     }
 
-    // Method to check the answer for the current problem
-    /*public boolean checkAnswer(String userAnswer) {
-        MathProblems currentProblem = getCurrentProblem();
-        // check if current problem index is valid
-        if (currentProblem != null) {
-            // check user's answer then return results
-            return currentProblem.checkAnswer(Integer.parseInt(userAnswer));    // convert String to int
-        } else {
-            // false if no problem to check
-            return false; // No current problem to check
-        }
-    }*/
-
-    //**********************************************
     public boolean checkAnswer(String userAnswer) {
         MathProblems currentProblem = getCurrentProblem();
         // check if current problem index is valid
@@ -62,7 +51,7 @@ public class Quiz {
             return false; // No current problem to check
         }
     }
-    //**********************************************
+
     // Method to move to the next problem
     public void moveToNextProblem() {
         System.out.println(currentProblemIndex);
