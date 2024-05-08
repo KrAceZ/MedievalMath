@@ -19,7 +19,7 @@
             </viewport>
         </ImageView>
 
-        <Label fx:id="loginLabel" layoutX="488.0" layoutY="231.0" text="Login">
+        <Label fx:id="loginLabel" layoutX="488.0" layoutY="231.0" text="Login" textFill="#25cd7099">
             <font>
                 <Font name="the rum is gone" size="38.0" />
             </font>
@@ -51,7 +51,7 @@
                 <InnerShadow />
             </effect>
         </PasswordField>
-        <CheckBox fx:id="showPasswordCheckBox" layoutX="442.0" layoutY="395.0" text="Show Password">
+        <CheckBox fx:id="showPasswordCheckBox" layoutX="442.0" layoutY="395.0" text="Show Password" visible="false">
             <font>
                 <Font name="the rum is gone" size="13.0" />
             </font>
@@ -66,7 +66,7 @@
             <effect>
                 <InnerShadow />
             </effect></TextField>
-        <Button layoutX="514.0" layoutY="456.0" fx:id="loginButton" onAction="#handleLoginButton" prefWidth="100" text="Login">
+        <Button fx:id="loginButton" layoutX="514.0" layoutY="456.0" onAction="#handleLoginButton" prefWidth="100" text="Login">
             <font>
                 <Font name="the rum is gone" size="13.0" />
             </font>
@@ -74,7 +74,7 @@
                 <InnerShadow />
             </effect>
         </Button>
-        <Button layoutX="514.0" layoutY="456.0" fx:id="createAccountButton" onAction="#handleCreateAccountButton" prefWidth="100" text="Create Account" visible="false">
+        <Button fx:id="createAccountButton" layoutX="514.0" layoutY="456.0" onAction="#handleCreateAccountButton" prefWidth="100" text="Create Account" visible="false">
             <font>
                 <Font name="the rum is gone" size="13.0" />
             </font>

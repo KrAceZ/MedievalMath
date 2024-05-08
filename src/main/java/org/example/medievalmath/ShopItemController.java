@@ -1,5 +1,6 @@
 package org.example.medievalmath;
-import java.util.*;
+
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,6 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import java.io.IOException;
 import javafx.scene.control.ToggleGroup;
 
 public class ShopItemController {
@@ -41,10 +41,6 @@ public class ShopItemController {
 
     public void initialize() {
 
-        //Image ShopPageBackgroundImage = new Image(getClass().getResourceAsStream("ShopPageBackground.png"));
-        //Page ShopPage = new Page(ShopPageBackgroundImage);
-        //ShopPageBackgroundView.setImage(ShopPageBackgroundImage);
-
         // Initialize toggle group
         toggleGroup = new ToggleGroup();
         hat.setToggleGroup(toggleGroup);
@@ -53,7 +49,7 @@ public class ShopItemController {
         bridge.setToggleGroup(toggleGroup);
 
         // Load background image
-        Image backgroundImage = new Image(getClass().getResourceAsStream("ShopPageBackground.png"));
+        Image backgroundImage = new Image(getClass().getResourceAsStream("Background.png"));
         ShopPageBackgroundView.setImage(backgroundImage);
     }
 
@@ -91,14 +87,8 @@ public class ShopItemController {
     private void handleImageSelection() {
         ToggleButton selectedButton = (ToggleButton) toggleGroup.getSelectedToggle();
         if (selectedButton != null) {
-//            ImageView imageView = (ImageView) selectedButton.getGraphic();
-//            Image selectedImage = imageView.getImage();
-//            System.out.println(selectedImage);
             String imageId = selectedButton.getId();
             System.out.println("Selected image id: " + imageId);
-
         }
     }
 }
-
-

@@ -20,7 +20,7 @@
         <!-- Container for buttons -->
         <AnchorPane fx:id="buttonsContainer" prefHeight="794.0" prefWidth="1123.0">
             <children>
-                <Button alignment="CENTER" layoutX="859.0" layoutY="200.0" onAction="#navigateToProfilePage" prefHeight="50.0" prefWidth="250.0" text="Profile">
+                <Button alignment="CENTER" layoutX="775.0" layoutY="202.0" onAction="#navigateToProfilePage" prefHeight="54.0" prefWidth="251.0" text="Profile" underline="true">
                     <font>
                         <Font name="the rum is gone" size="25.0" />
                     </font>
@@ -34,7 +34,7 @@
                             </light>
                         </Lighting>
                     </effect></Button>
-                <Button alignment="CENTER" layoutX="285.0" layoutY="200.0" onAction="#navigateToShopPage" prefHeight="50.0" prefWidth="250.0" text="Shop">
+                <Button alignment="CENTER" layoutX="105.0" layoutY="203.0" onAction="#navigateToShopPage" prefHeight="50.0" prefWidth="250.0" text="Shop" underline="true">
                     <font>
                         <Font name="the rum is gone" size="25.0" />
                     </font>
@@ -48,7 +48,7 @@
                             </light>
                         </Lighting>
                     </effect></Button>
-                <Button alignment="CENTER" layoutX="565.0" layoutY="200.0" onAction="#navigateToTrophiesPage" prefHeight="50.0" prefWidth="250.0" text="Trophies">
+                <Button alignment="CENTER" layoutX="441.0" layoutY="201.0" onAction="#navigateToTrophiesPage" prefHeight="50.0" prefWidth="250.0" text="Trophies" underline="true">
                     <font>
                         <Font name="the rum is gone" size="25.0" />
                     </font>
@@ -62,7 +62,7 @@
                             </light>
                         </Lighting>
                     </effect></Button>
-                <Button layoutX="27.0" layoutY="65.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="67.0" prefWidth="225.0" text="Exit">
+                <Button layoutX="27.0" layoutY="65.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="67.0" prefWidth="225.0" text="Exit" underline="true">
                     <font>
                         <Font name="the rum is gone" size="30.0" />
                     </font>
@@ -76,21 +76,6 @@
                             </light>
                         </Lighting>
                     </effect></Button>
-                <Button alignment="CENTER" layoutX="14.0" layoutY="200.0" onAction="#navigateToShopPage" prefHeight="50.0" prefWidth="250.0" text="Home">
-                    <font>
-                        <Font name="the rum is gone" size="25.0" />
-                    </font>
-                    <effect>
-                        <Lighting>
-                            <bumpInput>
-                                <Shadow />
-                            </bumpInput>
-                            <light>
-                                <Light.Distant />
-                            </light>
-                        </Lighting>
-                    </effect>
-                </Button>
                 <Button alignment="CENTER" layoutX="104.0" layoutY="325.0" onAction="#navigateToTutorial1Page" prefHeight="100.0" prefWidth="250.0" text="Competency 1 Tutorial" textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font name="the rum is gone" size="15.0" />
