@@ -20,7 +20,7 @@
 
         <VBox alignment="CENTER" prefHeight="500.0" prefWidth="500.0" spacing="20.0">
    <children>
-               <Button fx:id="option1" layoutX="89.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="450.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
+               <Button fx:id="option1" layoutX="89.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="460.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -28,7 +28,7 @@
                   <InnerShadow />
                </effect>
                </Button>
-               <Button fx:id="option2" layoutX="315.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="99.0" prefWidth="450.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
+               <Button fx:id="option2" layoutX="315.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="99.0" prefWidth="460.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -36,7 +36,7 @@
                   <InnerShadow />
                </effect>
                </Button>
-               <Button fx:id="option3" layoutX="89.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="450.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK" visible="true">
+               <Button fx:id="option3" layoutX="89.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="460.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK" visible="true">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -44,7 +44,7 @@
                   <InnerShadow />
                </effect>
                </Button>
-               <Button fx:id="option4" layoutX="315.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="450.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK" visible="true">
+               <Button fx:id="option4" layoutX="315.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="460.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK" visible="true">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
