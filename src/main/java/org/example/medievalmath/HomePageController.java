@@ -48,6 +48,7 @@ public class HomePageController {
 
     public void exitApplication(ActionEvent actionEvent) {
         // Exit application method
+        LoginController.saveProfile();
         Platform.exit();
     }
     //Helper method for navigating to quizzes

@@ -64,5 +64,8 @@ public class QuizResultController {
                 Profile.earnedAchievements.put(compID, true);
             }
         }
+        System.out.println("Points now equal: "+ Profile.getPoints());
+        System.out.println("Set of achievements now:");
+        System.out.println(Profile.earnedAchievements);
     }
 }

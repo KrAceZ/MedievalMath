@@ -54,15 +54,15 @@ public class LoginController {
     private Button createAccountButton;
     @FXML
     private Button loginButton;
-    public int currentGrade;
-    public int currentPoints;
+    public static int currentGrade;
+    public static int currentPoints;
 
     private String username;
 
 
-    public String currentUsername;
-    public String currentStudentName;
-    public int currentUserID;
+    public static String currentUsername;
+    public static String currentStudentName;
+    public static int currentUserID;
     public static Map<Integer, String> videoURLs = new HashMap<>();
 
 
@@ -157,6 +157,7 @@ public class LoginController {
         try {
             Profile user = new Profile(currentStudentName, currentUsername, currentGrade, currentPoints);
             setTutorialUrls();
+            setUserAchievements();
             // Load the home page FXML
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home_page.fxml")));
 
@@ -271,16 +272,25 @@ public class LoginController {
         return username;
     }
 
-    public void saveProfile() {
+    public static void saveProfile() {
         String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
         String user = "admin";
         String adminPassword = "WbIofZIaebOVezZ2wy9u";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(myUrl, user, adminPassword);
-            String sql = "UPDATE profiles SET POINTS = '" + getPoints() + "' WHERE userName = '" + getUsername() + "'";
+            String sql = "UPDATE profiles SET POINTS = '" + Profile.getPoints() + "' WHERE userID = '" + currentUserID + "'";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.execute();
+            for(int i = 1; i<=Profile.earnedAchievements.size(); i++){
+                sql = "UPDATE achievements SET earned = '?' WHERE userID = '?' AND competencyID = '?'";
+                preparedStatement.setBoolean(1, Profile.earnedAchievements.get(i));
+                preparedStatement.setInt(2, currentUserID);
+                preparedStatement.setInt(3, i);
+                preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.execute();
+            }
+
             conn.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -329,7 +339,9 @@ public class LoginController {
                 Boolean earned = achievementsReturn.getBoolean("earned");
                 System.out.println("earned: "+ earned);
                 Profile.earnedAchievements.put(comp, earned);
+
             }
+            System.out.println(Profile.earnedAchievements);
         }
         catch (Exception e){
             System.out.println("Error: " + e);
