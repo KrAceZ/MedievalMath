@@ -23,9 +23,8 @@ public class CountingProblems extends MathProblems<Integer> {
         missingNumberIndex = rand.nextInt(5);
         missingNumber = sequence.get(missingNumberIndex);
         sequence.set(missingNumberIndex, null); // Set the missing number to null
-        //generateCountingProblem();
+
         StringBuilder problem = new StringBuilder();
-        //Random rand = new Random();
 
         for (int i = 0; i < sequence.size(); i++) {
             if (i == missingNumberIndex) {
@@ -37,22 +36,6 @@ public class CountingProblems extends MathProblems<Integer> {
         //this.problem = problem.toString(); // Store the problem as a class variable
         generateOptions();
     }
-
-//    public void generateCountingProblem() {
-//        // Problem generation logic
-//        StringBuilder problem = new StringBuilder();
-//        Random rand = new Random();
-//
-//        for (int i = 0; i < sequence.size(); i++) {
-//            if (i == missingNumberIndex) {
-//                problem.append("_ ");
-//            } else {
-//                problem.append(sequence.get(i)).append(" ");
-//            }
-//        }
-//        //this.problem = problem.toString(); // Store the problem as a class variable
-//        generateOptions();
-//    }
 
     @Override
     public String getProblem() {
@@ -71,14 +54,15 @@ public class CountingProblems extends MathProblems<Integer> {
         Random rand = new Random();
         options = new HashMap<>();
         Set<Integer> generatedOptions = new HashSet<>();
+        generatedOptions.add(missingNumber); // Add the missing number to the set of generated options
         for (char option = 'a'; option <= 'd'; option++) {
             int optionValue;
             do {
                 optionValue = missingNumber + rand.nextInt(5) - 2;
-            } while (generatedOptions.contains(optionValue));
-            generatedOptions.add(optionValue);
+            } while (!generatedOptions.add(optionValue)); // Keep generating until a unique option is found
             options.put(String.valueOf(option), optionValue);
         }
+        // Find a random key to replace with the correct option
         correctOption = String.valueOf((char) ('a' + rand.nextInt(4)));
         options.put(correctOption, missingNumber);
     }
