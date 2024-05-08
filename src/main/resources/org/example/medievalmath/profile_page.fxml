@@ -1,18 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="794.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.ProfilePageController">
+<AnchorPane prefHeight="794.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.ProfilePageController">
    <children>
        <!-- Buttons corresponding to the text locations in the image -->
-       <ImageView fx:id="ProfilePageBackgroundView" fitWidth="600" preserveRatio="true" />
+       <ImageView fx:id="backgroundImageView" fitWidth="1123" preserveRatio="true">
+           <image>
+               <Image url="@Background.png" />
+           </image>
+       </ImageView>
+       <ImageView fitWidth="650.0" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="236.0" AnchorPane.rightAnchor="237.0">
+           <image>
+               <Image url="@ScrollBackground.png" />
+           </image>
+       </ImageView>
+       <ImageView fx:id="royalSumScribeButton" visible="false" fitHeight="40.0" layoutX="370.0" layoutY="520.0"  pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@RoyalSumScribeButton.png" />
+           </image>
+       </ImageView>
+
+       <ImageView fx:id="multiplicationMysticButton" visible="false" fitHeight="40.0" layoutX="505.0" layoutY="520.0"  pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@multiplicationMystic.png" />
+           </image>
+       </ImageView>
+
+       <ImageView fx:id="subtractionSorcererButton" visible="false" fitHeight="40.0" layoutX="370.0" layoutY="580.0"  pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@subtractionSorcerer.png" />
+           </image>
+       </ImageView>
+
+       <ImageView fx:id="divisionDragonSlayerButton" visible="false" fitHeight="40.0" layoutX="640.0" layoutY="520.0"  pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@divisionDragonSlayer.png" />
+           </image>
+       </ImageView>
+       <ImageView fx:id="countingButton" visible="false" fitHeight="40.0" layoutX="370.0" layoutY="644.0"  pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@countingButton.png" />
+           </image>
+       </ImageView>
+
+       <ImageView fx:id="fractionForgingButton" visible="false" fitHeight="40.0" layoutX="640.0" layoutY="580.0"  pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@fractionForgerButton.png" />
+           </image>
+       </ImageView>
+
+       <ImageView fx:id="fractionFellowshipButton" visible="false" fitHeight="40.0" layoutX="506.0" layoutY="580.0"  pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@fractionFelloshipButton.png" />
+           </image>
+       </ImageView>
+
+       <ImageView fx:id="placeValuePauperButton" visible="false" fitHeight="40.0" layoutX="505.0" layoutY="644.0"  pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@placeValuePauperButton.png" />
+           </image>
+       </ImageView>
+
+       <ImageView fx:id="placeValuePrinceButton" visible="false" fitHeight="40.0" layoutX="640.0" layoutY="644.0"  pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@placeValuePrinceButton.png" />
+           </image>
+       </ImageView>
 
        <AnchorPane fx:id="buttonsContainer" prefHeight="794" prefWidth="1123">
            <children>
@@ -23,6 +81,32 @@
                <effect>
                   <InnerShadow />
                </effect></Button>
+            <Label layoutX="407.0" layoutY="259.0" text="Username">
+                <font>
+                    <Font name="the rum is gone" size="30.0" />
+                </font>
+            </Label>
+            <Label layoutX="434.0" layoutY="327.0" text="Grade">
+                <font>
+                    <Font name="the rum is gone" size="30.0" />
+                </font>
+            </Label>
+            <Label layoutX="433.0" layoutY="397.0" text="Points">
+                <font>
+                    <Font name="the rum is gone" size="30.0" />
+                </font>
+            </Label>
+            <Label layoutX="504.0" layoutY="459.0" text="Trophies">
+                <font>
+                    <Font name="the rum is gone" size="30.0" />
+                </font>
+            </Label>
+            <ImageView fitHeight="200" layoutX="619.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="418.2441864013672">
+               <image>
+                  <Image url="@Merlin.png" />
+               </image>
+            </ImageView>
+
            </children></AnchorPane>
    </children>
 

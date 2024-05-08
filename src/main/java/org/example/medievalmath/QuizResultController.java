@@ -50,16 +50,44 @@ public class QuizResultController {
             Profile.addPoints(5*numOfProbs);
             if(numOfProbs==QuizController.TESTSIZE){
                 int compID = 1;
-                switch(QuizController.quizCompetency){
-                    case "a":
-                        compID = level*1;
-                        break;
-                    case "b":
-                        compID = level*2;
-                        break;
-                    case "c":
-                        compID = level*3;
-                        break;
+                if(level ==1) {
+                    switch (QuizController.quizCompetency) {
+                        case "a":
+                            compID = 1;
+                            break;
+                        case "b":
+                            compID = 2;
+                            break;
+                        case "c":
+                            compID = 3;
+                            break;
+                    }
+                }
+                else if(level ==2){
+                    switch (QuizController.quizCompetency) {
+                        case "a":
+                            compID = 4;
+                            break;
+                        case "b":
+                            compID = 5;
+                            break;
+                        case "c":
+                            compID = 6;
+                            break;
+                    }
+                }
+                else{
+                    switch (QuizController.quizCompetency) {
+                        case "a":
+                            compID = 7;
+                            break;
+                        case "b":
+                            compID = 8;
+                            break;
+                        case "c":
+                            compID = 9;
+                            break;
+                    }
                 }
                 Profile.earnedAchievements.put(compID, true);
             }

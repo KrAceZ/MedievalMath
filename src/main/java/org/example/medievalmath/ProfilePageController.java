@@ -4,31 +4,47 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 public class ProfilePageController {
+    public static Map<Integer, ImageView> achievementImages = new HashMap<>();
     @FXML
-    private ImageView ProfilePageBackgroundView;
+    private ImageView backgroundImageView;
 
     @FXML
     private AnchorPane buttonsContainer;
 
     @FXML
     private AnchorPane profilePageContainer;
+    @FXML
+    private ImageView royalSumScribeButton;
 
-    public void initialize() {
-        // Initialize buttons or any other UI components here
-        Image ProfilePageBackgroundImage = new Image(getClass().getResourceAsStream("ProfilePageBackground.png"));
-        Page ProfilePage = new Page(ProfilePageBackgroundImage);
+    @FXML
+    private ImageView multiplicationMysticButton;
 
-        // Set the background image
-        ProfilePageBackgroundView.setImage(ProfilePageBackgroundImage);
-    }
+    @FXML
+    private ImageView subtractionSorcererButton;
 
+    @FXML
+    private ImageView divisionDragonSlayerButton;
+    @FXML
+    private ImageView countingButton;
+    @FXML
+    private ImageView fractionForgingButton;
+    @FXML
+    private ImageView fractionFellowshipButton;
+    @FXML
+    private ImageView placeValuePauperButton;
+    @FXML
+    private ImageView placeValuePrinceButton;
     // Buttons corresponding to the text locations in the image
     @FXML
     private Button levelsButton;
@@ -46,6 +62,29 @@ public class ProfilePageController {
     private Button logOutButton;
 
 
+    public void initialize() {
+        // Initialize buttons or any other UI components here
+        Image defaultBackground = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Background.png")));        Page ProfilePage = new Page(defaultBackground);
+
+        // Set the background image
+        backgroundImageView.setImage(defaultBackground);
+
+        achievementImages.put(1,royalSumScribeButton);
+        achievementImages.put(2,subtractionSorcererButton);
+        achievementImages.put(3,countingButton);
+        achievementImages.put(4,multiplicationMysticButton);
+        achievementImages.put(5,fractionFellowshipButton);
+        achievementImages.put(6,placeValuePauperButton);
+        achievementImages.put(7,divisionDragonSlayerButton);
+        achievementImages.put(8,fractionForgingButton);
+        achievementImages.put(9,placeValuePrinceButton);
+
+        for(int i = 1; i<=achievementImages.size(); i++){
+            if(Profile.earnedAchievements.get(i) == true){
+                achievementImages.get(i).setVisible(true);
+            }
+        }
+    }
     // Add methods to handle button actions if necessary
     @FXML
     private void navigateToHomePage() {
