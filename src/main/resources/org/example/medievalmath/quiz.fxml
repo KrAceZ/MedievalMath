@@ -17,19 +17,32 @@
                 <Image url="@Background.png" />
             </image>
         </ImageView>
-
         <PieChart fx:id="fractionChart" visible = "true"/>
+
         <VBox alignment="CENTER" prefHeight="500.0" prefWidth="500.0" spacing="30.0">
    <children>
-               <Label fx:id="question" visible ="true" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" prefHeight="101.0" prefWidth="453.0" style="-fx-background-color: white;" text="" wrapText="true">
-                   <font>
-                       <Font name="the rum is gone" size="23.0" />
-                   </font>
-               <effect>
-                  <InnerShadow />
-               </effect>
 
-               </Label>
+       <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="-170.0" prefHeight="139.0" prefWidth="453.0" style="-fx-background-color: white; -fx-padding: 0 0 0 7;" text="" wrapText="true">
+       <font>
+           <Font name="the rum is gone" size="23.0" />
+       </font>
+       <effect>
+           <InnerShadow>
+               <input>
+                   <Glow />
+               </input>
+           </InnerShadow>
+       </effect>
+   </Label>
+<!--               <Label fx:id="question" visible ="true" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" prefHeight="101.0" prefWidth="453.0" style="-fx-background-color: white;" text="" wrapText="true">-->
+<!--                   <font>-->
+<!--                       <Font name="the rum is gone" size="23.0" />-->
+<!--                   </font>-->
+<!--               <effect>-->
+<!--                  <InnerShadow />-->
+<!--               </effect>-->
+
+<!--               </Label>-->
 
 
                <Button fx:id="option1" layoutX="89.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="63.0" prefWidth="300.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
@@ -68,17 +81,6 @@
                <Region prefHeight="25.0" />
    </children>
         </VBox>
-<!--        <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="-170.0" prefHeight="139.0" prefWidth="453.0" style="-fx-background-color: white; -fx-padding: 0 0 0 7;" text="" wrapText="true">-->
-<!--            <font>-->
-<!--                <Font name="the rum is gone" size="23.0" />-->
-<!--            </font>-->
-<!--            <effect>-->
-<!--                <InnerShadow>-->
-<!--                    <input>-->
-<!--                        <Glow />-->
-<!--                    </input>-->
-<!--                </InnerShadow>-->
-<!--            </effect>-->
-<!--        </Label>-->
+
     </children>
 </AnchorPane>
