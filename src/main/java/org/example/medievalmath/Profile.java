@@ -23,7 +23,6 @@ public class Profile {
         this.points = points;
         level = getLevel();
         //this.password = password;
-        for()
     }
 
     // Getters
@@ -61,9 +60,6 @@ public class Profile {
         points -= spentPoints;
     }
 
-    public void addAchievement(int level, String comp){
-
-    }
     public void setGrade(int newGrade){
         grade = newGrade;
     }

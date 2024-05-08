@@ -52,6 +52,7 @@ public class LoginController {
     public int currentPoints;
     public String currentUsername;
     public String currentStudentName;
+    public int currentUserID;
     public static Map<Integer, String> videoURLs = new HashMap<>();
 
     // Method to handle the action of the switch link
@@ -182,6 +183,12 @@ public class LoginController {
             }
             preparedStatement.setString(5, name);
             preparedStatement.execute();
+
+            sql = "INSERT INTO achievements (userID, competencyID, earned) " +
+                    "SELECT ?, competencyID, false FROM standards";
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, userID);
+            preparedStatement.execute();
             conn.close();
         }
         catch (Exception e){
@@ -206,7 +213,9 @@ public class LoginController {
                         int points = profileReturn.getInt("points");
                         String userName = profileReturn.getString("userName");
                         String studentName = profileReturn.getString("name");
+                        currentUserID = profileReturn.getInt("userID");
                         setUserInfo(grade, points, userName, studentName);
+                        setUserAchievements();
                         return true;
                     }
                 }
@@ -235,6 +244,31 @@ public class LoginController {
                 String url = standardsReturn.getString("videoURL");
                 System.out.println("url: "+ url);
                 videoURLs.put(comp, url);
+            }
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    public void setUserAchievements(){
+        String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
+        String user = "admin";
+        String adminPassword = "WbIofZIaebOVezZ2wy9u";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(myUrl, user, adminPassword);
+            String sql = "SELECT * FROM achievements " +
+                    "WHERE userID = " + currentUserID;
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet achievementsReturn = preparedStatement.executeQuery();
+            while (achievementsReturn.next()){
+                System.out.println("accessing achievements in database...");
+                int comp = achievementsReturn.getInt("competencyID");
+                System.out.println("comp id: "+ comp);
+                Boolean earned = achievementsReturn.getBoolean("earned");
+                System.out.println("earned: "+ earned);
+                Profile.earnedAchievements.put(comp, earned);
             }
         }
         catch (Exception e){

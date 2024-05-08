@@ -45,7 +45,6 @@ public class QuizResultController {
         }
 
         int level = QuizController.quizLevel;
-        String type = QuizController.quizType;
         if(correctf>= 0.7)
         {
             Profile.addPoints(5*numOfProbs);
