@@ -56,18 +56,17 @@
                <Region prefHeight="25.0" />
    </children>
         </VBox>
-         <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="-170.0" prefHeight="139.0" prefWidth="453.0" style="-fx-background-color: white;" text="" wrapText="true">
-             <font>
-                 <Font name="the rum is gone" size="23.0" />
-             </font>
-         <effect>
-            <InnerShadow>
-               <input>
-                  <Glow />
-               </input>
-            </InnerShadow>
-         </effect>
-         </Label>
-
+        <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="-170.0" prefHeight="139.0" prefWidth="453.0" style="-fx-background-color: white; -fx-padding: 0 0 0 7;" text="" wrapText="true">
+            <font>
+                <Font name="the rum is gone" size="23.0" />
+            </font>
+            <effect>
+                <InnerShadow>
+                    <input>
+                        <Glow />
+                    </input>
+                </InnerShadow>
+            </effect>
+        </Label>
     </children>
 </AnchorPane>

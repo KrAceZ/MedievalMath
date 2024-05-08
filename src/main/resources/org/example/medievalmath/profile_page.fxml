@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="794.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.ProfilePageController">
+<AnchorPane prefHeight="794.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.ProfilePageController">
    <children>
        <!-- Buttons corresponding to the text locations in the image -->
        <ImageView fx:id="backgroundImageView" fitWidth="1123" preserveRatio="true">
@@ -19,54 +20,54 @@
                <Image url="@ScrollBackground.png" />
            </image>
        </ImageView>
-       <ImageView fx:id="royalSumScribeButton" visible="false" fitHeight="40.0" layoutX="370.0" layoutY="520.0"  pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="royalSumScribeButton" fitHeight="40.0" layoutX="370.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true" visible="false">
            <image>
                <Image url="@RoyalSumScribeButton.png" />
            </image>
        </ImageView>
 
-       <ImageView fx:id="multiplicationMysticButton" visible="false" fitHeight="40.0" layoutX="505.0" layoutY="520.0"  pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="multiplicationMysticButton" fitHeight="40.0" layoutX="505.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true" visible="false">
            <image>
                <Image url="@multiplicationMystic.png" />
            </image>
        </ImageView>
 
-       <ImageView fx:id="subtractionSorcererButton" visible="false" fitHeight="40.0" layoutX="370.0" layoutY="580.0"  pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="subtractionSorcererButton" fitHeight="40.0" layoutX="370.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" visible="false">
            <image>
                <Image url="@subtractionSorcerer.png" />
            </image>
        </ImageView>
 
-       <ImageView fx:id="divisionDragonSlayerButton" visible="false" fitHeight="40.0" layoutX="640.0" layoutY="520.0"  pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="divisionDragonSlayerButton" fitHeight="40.0" layoutX="640.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true" visible="false">
            <image>
                <Image url="@divisionDragonSlayer.png" />
            </image>
        </ImageView>
-       <ImageView fx:id="countingButton" visible="false" fitHeight="40.0" layoutX="370.0" layoutY="644.0"  pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="countingButton" fitHeight="40.0" layoutX="370.0" layoutY="644.0" pickOnBounds="true" preserveRatio="true" visible="false">
            <image>
                <Image url="@countingButton.png" />
            </image>
        </ImageView>
 
-       <ImageView fx:id="fractionForgingButton" visible="false" fitHeight="40.0" layoutX="640.0" layoutY="580.0"  pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="fractionForgingButton" fitHeight="40.0" layoutX="640.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" visible="false">
            <image>
                <Image url="@fractionForgerButton.png" />
            </image>
        </ImageView>
 
-       <ImageView fx:id="fractionFellowshipButton" visible="false" fitHeight="40.0" layoutX="506.0" layoutY="580.0"  pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="fractionFellowshipButton" fitHeight="40.0" layoutX="506.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" visible="false">
            <image>
                <Image url="@fractionFelloshipButton.png" />
            </image>
        </ImageView>
 
-       <ImageView fx:id="placeValuePauperButton" visible="false" fitHeight="40.0" layoutX="505.0" layoutY="644.0"  pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="placeValuePauperButton" fitHeight="40.0" layoutX="505.0" layoutY="644.0" pickOnBounds="true" preserveRatio="true" visible="false">
            <image>
                <Image url="@placeValuePauperButton.png" />
            </image>
        </ImageView>
 
-       <ImageView fx:id="placeValuePrinceButton" visible="false" fitHeight="40.0" layoutX="640.0" layoutY="644.0"  pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="placeValuePrinceButton" fitHeight="40.0" layoutX="640.0" layoutY="644.0" pickOnBounds="true" preserveRatio="true" visible="false">
            <image>
                <Image url="@placeValuePrinceButton.png" />
            </image>
@@ -81,30 +82,33 @@
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Label layoutX="407.0" layoutY="259.0" text="Username">
+            <Label layoutX="441.0" layoutY="263.0" text="Username">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>
             </Label>
-            <Label layoutX="434.0" layoutY="327.0" text="Grade">
+            <Label layoutX="494.0" layoutY="332.0" text="Grade">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>
             </Label>
-            <Label layoutX="433.0" layoutY="397.0" text="Points">
+            <Label layoutX="500.0" layoutY="422.0" text="Points">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>
             </Label>
-            <Label layoutX="504.0" layoutY="459.0" text="Trophies">
+            <Label layoutX="467.0" layoutY="523.0" text="Trophies">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>
             </Label>
-            <ImageView fitHeight="200" layoutX="619.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="418.2441864013672">
+            <ImageView fitHeight="386.0" fitWidth="166.0" layoutX="948.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="89.0">
                <image>
                   <Image url="@Merlin.png" />
                </image>
+               <effect>
+                  <InnerShadow />
+               </effect>
             </ImageView>
 
            </children></AnchorPane>

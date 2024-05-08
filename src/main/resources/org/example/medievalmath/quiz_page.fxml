@@ -31,6 +31,9 @@
                <image>
                   <Image url="@Merlin.png" />
                </image>
+               <effect>
+                  <InnerShadow />
+               </effect>
             </ImageView>
          </children></AnchorPane>
     </children>
