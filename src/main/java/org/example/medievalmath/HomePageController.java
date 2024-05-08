@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -29,9 +30,28 @@ public class HomePageController {
     private ImageView Level2Crest;
     @FXML
     private ImageView Level3Crest;
-
     @FXML
     private AnchorPane buttonsContainer;
+
+    // FXML references to competency buttons
+    @FXML
+    private Button btnCompetency1Tutorial;
+    @FXML
+    private Button btnCompetency1Practice;
+    @FXML
+    private Button btnCompetency1Test;
+    @FXML
+    private Button btnCompetency2Tutorial;
+    @FXML
+    private Button btnCompetency2Practice;
+    @FXML
+    private Button btnCompetency2Test;
+    @FXML
+    private Button btnCompetency3Tutorial;
+    @FXML
+    private Button btnCompetency3Practice;
+    @FXML
+    private Button btnCompetency3Test;
 
     public static int level;
     public static Map<Integer, String> urls = new HashMap<>();
@@ -53,9 +73,49 @@ public class HomePageController {
                 Level3Crest.setVisible(true);
                 break;
         }
+        // Update competency button texts based on the level
+        updateButtonTextsForLevel(level);
 
         // Set the background image
         backgroundImageView.setImage(backgroundImage);
+    }
+
+    private void updateButtonTextsForLevel(int level) {
+        switch (level) {
+            case 1:
+                btnCompetency1Tutorial.setText("Arithmetic Tutorial (Level 1)");
+                btnCompetency1Practice.setText("Arithmetic Practice (Level 1)");
+                btnCompetency1Test.setText("Arithmetic Test (Level 1)");
+                btnCompetency2Tutorial.setText("Counting Tutorial (Level 1)");
+                btnCompetency2Practice.setText("Counting Practice (Level 1)");
+                btnCompetency2Test.setText("Counting Test (Level 1)");
+                btnCompetency3Tutorial.setText("Place Values Tutorial (Level 1)");
+                btnCompetency3Practice.setText("Place Values Practice (Level 1)");
+                btnCompetency3Test.setText("Place Values Test (Level 1)");
+                break;
+            case 2:
+                btnCompetency1Tutorial.setText("Arithmetic Tutorial (Level 2)");
+                btnCompetency1Practice.setText("Arithmetic Practice (Level 2)");
+                btnCompetency1Test.setText("Arithmetic Test (Level 2)");
+                btnCompetency2Tutorial.setText("Fractions Tutorial (Level 2)");
+                btnCompetency2Practice.setText("Fractions Practice (Level 2)");
+                btnCompetency2Test.setText("Fractions Test (Level 2)");
+                btnCompetency3Tutorial.setText("Place Values Tutorial (Level 2)");
+                btnCompetency3Practice.setText("Place Values Practice (Level 2)");
+                btnCompetency3Test.setText("Place Values Test (Level 2)");
+                break;
+            case 3:
+                btnCompetency1Tutorial.setText("Arithmetic Tutorial (Level 3)");
+                btnCompetency1Practice.setText("Arithmetic Practice (Level 3)");
+                btnCompetency1Test.setText("Arithmetic Test (Level 3)");
+                btnCompetency2Tutorial.setText("Fractions Tutorial (Level 3)");
+                btnCompetency2Practice.setText("Fractions Practice (Level 3)");
+                btnCompetency2Test.setText("Fractions Test (Level 3)");
+                btnCompetency3Tutorial.setText("Place Values Tutorial (Level 3)");
+                btnCompetency3Practice.setText("Place Values Practice (Level 3)");
+                btnCompetency3Test.setText("Place Values Test (Level 3)");
+                break;
+        }
     }
 
     // get background Image for MainApplication to set window size based on background image
