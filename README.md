@@ -1,3 +1,5 @@
+Welcome to MedievalMath, a fun, interactive, educational application for tutoring children in math using the Massachusetts Kindergarten-4th math curriculum.
+
 System Overview: Medieval Math 
 Medieval Math is an educational platform designed to enhance the mathematics learning experience for students with the Massachusetts Kindergarten–4th grade mathematics curriculum through a fun and engaging medieval-themed environment. The system is supported by a MySQL database that securely stores user profiles, including personal details such as student name, username, user ID, password, and grade level, along with dynamic data like points and achievements. The application facilitates a seamless user experience from the login page, where users can either create a new profile or log into an existing one. This initial interaction ensures that all user credentials are verified for security before granting access to the personalized learning dashboard.
 
