@@ -87,17 +87,17 @@
                     <Font name="the rum is gone" size="30.0" />
                 </font>
             </Label>
-            <Label fx:id="grade" layoutX="494.0" layoutY="332.0" text="Grade">
+            <Label fx:id="grade" layoutX="441.0" layoutY="332.0" text="Grade">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>
             </Label>
-            <Label fx:id="points" layoutX="500.0" layoutY="422.0" text="Points">
+            <Label fx:id="points" layoutX="441.0" layoutY="422.0" text="Points">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>
             </Label>
-            <Label layoutX="467.0" layoutY="523.0" text="Trophies">
+            <Label layoutX="441.0" layoutY="524.0" text="Trophies">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>
