@@ -23,6 +23,12 @@ import java.util.Objects;
 public class HomePageController {
     @FXML
     private ImageView backgroundImageView;
+    @FXML
+    private ImageView Level1Crest;
+    @FXML
+    private ImageView Level2Crest;
+    @FXML
+    private ImageView Level3Crest;
 
     @FXML
     private AnchorPane buttonsContainer;
@@ -36,6 +42,17 @@ public class HomePageController {
         Page homePage = new Page(backgroundImage);
         level = Profile.getLevel();
         urls = LoginController.videoURLs;
+        switch(level){
+            case 1:
+                Level1Crest.setVisible(true);
+                break;
+            case 2:
+                Level2Crest.setVisible(true);
+                break;
+            case 3:
+                Level3Crest.setVisible(true);
+                break;
+        }
 
         // Set the background image
         backgroundImageView.setImage(backgroundImage);
