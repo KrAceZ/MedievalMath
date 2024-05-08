@@ -33,28 +33,28 @@ public class ArithmeticProblems extends MathProblems<Integer> {
                     case "+":
                     case "-":
                         a = rand.nextInt(101); // Generate a number between 0 and 100
-                        b = rand.nextInt(101 - a); // Generate a number between 0 and (100 - a)
+                        b = rand.nextInt(a + 1); // Generate a number between 0 and a
                         break;
                     case "*":
                     case "/":
                         a = rand.nextInt(11); // Generate a number between 0 and 10
-                        b = rand.nextInt(11); // Generate a number between 0 and 10
+                        b = rand.nextInt(a + 1); // Generate a number between 0 and a
                         break;
                 }
                 break;
             case 3:
-                opIndex = rand.nextInt(4)+2; // Select an operator (*, /)
+                opIndex = rand.nextInt(4); // Select an operator (+, -, *, /)
                 operator = operators[opIndex]; // Set the operator
                 switch (operator) {
                     case "+":
                     case "-":
                         a = rand.nextInt(145); // Generate a number between 0 and 144
-                        b = rand.nextInt(145 - a); // Generate a number between 0 and (144 - a)
+                        b = rand.nextInt(a + 1); // Generate a number between 0 and (144 - a)
                         break;
                     case "*":
                     case "/":
                         a = rand.nextInt(13); // Generate a number between 0 and 12
-                        b = rand.nextInt(13); // Generate a number between 0 and 12
+                        b = rand.nextInt(a + 1); // Generate a number between 0 and 12
                         break;
                 }
                 break;
