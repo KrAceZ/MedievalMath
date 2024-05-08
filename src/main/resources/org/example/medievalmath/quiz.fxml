@@ -18,17 +18,9 @@
 
         <!-- Define the layout of the quiz interface here -->
 
-        <VBox alignment="CENTER" prefHeight="500.0" prefWidth="500.0" spacing="30.0">
+        <VBox alignment="CENTER" prefHeight="500.0" prefWidth="500.0" spacing="20.0">
    <children>
-               <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" prefHeight="101.0" prefWidth="453.0" style="-fx-background-color: white;" text="" wrapText="true">
-                   <font>
-                       <Font name="the rum is gone" size="23.0" />
-                   </font>
-               <effect>
-                  <InnerShadow />
-               </effect>
-               </Label>
-               <Button fx:id="option1" layoutX="89.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="63.0" prefWidth="300.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
+               <Button fx:id="option1" layoutX="89.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="450.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -36,7 +28,7 @@
                   <InnerShadow />
                </effect>
                </Button>
-               <Button fx:id="option2" layoutX="315.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="63.0" prefWidth="300.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
+               <Button fx:id="option2" layoutX="315.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="99.0" prefWidth="450.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -44,7 +36,7 @@
                   <InnerShadow />
                </effect>
                </Button>
-               <Button fx:id="option3" layoutX="89.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="61.0" prefWidth="300.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK" visible="true">
+               <Button fx:id="option3" layoutX="89.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="450.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK" visible="true">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -52,7 +44,7 @@
                   <InnerShadow />
                </effect>
                </Button>
-               <Button fx:id="option4" layoutX="315.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="63.0" prefWidth="300.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK" visible="true">
+               <Button fx:id="option4" layoutX="315.0" layoutY="299.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="450.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK" visible="true">
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
@@ -61,9 +53,21 @@
                </effect>
                </Button>
                <!-- Empty Region for spacing at bottom-->
-               <Region prefHeight="50.0" />
+               <Region prefHeight="25.0" />
    </children>
         </VBox>
+         <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="-170.0" prefHeight="139.0" prefWidth="453.0" style="-fx-background-color: white;" text="" wrapText="true">
+             <font>
+                 <Font name="the rum is gone" size="23.0" />
+             </font>
+         <effect>
+            <InnerShadow>
+               <input>
+                  <Glow />
+               </input>
+            </InnerShadow>
+         </effect>
+         </Label>
 
     </children>
 </AnchorPane>
