@@ -32,7 +32,7 @@
          </effect></Button>
    
        <!-- Button that will take back to homepage -->
-       <Button layoutX="833.0" layoutY="47.0" mnemonicParsing="false" onAction="#navigateToHomePage" prefHeight="54.0" prefWidth="212.0" text="Back to Home">
+       <Button layoutX="833.0" layoutY="51.0" mnemonicParsing="false" onAction="#navigateToHomePage" prefHeight="47.0" prefWidth="183.0" text="Home">
          <effect>
             <InnerShadow />
          </effect>
