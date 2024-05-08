@@ -1,4 +1,8 @@
 package org.example.medievalmath;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +17,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import javafx.scene.control.ToggleGroup;
+
+import javafx.scene.control.TextInputDialog;
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.util.Optional;
 
 public class ShopItemController {
 
@@ -39,6 +48,10 @@ public class ShopItemController {
 
     private ToggleGroup toggleGroup;
 
+    boolean shoppingStarted = false;
+    List<String> selectedItems = new ArrayList<>();
+    String username = "";
+    int totalCostItems = 0;
     public void initialize() {
 
         //Image ShopPageBackgroundImage = new Image(getClass().getResourceAsStream("ShopPageBackground.png"));
@@ -59,14 +72,65 @@ public class ShopItemController {
 
     @FXML
     private void handleButtonShopClick() {
-        // Handle button 1 click event
+        selectedItems.clear();
+        totalCostItems = 0;
+
         System.out.println("Shopping Started .....");
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("UserName");
+        dialog.setHeaderText("Please enter your username:");
+        dialog.setContentText("UserName");
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(name -> {
+            username = name; // Enter UserName here
+        });
+
+        //check the username is valid in database
+        shoppingStarted = true;
     }
 
     @FXML
     private void handleButtonCheckOutClick() {
-        // Handle button 2 click event
-        System.out.println("Button 2 clicked");
+        if (selectedItems.isEmpty()) {
+            System.out.println("No items selected for check out");
+        } else {
+            // hat, sword, kitehelmet, bridge
+            for (String item : selectedItems) {
+                switch (item) {
+                    case "hat":
+                        totalCostItems = totalCostItems + 50;
+                        break;
+                    case "sword":
+                        totalCostItems = totalCostItems + 100;
+                        break;
+                    case "kitehelmet":
+                        totalCostItems = totalCostItems + 200;
+                        break;
+                    case "bridge":
+                        totalCostItems = totalCostItems + 300;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            // check if there is enough points for the shop items
+            ShopItem items = new ShopItem(totalCostItems, selectedItems, username);
+            if (items.checkIftheUserNameIsValid() == true){
+                if(items.getPoints() >= totalCostItems){
+                    items.purchase(items.getPoints());
+                }
+                else
+                {
+                    System.out.println("The user " + username + " do not have " + totalCostItems + " coins to purchase");
+                }
+            }
+            else
+            {
+                System.out.println("The username " + username + " is invalid");
+            }
+            selectedItems.clear();
+        }
     }
 
     @FXML
@@ -90,13 +154,16 @@ public class ShopItemController {
     @FXML
     private void handleImageSelection() {
         ToggleButton selectedButton = (ToggleButton) toggleGroup.getSelectedToggle();
-        if (selectedButton != null) {
-//            ImageView imageView = (ImageView) selectedButton.getGraphic();
-//            Image selectedImage = imageView.getImage();
-//            System.out.println(selectedImage);
-            String imageId = selectedButton.getId();
-            System.out.println("Selected image id: " + imageId);
 
+        if(shoppingStarted == false){
+            System.out.println("Please start shopping first");
+        }
+        else {
+            if (selectedButton != null) {
+                String imageId = selectedButton.getId();
+                System.out.println("Selected image id: " + imageId);
+                selectedItems.add(imageId);
+            }
         }
     }
 }
