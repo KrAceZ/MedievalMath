@@ -1,28 +1,31 @@
 package org.example.medievalmath;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-
 import java.util.*;
-
 
 import static org.example.medievalmath.Quiz.problem;
 
-
 public class QuizController {
+    // FXML UI elements
     public ImageView backgroundImageView;
     @FXML
     private Label question;
-
     @FXML
     private Button option1, option2, option3, option4;
+
+    // Static counters for correct and wrong answers
     static int correct = 0;
     static int wrong = 0;
 
+    // Constants representing quiz size
     public static final int QUIZSIZE = 10;
     public static final int TESTSIZE = 20;
+
+    // Static variables for managing the quiz
     private static Quiz quiz;
     private final Set<String> generatedProblems = new HashSet<>();
     static int quizLevel;
@@ -31,132 +34,66 @@ public class QuizController {
     private static QuizController instance;
     static String quizType;
 
-
-    public QuizController()
-    {
+    // Constructor: initializes the quiz settings and creates a new quiz
+    public QuizController() {
         correct = 0;
         wrong = 0;
-        quizLevel = Profile.getLevel();
-        //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-
-        //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-        quizType = setQuizType(numOfQuizProbs, quizLevel, quizCompetency);
-        //quiz = new Quiz(problems);
-        quiz = new Quiz(quizType, numOfQuizProbs);
-        //System.out.println("number of problems: "+ problems.size());
-
-        //List<MathProblems> problems = generateProblems(numOfQuizProbs, quizLevel, quizCompetency);
-        //quiz = new Quiz(problems);
-       // System.out.println("number of problems: "+ problems.size());
-
+        quizLevel = Profile.getLevel(); // Retrieve the quiz level from the user's profile
+        quizType = setQuizType(quizLevel, quizCompetency); // Determine the quiz type based on the level and competency
+        quiz = new Quiz(quizType, numOfQuizProbs); // Initialize a new Quiz object
     }
 
-    public static void setQuizLevel(int level)
-    {
+    // Setters for quiz properties
+    public static void setQuizLevel(int level) {
         quizLevel = level;
     }
-    public static void setQuizCompetency(String competency)
-    {
+
+    public static void setQuizCompetency(String competency) {
         quizCompetency = competency;
     }
-    public static void setNumOfQuizProbs(int num)
-    {
-        numOfQuizProbs=num;
+
+    public static void setNumOfQuizProbs(int num) {
+        numOfQuizProbs = num;
     }
-    // Method to initialize the quiz
+
+    // FXML to load the first problem
     @FXML
     private void initialize() {
-        // load the first problem
+        // Initialize the quiz by resetting the problem index and loading the first problem
         System.out.println("Loading problem from QuizController.initialize");
         quiz.currentProblemIndex = 0;
         loadNextProblem(quizType);
     }
 
-
-     //private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
-    private String setQuizType(int numOfProbs, int level, String competency){
-         //List<MathProblems> probs = new ArrayList<>();
+    // Method to set the quiz type based on level/competency
+    private String setQuizType(int level, String competency) {
         String type = "";
+        switch (competency) {
+            case "a":
+                type = "Arithmetic";
+                break;
+            case "b":
+                if (level == 1) {
+                    type = "Counting";
+                } else {
+                    type = "Fraction";
+                }
+                break;
+            case "c":
+                type = "PlaceValue";
+                break;
+        }
+        return type;
+    }
 
-
-     //private List<MathProblems> generateProblems(int numOfProbs, int level, String competency) {
-         //List<MathProblems> probs = new ArrayList<>();
-         switch (competency){
-             case "a":
-                 //probs = generateArithmeticProblems(numOfProbs, level, competency);
-//                 for (int i = 0; i < numOfProbs; i++) {
-//                     //MathProblems problem;
-//                     ArithmeticProblems problem;
-//                     do {
-//                         problem = new ArithmeticProblems(level);
-//                     } while (generatedProblems.contains(problem.toString()));
-//                     //problem = new ArithmeticProblems(level);
-//                     probs.add(problem);
-//                     generatedProblems.add(problem.toString());
-//                     System.out.println(problem);
-//                 }
-                 type = "Arithmetic";
-                 break;
-             case "b":
-                 if(level == 1) {
-                     type = "Counting";
-//                     for (int i = 0; i < numOfProbs; i++) {
-//                         MathProblems problem;
-//                         do {
-//                             problem = new CountingProblems(level);
-//                         } while (generatedProblems.contains(problem.toString()));
-//
-//                         probs.add(problem);
-//                         generatedProblems.add(problem.toString());
-//                     }
-                 }
-                 else{
-                     type = "Fraction";
-//                     for (int i = 0; i < numOfProbs; i++) {
-//                         MathProblems problem;
-//                         do {
-//                             problem = new FractionProblems(level);
-//                         } while (generatedProblems.contains(problem.toString()));
-//
-//                         probs.add(problem);
-//                         generatedProblems.add(problem.toString());
-//                     }
-                 }
-                 break;
-             case "c":
-                 type = "PlaceValue";
-//                 for (int i = 0; i < numOfProbs; i++) {
-//                    MathProblems problem;
-//                    do {
-//                         problem = new PlaceValueProblems(level);
-//                    } while (generatedProblems.contains(problem.toString()));
-//
-//                    probs.add(problem);
-//                    generatedProblems.add(problem.toString());
-//                 }
-                 break;
-         }
-
-         return type;
-     }
-
-    // method to load the next problem
-//    private void loadNextProblem() {
-//            MathProblems currentProblem = quiz.getCurrentProblem();
-//            question.setText(currentProblem.getProblem());
-//            System.out.println(currentProblem.getProblem());
-//
-//            option1.setText("a) " + currentProblem.getOption("a"));
-//            option2.setText("b) " + currentProblem.getOption("b"));
-//            option3.setText("c) " + currentProblem.getOption("c"));
-//            option4.setText("d) " + currentProblem.getOption("d"));
-//    }
+    // Method to load the next problem based on the quiz type
     private void loadNextProblem(String type) {
-        switch(type){
+        // Switch-case logic to generate a problem based on the quiz type
+        switch (type) {
             case "Arithmetic":
                 do {
                     problem = new ArithmeticProblems(quizLevel);
-                } while (generatedProblems.contains(problem.toString()));
+                } while (generatedProblems.contains(problem.toString())); // Avoid duplicate problems
                 generatedProblems.add(problem.toString());
                 break;
             case "Counting":
@@ -179,47 +116,78 @@ public class QuizController {
                 break;
         }
 
-        //ArithmeticProblems problem = new ArithmeticProblems(quizLevel);
+        // Set the text of the question label
         question.setText(problem.getProblem());
         System.out.println(problem.getProblem());
-
+        // Set the text of the buttons
         option1.setText("a) " + problem.getOption("a"));
         option2.setText("b) " + problem.getOption("b"));
-        option3.setText("c) " + problem.getOption("c"));
-        option4.setText("d) " + problem.getOption("d"));
+
+        // Changes button visibility if the problem type is a PLace Values type
+        if (type.equals("PlaceValue")) {
+            if (quizLevel >= 2) {
+                // enables/shows 3rd button
+                option3.setText("c) " + problem.getOption("c"));
+                option3.setDisable(false);
+                option3.setVisible(true);
+            } else {
+                // disbale/hides 3rd button
+                option3.setDisable(true);
+                option3.setVisible(false);
+            }
+            if (quizLevel >= 3) {
+                // enables/shows 4th button
+                option4.setText("d) " + problem.getOption("d"));
+                option4.setDisable(false);
+                option4.setVisible(true);
+            } else {
+                // disbale/hides 4th button
+                option4.setDisable(true);
+                option4.setVisible(false);
+            }
+        } else {
+            // For other problem types, ensure all options are visible and enabled
+            option3.setText("c) " + problem.getOption("c"));
+            option3.setDisable(false);
+            option3.setVisible(true);
+
+            option4.setText("d) " + problem.getOption("d"));
+            option4.setDisable(false);
+            option4.setVisible(true);
+        }
     }
 
-    // Method to handle when an option is clicked
+    // FXML event handler for when an option is clicked
     @FXML
     public void optionClicked(ActionEvent event) {
+        // Extract the selected answer from the button text
         Button clickedOption = (Button) event.getSource();
-        String userAnswer = clickedOption.getText().split("\\)")[0].trim(); // Corrected button text extraction
+        String userAnswer = clickedOption.getText().split("\\)")[0].trim();
         boolean isCorrect = quiz.checkAnswer(userAnswer);
         System.out.println(isCorrect);
 
+        // Update counters based on the correctness of the user's answer
         if (isCorrect) {
             correct++;
         } else {
             wrong++;
         }
-        // Move to the next problem
+
+        // Move to the next problem or handle the end of the quiz
         quiz.moveToNextProblem();
-        if(quiz.isQuizEnd())
-        {
+        if (quiz.isQuizEnd()) {
             handleEndOfQuiz();
-        }
-        else {
+        } else {
             // Load the next problem
             System.out.println("Loading next problem from QuizController.optionClicked");
             loadNextProblem(quizType);
         }
     }
 
-    // Method to handle the end of quiz
+    // Method to handle the end of the quiz and transition to the results page
     private void handleEndOfQuiz() {
-        // Implement end of quiz logic here
+        // Navigate to the quiz results page
         QuizPageController.setQuizFXML("quiz_result.fxml");
         QuizPageController.getInstance().loadContent();
     }
-
 }
