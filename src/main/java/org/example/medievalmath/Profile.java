@@ -10,7 +10,7 @@ public class Profile {
     public static int grade;
 
     public static int level;
-    private String username;
+    public static String username;
     private String password;
     public static int points;
     public static Map<Integer, Boolean> earnedAchievements = new HashMap<>();

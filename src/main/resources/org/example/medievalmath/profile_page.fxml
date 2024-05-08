@@ -82,17 +82,17 @@
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <Label layoutX="441.0" layoutY="263.0" text="Username">
+            <Label fx:id="username" layoutX="441.0" layoutY="263.0" text="Username">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>
             </Label>
-            <Label layoutX="494.0" layoutY="332.0" text="Grade">
+            <Label fx:id="grade" layoutX="494.0" layoutY="332.0" text="Grade">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>
             </Label>
-            <Label layoutX="500.0" layoutY="422.0" text="Points">
+            <Label fx:id="points" layoutX="500.0" layoutY="422.0" text="Points">
                 <font>
                     <Font name="the rum is gone" size="30.0" />
                 </font>

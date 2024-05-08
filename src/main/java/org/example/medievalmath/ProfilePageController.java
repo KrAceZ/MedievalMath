@@ -60,6 +60,13 @@ public class ProfilePageController {
     private Button homeButton;
     @FXML
     private Button logOutButton;
+    @FXML
+    private Label username;
+    @FXML
+    private Label grade;
+    @FXML
+    private Label points;
+
 
 
     public void initialize() {
@@ -68,6 +75,9 @@ public class ProfilePageController {
 
         // Set the background image
         backgroundImageView.setImage(defaultBackground);
+        username.setText(Profile.username);
+        grade.setText("Grade: "+ Profile.grade);
+        points.setText("Points: "+ Profile.points);
 
         achievementImages.put(1,royalSumScribeButton);
         achievementImages.put(2,subtractionSorcererButton);
