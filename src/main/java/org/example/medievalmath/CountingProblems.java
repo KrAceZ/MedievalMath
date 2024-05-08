@@ -24,7 +24,8 @@ public class CountingProblems extends MathProblems<Integer> {
         missingNumber = sequence.get(missingNumberIndex);
         sequence.set(missingNumberIndex, null); // Set the missing number to null
 
-        StringBuilder problem = new StringBuilder();
+        StringBuilder problem;
+        problem = new StringBuilder();
 
         for (int i = 0; i < sequence.size(); i++) {
             if (i == missingNumberIndex) {

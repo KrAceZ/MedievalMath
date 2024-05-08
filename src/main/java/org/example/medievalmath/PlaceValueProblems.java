@@ -17,29 +17,31 @@ public class PlaceValueProblems extends MathProblems<String> {
     protected void generatePlaceValueProblem() {
         Random rand = new Random();
         int maxNumber;
-        int maxPlace;
+        int maxPlace = switch (level) {
+            case 1 -> {
+                maxNumber = 99; // Maximum number for level 1 is 99
+                yield 2; // Maximum place for level 1 is Tens
+            }
+            case 2 -> {
+                maxNumber = 999; // Maximum number for level 2 is 999
+                yield 3; // Maximum place for level 2 is Hundreds
+            }
+            case 3 -> {
+                maxNumber = 9999999; // Maximum number for level 3 is 9,999,999
+                yield 7; // Maximum place for level 3 is Millions
+            }
+            default -> throw new IllegalArgumentException("Unsupported level: " + level);
+        };
 
         // Set the appropriate limits based on the level
-        switch (level) {
-            case 1:
-                maxNumber = 99; // Maximum number for level 1 is 99
-                maxPlace = 2; // Maximum place for level 1 is Tens
-                break;
-            case 2:
-                maxNumber = 999; // Maximum number for level 2 is 999
-                maxPlace = 3; // Maximum place for level 2 is Hundreds
-                break;
-            case 3:
-                maxNumber = 9999999; // Maximum number for level 3 is 9,999,999
-                maxPlace = 7; // Maximum place for level 3 is Millions
-                break;
-            default:
-                throw new IllegalArgumentException("Unsupported level: " + level);
-        }
 
         number = rand.nextInt(maxNumber) + 1; // Generate a number up to the maximum for the level
-        int place = rand.nextInt(maxPlace); // Randomly choose a place value based on the level
-        digit = (number / (int) Math.pow(10, place)) % 10;
+        int place;
+        do {
+            place = rand.nextInt(maxPlace); // Randomly choose a place value based on the level
+            digit = (number / (int) Math.pow(10, place)) % 10;
+        } while (digit == 0); // Repeat until a non-zero digit is found
+
         generateOptions(maxPlace);
     }
 
@@ -88,8 +90,7 @@ public class PlaceValueProblems extends MathProblems<String> {
 
     @Override
     public String getOption(String key) {
-        String optionValue = options.getOrDefault(key, "N/A");
-        return optionValue;
+        return options.getOrDefault(key, "N/A");
     }
 
     @Override

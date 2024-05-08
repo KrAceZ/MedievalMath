@@ -22,7 +22,7 @@ public class ConsoleTester {
 
         // Generate and present 4 questions
         for (int i = 0; i < 4; i++) {
-            MathProblems problems = null;
+            MathProblems problems;
 
             // Create appropriate problem instance based on user's choice
             switch (choice) {
@@ -58,7 +58,7 @@ public class ConsoleTester {
             if (problems.checkAnswer(userAnswer)) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("Incorrect. The correct answer is: " + problems.getOption(problems.correctOption));
+                System.out.println("Incorrect. The correct answer is: " + problems.getOption(MathProblems.correctOption));
             }
         }
 
