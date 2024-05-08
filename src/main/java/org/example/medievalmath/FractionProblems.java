@@ -3,8 +3,8 @@ package org.example.medievalmath;
 import java.util.*;
 
 public class FractionProblems extends MathProblems {
-    private static int numerator;
-    private static int denominator;
+    public static int numerator;
+    public static int denominator;
 
     private static final List<Integer> denominatorsLevel2 = Arrays.asList(2, 3, 4, 6, 8);
     private static final List<Integer> denominatorsLevel3 = Arrays.asList(2, 3, 4, 5, 6, 8, 10, 12, 100);
@@ -26,24 +26,41 @@ public class FractionProblems extends MathProblems {
                 generateIdentifyFractionProblem();
                 break;
             case 1:
-                generateComparisonProblem();
+                //generateComparisonProblem();
+                generateIdentifyFractionProblem();
                 break;
             case 2:
-                generateAdditionSubtractionProblem();
+                //generateAdditionSubtractionProblem();
+                generateIdentifyFractionProblem();
                 break;
             case 3:
-                generateMultiplicationProblem();
+                //generateMultiplicationProblem();
+                generateIdentifyFractionProblem();
                 break;
         }
     }
 
     private void generateIdentifyFractionProblem() {
+//        Random rand = new Random();
         correctOption = numerator + "/" + denominator;
         options = new HashMap<>();
-        options.put("a", (numerator + "/" + denominator));
-        options.put("b", ((numerator % 2 + 1) + "/" + denominator));
-        options.put("c", (numerator + "/" + (denominator % 2 + 1)));
-        options.put("d", ((numerator % 2 + 1) + "/" + (denominator % 2 + 2)));
+//        options.put("a", ((numerator + "/" + denominator));
+//        options.put("b", ((numerator % 2 + 1) + "/" + denominator));
+//        options.put("c", (numerator + "/" + (denominator % 2 + 1)));
+//        options.put("d", ((numerator % 2 + 1) + "/" + (denominator % 2 + 2)));
+        Random rand = new Random();
+        List<Integer> usedNumbers = new ArrayList<>();
+        for (char option = 'a'; option <= 'd'; option++) {
+            int randomNum;
+            int randomDen;
+            randomNum = numerator + rand.nextInt(5) + 1;
+            randomDen = denominator + rand.nextInt(5)+1;
+            options.put(String.valueOf(option), (randomNum + "/" + randomDen));
+        }
+        correctOption = String.valueOf((char) ('a' + rand.nextInt(4)));
+        options.put(correctOption, numerator + "/" + denominator);
+//        QuizController.updatePieChart(numerator, denominator);
+//        QuizController.fractionChart.setVisible(true); // Show the pie chart only for fraction problems
     }
 
     private void generateComparisonProblem() {

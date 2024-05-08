@@ -2,9 +2,15 @@ package org.example.medievalmath;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+<<<<<<< Updated upstream
+=======
+import javafx.scene.layout.VBox;
+
+>>>>>>> Stashed changes
 import java.util.*;
 
 import static org.example.medievalmath.Quiz.problem;
@@ -33,6 +39,11 @@ public class QuizController {
     static int numOfQuizProbs;
     private static QuizController instance;
     static String quizType;
+    @FXML
+    public  PieChart fractionChart;
+    @FXML
+    public  VBox fractionChartContainer;
+
 
     // Constructor: initializes the quiz settings and creates a new quiz
     public QuizController() {
@@ -62,7 +73,13 @@ public class QuizController {
         // Initialize the quiz by resetting the problem index and loading the first problem
         System.out.println("Loading problem from QuizController.initialize");
         quiz.currentProblemIndex = 0;
+        fractionChart.setVisible(false);
         loadNextProblem(quizType);
+        if(quizType.equals("Fraction")){
+            updatePieChart(FractionProblems.numerator, FractionProblems.denominator);
+            fractionChart.setVisible(true); // Show the pie chart only for fraction problems
+        }
+
     }
 
     // Method to set the quiz type based on level/competency
@@ -107,6 +124,7 @@ public class QuizController {
                     problem = new FractionProblems(quizLevel);
                 } while (generatedProblems.contains(problem.toString()));
                 generatedProblems.add(problem.toString());
+
                 break;
             case "PlaceValue":
                 do {
@@ -116,10 +134,21 @@ public class QuizController {
                 break;
         }
 
+<<<<<<< Updated upstream
         // Set the text of the question label
         question.setText(problem.getProblem());
         System.out.println(problem.getProblem());
         // Set the text of the buttons
+=======
+        //ArithmeticProblems problem = new ArithmeticProblems(quizLevel);
+        if(quizType.equals("Fraction")){
+            question.setText("What fraction do you see?");
+        }
+        else {
+            question.setText(problem.getProblem());
+            System.out.println(problem.getProblem());
+        }
+>>>>>>> Stashed changes
         option1.setText("a) " + problem.getOption("a"));
         option2.setText("b) " + problem.getOption("b"));
 
@@ -190,4 +219,16 @@ public class QuizController {
         QuizPageController.setQuizFXML("quiz_result.fxml");
         QuizPageController.getInstance().loadContent();
     }
+<<<<<<< Updated upstream
 }
+=======
+
+    public void updatePieChart(int numerator, int denominator) {
+        fractionChart.getData().clear();
+        PieChart.Data slice1 = new PieChart.Data("Fraction " + numerator + "/" + denominator, numerator);
+        PieChart.Data slice2 = new PieChart.Data("Remaining", denominator - numerator);
+        fractionChart.getData().addAll(slice1, slice2);
+    }
+
+}
+>>>>>>> Stashed changes
