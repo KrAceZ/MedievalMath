@@ -5,7 +5,7 @@ import java.util.*;
 public class PlaceValueProblems extends MathProblems<String> {
     private int number;
     private int digit;
-    private static String placeValue;
+    private static List<String> correctAnswers;
     private static final List<String> PLACE_VALUES = Arrays.asList("Ones", "Tens", "Hundreds",
             "Thousands", "Ten Thousands", "Hundred Thousands", "Millions");
 
@@ -18,6 +18,8 @@ public class PlaceValueProblems extends MathProblems<String> {
         Random rand = new Random();
         int maxNumber;
         int maxPlace;
+
+        // Set the appropriate limits based on the level
         switch (level) {
             case 1:
                 maxNumber = 99; // Maximum number for level 1 is 99
@@ -27,15 +29,18 @@ public class PlaceValueProblems extends MathProblems<String> {
                 maxNumber = 999; // Maximum number for level 2 is 999
                 maxPlace = 3; // Maximum place for level 2 is Hundreds
                 break;
+            case 3:
+                maxNumber = 9999999; // Maximum number for level 3 is 9,999,999
+                maxPlace = 7; // Maximum place for level 3 is Millions
+                break;
             default:
-                maxNumber = (int) Math.pow(10, level + 1); // For other levels, use the existing logic
-                maxPlace = level * 2;
+                throw new IllegalArgumentException("Unsupported level: " + level);
         }
+
         number = rand.nextInt(maxNumber) + 1; // Generate a number up to the maximum for the level
         int place = rand.nextInt(maxPlace); // Randomly choose a place value based on the level
         digit = (number / (int) Math.pow(10, place)) % 10;
-        placeValue = PLACE_VALUES.get(place);
-        generateOptions();
+        generateOptions(maxPlace);
     }
 
     @Override
@@ -43,38 +48,53 @@ public class PlaceValueProblems extends MathProblems<String> {
         return "What is the place value of the " + digit + " in the number " + number + "?";
     }
 
-    protected void generateOptions() {
+    protected void generateOptions(int maxPlace) {
         options = new LinkedHashMap<>();
-        Random rand = new Random();
+        List<String> allCorrectAnswers = new ArrayList<>();
+
+        // Identify all occurrences of the digit and their respective place values
+        int remainingNumber = number;
+        int placeIndex = 0;
+        while (remainingNumber > 0) {
+            int currentDigit = remainingNumber % 10;
+            if (currentDigit == digit && placeIndex < PLACE_VALUES.size()) {
+                allCorrectAnswers.add(PLACE_VALUES.get(placeIndex));
+            }
+            remainingNumber /= 10;
+            placeIndex++;
+        }
+        correctAnswers = allCorrectAnswers;
+
         // Get possible place values based on the level
-        List<String> choices = new ArrayList<>(PLACE_VALUES.subList(0, Math.min(level * 2, PLACE_VALUES.size())));
-        choices.remove(placeValue); // Remove the correct answer from the choices
+        List<String> choices = new ArrayList<>(PLACE_VALUES.subList(0, maxPlace));
+        choices.removeAll(correctAnswers); // Remove all correct answers from the choices
         Collections.shuffle(choices); // Shuffle the choices
-        choices = choices.subList(0, Math.min(3, choices.size())); // Get the first 3 choices or less if there are fewer than 3 choices
+        choices = choices.subList(0, Math.min(3, choices.size())); // Get the first 3 choices or fewer
 
-        // Add the correct answer to the choices
-        choices.add(placeValue);
-
-        // Shuffle the choices
+        // Add all the correct answers back to the choices
+        choices.addAll(correctAnswers);
         Collections.shuffle(choices);
 
         // Map options to characters (a, b, c, d)
         for (int i = 0; i < 4; i++) {
+            String key = String.valueOf((char) ('a' + i));
             if (i < choices.size()) {
-                options.put(String.valueOf((char) ('a' + i)), choices.get(i));
+                options.put(key, choices.get(i));
+            } else {
+                options.put(key, "N/A"); // Placeholder for missing options
             }
         }
-        correctOption = String.valueOf((char) ('a' + choices.indexOf(placeValue)));
     }
 
     @Override
     public String getOption(String key) {
-        String optionValue = options.get(key);
-        if (optionValue != null) {
-            // Convert the integer option value back to a string
-            return optionValue;
-        } else {
-            return null; // Or handle the case when the key is not found
-        }
+        String optionValue = options.getOrDefault(key, "N/A");
+        return optionValue;
+    }
+
+    @Override
+    public boolean checkAnswer(String userOption) {
+        String selectedAnswer = options.get(userOption);
+        return correctAnswers.contains(selectedAnswer);
     }
 }
