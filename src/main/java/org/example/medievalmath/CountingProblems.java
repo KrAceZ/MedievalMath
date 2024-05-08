@@ -2,14 +2,14 @@ package org.example.medievalmath;
 
 import java.util.*;
 
-public class CountingProblems extends MathProblems {
-    private final List<Integer> sequence;
-    private final int missingNumberIndex;
-    private final int missingNumber;
+public class CountingProblems extends MathProblems<Integer> {
+    private static List<Integer> sequence;
+    private static int missingNumberIndex;
+    private static int missingNumber;
     private static final Set<String> generatedProblems = new HashSet<>();
 
     public CountingProblems(int level) {
-        super("+", level); // Call the superclass constructor
+        super(level);
         Random rand = new Random();
         int start;
         do {
@@ -23,11 +23,51 @@ public class CountingProblems extends MathProblems {
         missingNumberIndex = rand.nextInt(5);
         missingNumber = sequence.get(missingNumberIndex);
         sequence.set(missingNumberIndex, null); // Set the missing number to null
+        //generateCountingProblem();
+        StringBuilder problem = new StringBuilder();
+        //Random rand = new Random();
+
+        for (int i = 0; i < sequence.size(); i++) {
+            if (i == missingNumberIndex) {
+                problem.append("_ ");
+            } else {
+                problem.append(sequence.get(i)).append(" ");
+            }
+        }
+        //this.problem = problem.toString(); // Store the problem as a class variable
         generateOptions();
     }
 
+//    public void generateCountingProblem() {
+//        // Problem generation logic
+//        StringBuilder problem = new StringBuilder();
+//        Random rand = new Random();
+//
+//        for (int i = 0; i < sequence.size(); i++) {
+//            if (i == missingNumberIndex) {
+//                problem.append("_ ");
+//            } else {
+//                problem.append(sequence.get(i)).append(" ");
+//            }
+//        }
+//        //this.problem = problem.toString(); // Store the problem as a class variable
+//        generateOptions();
+//    }
+
     @Override
-    void generateOptions() {
+    public String getProblem() {
+        StringBuilder problem = new StringBuilder();
+        for (int i = 0; i < 5; i++) {
+            if (i == missingNumberIndex) {
+                problem.append("_ ");
+            } else {
+                problem.append(sequence.get(i)).append(" ");
+            }
+        }
+        return problem.toString();
+    }
+
+    public void generateOptions() {
         Random rand = new Random();
         options = new HashMap<>();
         Set<Integer> generatedOptions = new HashSet<>();
@@ -44,20 +84,13 @@ public class CountingProblems extends MathProblems {
     }
 
     @Override
-    public String getProblem() {
-        StringBuilder problem = new StringBuilder();
-        for (int i = 0; i < 5; i++) {
-            if (i == missingNumberIndex) {
-                problem.append("_ ");
-            } else {
-                problem.append(sequence.get(i)).append(" ");
-            }
+    public String getOption(String key) {
+        Integer optionValue = options.get(key);
+        if (optionValue != null) {
+            return String.valueOf(optionValue);
+        } else {
+            return null; // Or handle the case when the key is not found
         }
-        return problem.toString();
     }
 
-    @Override
-    public boolean checkAnswer(String userOption) {
-        return userOption.equals(correctOption);
-    }
 }

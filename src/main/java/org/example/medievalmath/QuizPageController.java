@@ -63,7 +63,7 @@ public class QuizPageController {
             quizContainer.getChildren().add(newContent);  // Add new content to quizContainer
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error loading FXML: " + quizFXML);
+            System.out.println("Error loading FXML: " + "quiz.fxml");
         }
     }
 

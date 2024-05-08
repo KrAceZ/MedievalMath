@@ -27,5 +27,6 @@ public class PageController {
     @FXML
     private void handleButtonClick() {
         // Implement button click logic here
+        // currently unused
     }
 }

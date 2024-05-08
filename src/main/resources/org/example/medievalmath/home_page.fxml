@@ -62,7 +62,11 @@
                      </light>
                   </Lighting>
                </effect></Button>
+<<<<<<< HEAD
           <Button layoutX="60.0" layoutY="65.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="67.0" prefWidth="225.0" text="Exit">
+=======
+          <Button layoutX="27.0" layoutY="65.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="67.0" prefWidth="225.0" text="Exit">
+>>>>>>> Math-Changes-Testing
           <font>
               <Font name="the rum is gone" size="30.0" />
           </font>
@@ -147,7 +151,11 @@
                      </light>
                   </Lighting>
                </effect></Button>
+<<<<<<< HEAD
               <Button alignment="CENTER" layoutX="436.0" layoutY="475.0" onAction="#navigateToPractice2Page" prefHeight="100.0" prefWidth="250.0" text="Competency 2 Practice" textAlignment="CENTER" wrapText="true">
+=======
+              <Button alignment="CENTER" layoutX="440.0" layoutY="475.0" onAction="#navigateToPractice2Page" prefHeight="100.0" prefWidth="250.0" text="Competency 2 Practice" textAlignment="CENTER" wrapText="true">
+>>>>>>> Math-Changes-Testing
                <font>
                    <Font name="the rum is gone" size="15.0" />
                </font>
@@ -225,7 +233,7 @@
 
 
       </children>
-   
+
        </AnchorPane>
    </children>
 </AnchorPane>

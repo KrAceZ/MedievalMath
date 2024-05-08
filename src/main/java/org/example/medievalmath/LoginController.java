@@ -3,6 +3,7 @@ package org.example.medievalmath;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -12,12 +13,18 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
+<<<<<<< HEAD
 import javafx.scene.paint.Color;
+=======
+import javax.swing.*;
+>>>>>>> Math-Changes-Testing
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 
@@ -43,10 +50,21 @@ public class LoginController {
     private Label errorLabel;
     @FXML
     private ImageView backgroundImageView;
+    @FXML
+    private Button createAccountButton;
+    @FXML
+    private Button loginButton;
     public int currentGrade;
     public int currentPoints;
+<<<<<<< HEAD
     private String username;
 
+=======
+    public String currentUsername;
+    public String currentStudentName;
+    public int currentUserID;
+    public static Map<Integer, String> videoURLs = new HashMap<>();
+>>>>>>> Math-Changes-Testing
 
     // Method to handle the action of the switch link
     @FXML
@@ -54,21 +72,35 @@ public class LoginController {
         // If the current view is "Login"
         if (loginLabel.getText().equals("Login")) {
             // Change the view to "Create a new account"
+<<<<<<< HEAD
             loginLabel.setText("Create a new account");
             loginLabel.setTextFill(Color.WHITE);
+=======
+            loginLabel.setText(""); // FIX THIS
+>>>>>>> Math-Changes-Testing
             switchLink.setText("Login as a returning user");
-            // Make the name field, confirm password field, and grade field visible
+            // Hide the login-related fields
+            showPasswordCheckBox.setVisible(false);
+            // Show the new account-related fields
             nameField.setVisible(true);
+            usernameField.setVisible(true);
+            passwordField.setVisible(true);
             confirmPasswordField.setVisible(true);
             gradeField.setVisible(true);
+            createAccountButton.setVisible(true);
         } else {
             // If the current view is "Create a new account", change the view to "Login"
             loginLabel.setText("Login");
             switchLink.setText("Create a new account");
-            // Hide the name field, confirm password field, and grade field
+            // Show the login-related fields
+            usernameField.setVisible(true);
+            passwordField.setVisible(true);
+            showPasswordCheckBox.setVisible(true);
+            // Hide the new account-related fields
             nameField.setVisible(false);
             confirmPasswordField.setVisible(false);
             gradeField.setVisible(false);
+            createAccountButton.setVisible(false);
         }
     }
 
@@ -95,46 +127,56 @@ public class LoginController {
         String confirmPassword = confirmPasswordField.getText();
         String grade = gradeField.getText();
 
+        // Check the user's credentials
+        boolean isValidUser = checkCredentials(username, password);
+
+        // If the credentials are valid, load the home page
+        if (isValidUser) {
+            loadHomePage(event);
+        } else {
+            // If the credentials are not valid, show an error message
+            errorLabel.setText("Incorrect");
+        }
+    }
+
+    @FXML
+    protected void handleCreateAccountButton(ActionEvent event){
         // If the current view is "Create a new account"
-        if (loginLabel.getText().equals("Create a new account")) {
-            // If the password and confirm password match, create a new account
-            if (password.equals(confirmPassword)) {
-                createAccount(name, username, password, grade);
+            if (passwordField.getText().equals(confirmPasswordField.getText())) {
+                createAccount();
                 // Load the home page
-                loadHomePage();
+                loadHomePage(event);
             } else {
                 // If the password and confirm password do not match, show an error message
                 errorLabel.setText("Passwords do not match");
             }
-        } else {
-            // If the current view is "Login", check the user's credentials
-            boolean isValidUser = checkCredentials(username, password);
-
-            // If the credentials are valid, load the home page
-            if (isValidUser) {
-                loadHomePage();
-            } else {
-                // If the credentials are not valid, show an error message
-                errorLabel.setText("Incorrect");
-            }
         }
-    }
 
     // Method to load the home page
-    private void loadHomePage() {
+    private void loadHomePage(ActionEvent event) {
         try {
-            // Load the home page
+            Profile user = new Profile(currentStudentName, currentUsername, currentGrade, currentPoints);
+            setTutorialUrls();
+            // Load the home page FXML
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home_page.fxml")));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+
+            // Get the current stage via the event source (which is a Node)
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene to the existing stage
+            currentStage.setScene(new Scene(root, 1123, 794));
+            currentStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     // Method to create a new account
-    private void createAccount(String name, String username, String password, String grade) {
+    private void createAccount() {
+        String name = nameField.getText();
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String grade = gradeField.getText();
         String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
         String user = "admin";
         String adminPassword = "WbIofZIaebOVezZ2wy9u";
@@ -158,6 +200,12 @@ public class LoginController {
             }
             preparedStatement.setString(5, name);
             preparedStatement.execute();
+
+            sql = "INSERT INTO achievements (userID, competencyID, earned) " +
+                    "SELECT ?, competencyID, false FROM standards";
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, userID);
+            preparedStatement.execute();
             conn.close();
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -179,7 +227,15 @@ public class LoginController {
                     if (BCrypt.checkpw(password, profileReturn.getString("password"))) {
                         int grade = profileReturn.getInt("currentGrade");
                         int points = profileReturn.getInt("points");
+<<<<<<< HEAD
                         setUserInfo(username, grade, points);
+=======
+                        String userName = profileReturn.getString("userName");
+                        String studentName = profileReturn.getString("name");
+                        currentUserID = profileReturn.getInt("userID");
+                        setUserInfo(grade, points, userName, studentName);
+                        setUserAchievements();
+>>>>>>> Math-Changes-Testing
                         return true;
                     }
                 }
@@ -190,6 +246,7 @@ public class LoginController {
         }
         return false;
     }
+<<<<<<< HEAD
 
     public void setUserInfo(String userName, int grade, int points) {
         username = userName;
@@ -228,5 +285,64 @@ public class LoginController {
         } catch (Exception e) {
             System.out.println(e);
         }
+=======
+    public void setTutorialUrls(){
+        String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
+        String user = "admin";
+        String adminPassword = "WbIofZIaebOVezZ2wy9u";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(myUrl, user, adminPassword);
+            String sql = "SELECT * FROM standards";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet standardsReturn = preparedStatement.executeQuery();
+            while (standardsReturn.next()){
+                System.out.println("accessing standards in database...");
+                int comp = standardsReturn.getInt("competencyID");
+                System.out.println("comp id: "+ comp);
+                String url = standardsReturn.getString("videoURL");
+                System.out.println("url: "+ url);
+                videoURLs.put(comp, url);
+            }
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    public void setUserAchievements(){
+        String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
+        String user = "admin";
+        String adminPassword = "WbIofZIaebOVezZ2wy9u";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(myUrl, user, adminPassword);
+            String sql = "SELECT * FROM achievements " +
+                    "WHERE userID = " + currentUserID;
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet achievementsReturn = preparedStatement.executeQuery();
+            while (achievementsReturn.next()){
+                System.out.println("accessing achievements in database...");
+                int comp = achievementsReturn.getInt("competencyID");
+                System.out.println("comp id: "+ comp);
+                Boolean earned = achievementsReturn.getBoolean("earned");
+                System.out.println("earned: "+ earned);
+                Profile.earnedAchievements.put(comp, earned);
+            }
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+    public void setUserInfo(int grade, int points, String userName, String studentName){
+        currentGrade = grade;
+        currentPoints = points;
+        currentUsername = userName;
+        currentStudentName = studentName;
+        System.out.println("Student Name: " + currentStudentName);
+        System.out.println("User Name: " + currentUsername);
+        System.out.println("Grade: " + currentGrade);
+        System.out.println("Points: " + currentPoints);
+>>>>>>> Math-Changes-Testing
     }
 }

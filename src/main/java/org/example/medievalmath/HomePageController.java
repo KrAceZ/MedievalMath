@@ -12,8 +12,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+
+//import static org.example.medievalmath.LoginController.videoURLs;
 
 public class HomePageController {
     @FXML
@@ -22,13 +27,15 @@ public class HomePageController {
     @FXML
     private AnchorPane buttonsContainer;
 
-    public static int level =1;
+    public static int level;
+    public static Map<Integer, String> urls = new HashMap<>();
 
     public void initialize() {
         // Initialize the home page with background image
         Image backgroundImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Background.png")));
         Page homePage = new Page(backgroundImage);
-        //level = Profile.getLevel();
+        level = Profile.getLevel();
+        urls = LoginController.videoURLs;
 
         // Set the background image
         backgroundImageView.setImage(backgroundImage);
@@ -123,164 +130,87 @@ public class HomePageController {
     }
     @FXML
     public void navigateToTutorial1Page(javafx.event.ActionEvent event) {
-        String url = "https://www.youtube.com/embed/AuX7nPBqDts";
+
+        String url = "";
+        switch(level){
+            case 1:
+                url = urls.get(1);
+                break;
+            case 2:
+                url = urls.get(4);
+                break;
+            case 3:
+                url = urls.get(7);
+                break;
+        }
         navigateToTutorialPage(url, event);
     }
     @FXML
     public void navigateToPractice1Page(javafx.event.ActionEvent event) {
         String competency = "a";
-        int numOfProbs = 10;
+        int numOfProbs = QuizController.QUIZSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
     public void navigateToTest1Page(javafx.event.ActionEvent event) {
         String competency = "a";
-        int numOfProbs = 20;
+        int numOfProbs = QuizController.TESTSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
     public void navigateToTutorial2Page(javafx.event.ActionEvent event) {
-        String url = "https://www.youtube.com/embed/aNqG4ChKShI";
+        String url = "";
+        switch(level){
+            case 1:
+                url = urls.get(2);
+                break;
+            case 2:
+                url = urls.get(5);
+                break;
+            case 3:
+                url = urls.get(8);
+                break;
+        }
         navigateToTutorialPage(url, event);
     }
     @FXML
     public void navigateToPractice2Page(javafx.event.ActionEvent event) {
         String competency = "b";
-        int numOfProbs = 10;
+        int numOfProbs = QuizController.QUIZSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
     public void navigateToTest2Page(javafx.event.ActionEvent event) {
         String competency = "b";
-        int numOfProbs = 20;
+        int numOfProbs = QuizController.TESTSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
     public void navigateToTutorial3Page(javafx.event.ActionEvent event) {
-        String url = "https://www.youtube.com/embed/aNqG4ChKShI";
+        String url = "";
+        switch(level){
+            case 1:
+                url = urls.get(3);
+                break;
+            case 2:
+                url = urls.get(6);
+                break;
+            case 3:
+                url = urls.get(9);
+                break;
+        }
         navigateToTutorialPage(url, event);
     }
     @FXML
     public void navigateToPractice3Page(javafx.event.ActionEvent event) {
         String competency = "c";
-        int numOfProbs = 10;
+        int numOfProbs = QuizController.QUIZSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
     @FXML
     public void navigateToTest3Page(javafx.event.ActionEvent event) {
         String competency = "c";
-        int numOfProbs = 20;
+        int numOfProbs = QuizController.TESTSIZE;
         navigateToQuiz(numOfProbs, competency, event);
     }
-//    @FXML
-//    public void navigateToSubtractionTutorialPage(javafx.event.ActionEvent event) {
-//        try {
-//            // Load the FXML file for the subtraction tutorial page
-//            Parent SubtractionTutorialPage = FXMLLoader.load(getClass().getResource("basic_subtraction_tutorial.fxml")); // edit this
-//
-//            // Get the current stage
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//            // Set the new scene to the stage test
-//            stage.setScene(new Scene(SubtractionTutorialPage));
-//
-//            // Show the stage
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//    @FXML
-//    public void navigateToAdditionTutorialPage(javafx.event.ActionEvent event) {
-//        try {
-//            TutorialPageController.setVideoUrl("https://www.youtube.com/embed/AuX7nPBqDts");
-//            // Load the FXML file for the addition tutorial page
-//            Parent AdditionTutorialPage = FXMLLoader.load(getClass().getResource("tutorial_page.fxml")); // edit this
-//
-//            // Get the current stage
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//            // Set the new scene to the stage test
-//            stage.setScene(new Scene(AdditionTutorialPage));
-//
-//            // Show the stage
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//    @FXML
-//    public void navigateToBasicAddSubtractPage(javafx.event.ActionEvent event) {
-//        QuizPageController.setQuizFXML("basic_add_subtract_test.fxml");
-//        try {
-//            // Load the FXML file for the basic addition page
-//            Parent BasicAddSubtractPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));
-//
-//            // Get the current stage
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//            // Set the new scene to the stage test
-//            stage.setScene(new Scene(BasicAddSubtractPage));
-//
-//            // Show the stage
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-    //modified to go to quiz page with basic addition quiz
-//    @FXML
-//    public void navigateToBasicAdditionPage(javafx.event.ActionEvent event) {
-//        QuizPageController.setQuizFXML("basic_addition_quiz.fxml");
-//        try {
-//            // Load the FXML file for the basic addition page
-//            Parent basicAdditionPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));
-//
-//            // Get the current stage
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//            // Set the new scene to the stage test
-//            stage.setScene(new Scene(basicAdditionPage));
-//            //stage.setScene(new Scene(
-//            // Show the stage
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    @FXML
-//    public void navigateToBasicSubtractionPage(javafx.event.ActionEvent event) {
-//        QuizPageController.setQuizFXML("basic_subtraction_quiz.fxml");
-//        try {
-//            // Load the FXML file for the basic addition page
-//            Parent basicSubtractionPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));
-//
-//            // Get the current stage
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//            // Set the new scene to the stage test
-//            stage.setScene(new Scene(basicSubtractionPage));
-//
-//            // Show the stage
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-    // Method to navigate to Quizzes page
-//    @FXML
-//    private void navigateToQuizzesPage() {
-//         Implement navigation logic to Quizzes page
-//        try {
-//            // Load the profile page
-//            Parent quizPage = FXMLLoader.load(getClass().getResource("quiz_page.fxml"));
-//
-//            // Get the current scene and set the new root
-//            Scene scene = buttonsContainer.getScene();
-//            scene.setRoot(quizPage);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
