@@ -6,11 +6,8 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-<<<<<<< Updated upstream
-=======
 import javafx.scene.layout.VBox;
 
->>>>>>> Stashed changes
 import java.util.*;
 
 import static org.example.medievalmath.Quiz.problem;
@@ -134,12 +131,10 @@ public class QuizController {
                 break;
         }
 
-<<<<<<< Updated upstream
         // Set the text of the question label
         question.setText(problem.getProblem());
         System.out.println(problem.getProblem());
         // Set the text of the buttons
-=======
         //ArithmeticProblems problem = new ArithmeticProblems(quizLevel);
         if(quizType.equals("Fraction")){
             question.setText("What fraction do you see?");
@@ -148,7 +143,6 @@ public class QuizController {
             question.setText(problem.getProblem());
             System.out.println(problem.getProblem());
         }
->>>>>>> Stashed changes
         option1.setText("a) " + problem.getOption("a"));
         option2.setText("b) " + problem.getOption("b"));
 
@@ -219,9 +213,7 @@ public class QuizController {
         QuizPageController.setQuizFXML("quiz_result.fxml");
         QuizPageController.getInstance().loadContent();
     }
-<<<<<<< Updated upstream
-}
-=======
+
 
     public void updatePieChart(int numerator, int denominator) {
         fractionChart.getData().clear();
@@ -231,4 +223,4 @@ public class QuizController {
     }
 
 }
->>>>>>> Stashed changes
+

@@ -18,13 +18,11 @@
             </image>
         </ImageView>
 
-        <!-- Define the layout of the quiz interface here -->
-<<<<<<< Updated upstream
 
         <VBox alignment="CENTER" prefHeight="500.0" prefWidth="500.0" spacing="20.0">
    <children>
                <Button fx:id="option1" layoutX="89.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="100.0" prefWidth="460.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
-=======
+
         <PieChart fx:id="fractionChart" visible = "true"/>
         <VBox alignment="CENTER" prefHeight="500.0" prefWidth="500.0" spacing="30.0">
    <children>
@@ -40,7 +38,6 @@
 
 
                <Button fx:id="option1" layoutX="89.0" layoutY="210.0" mnemonicParsing="false" onAction="#optionClicked" prefHeight="63.0" prefWidth="300.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="" textFill="BLACK">
->>>>>>> Stashed changes
                    <font>
                        <Font name="the rum is gone" size="24.0" />
                    </font>
