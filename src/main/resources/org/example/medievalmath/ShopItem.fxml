@@ -11,110 +11,111 @@
 <?import javafx.collections.FXCollections?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.ShopItemController">
-   <children>
-   
-       <ImageView fx:id="ShopPageBackgroundView" fitHeight="794" fitWidth="1123" preserveRatio="true" />
-   
-       <!-- Buttons -->
-       <Button layoutX="66.0" layoutY="60.0" onAction="#handleButtonShopClick" style="-fx-background-color: lightyellow;" text="Click to Shop">
-         <font>
-            <Font name="the rum is gone" size="13.0" />
-         </font>
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-       <Button layoutX="928.0" layoutY="659.0" onAction="#handleButtonCheckOutClick" prefHeight="40" prefWidth="120" style="-fx-background-color: lightyellow;" text="CheckOut">
-         <font>
-            <Font name="the rum is gone" size="13.0" />
-         </font>
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-   
-       <!-- Button that will take back to homepage -->
-       <Button layoutX="833.0" layoutY="51.0" mnemonicParsing="false" onAction="#navigateToHomePage" prefHeight="47.0" prefWidth="183.0" text="Home">
-         <effect>
-            <InnerShadow />
-         </effect>
-         <font>
-            <Font name="the rum is gone" size="18.0" />
-         </font></Button>
-   
-   
-   
-       <!-- Selectable Images -->
-       <ToggleButton fx:id="hat" graphicTextGap="10" layoutX="141.0" layoutY="159.0" onAction="#handleImageSelection" prefHeight="200.0" prefWidth="300.0" text="50 Coins">
-           <graphic>
-               <ImageView fitHeight="166.0" fitWidth="123.0">
-                  <image>
-                      <Image url="@Hat.png" />
-                  </image>
-               </ImageView>
-           </graphic>
-         <effect>
-            <InnerShadow>
-               <input>
-                  <SepiaTone level="0.4" />
-               </input>
-            </InnerShadow>
-         </effect>
-         <font>
-            <Font name="the rum is gone" size="24.0" />
-         </font>
-       </ToggleButton>
-       <ToggleButton fx:id="sword" graphicTextGap="10" layoutX="591.0" layoutY="161.0" onAction="#handleImageSelection" prefHeight="200.0" prefWidth="300.0" text="100 Coins">
-           <graphic>
-               <ImageView fitHeight="120" fitWidth="120">
-                  <image>
-                      <Image url="@Sword.png" />
-                  </image>
-               </ImageView>
-           </graphic>
-         <effect>
-            <SepiaTone level="0.4">
-               <input>
-                  <InnerShadow />
-               </input></SepiaTone>
-         </effect>
-         <font>
-            <Font name="the rum is gone" size="24.0" />
-         </font>
-       </ToggleButton>
-       <ToggleButton fx:id="kitehelmet" graphicTextGap="10" layoutX="139.0" layoutY="404.0" onAction="#handleImageSelection" prefHeight="200.0" prefWidth="300.0" text="200 Coins">
-           <graphic>
-               <ImageView fitHeight="120" fitWidth="120">
-                  <image>
-                      <Image url="@Kite-Helmet.png" />
-                  </image>
-               </ImageView>
-           </graphic>
-         <effect>
-            <SepiaTone level="0.4">
-               <input>
-                  <InnerShadow />
-               </input></SepiaTone>
-         </effect>
-         <font>
-            <Font name="the rum is gone" size="24.0" />
-         </font>
-       </ToggleButton>
-       <ToggleButton fx:id="bridge" graphicTextGap="10" layoutX="592.0" layoutY="401.0" onAction="#handleImageSelection" prefHeight="200.0" prefWidth="300.0" text="300 Coins">
-           <graphic>
-               <ImageView fitHeight="120" fitWidth="120">
-                  <image>
-                      <Image url="@Bridge.png" />
-                  </image>
-               </ImageView>
-           </graphic>
-         <effect>
-            <SepiaTone level="0.4">
-               <input>
-                  <InnerShadow />
-               </input></SepiaTone>
-         </effect>
-         <font>
-            <Font name="the rum is gone" size="24.0" />
-         </font>
-       </ToggleButton>
-   </children>
+    <children>
+        <ImageView fx:id="ShopPageBackgroundView" fitHeight="794" fitWidth="1123" preserveRatio="true">
+            <image>
+                <Image url="@Background.png" />
+            </image>
+        </ImageView>
+
+        <!-- Buttons -->
+        <Button layoutX="66.0" layoutY="60.0" onAction="#handleButtonShopClick" style="-fx-background-color: lightyellow;" text="Click to Shop">
+            <font>
+                <Font name="the rum is gone" size="13.0" />
+            </font>
+        </Button>
+        <Button layoutX="928.0" layoutY="659.0" onAction="#handleButtonCheckOutClick" prefHeight="40" prefWidth="120" style="-fx-background-color: lightyellow;" text="CheckOut">
+            <font>
+                <Font name="the rum is gone" size="13.0" />
+            </font>
+        </Button>
+
+        <!-- Button that will take back to homepage -->
+        <Button layoutX="833.0" layoutY="51.0" mnemonicParsing="false" onAction="#navigateToHomePage" prefHeight="47.0" prefWidth="183.0" text="Home">
+            <effect>
+                <InnerShadow />
+            </effect>
+            <font>
+                <Font name="the rum is gone" size="18.0" />
+            </font>
+        </Button>
+
+        <!-- Selectable Images -->
+        <ToggleButton fx:id="hat" graphicTextGap="10" layoutX="141.0" layoutY="159.0" onAction="#handleImageSelection" prefHeight="200.0" prefWidth="300.0" text="50 Coins">
+            <graphic>
+                <ImageView fitHeight="166.0" fitWidth="123.0">
+                    <image>
+                        <Image url="@Hat.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <InnerShadow>
+                    <input>
+                        <SepiaTone level="0.4" />
+                    </input>
+                </InnerShadow>
+            </effect>
+            <font>
+                <Font name="the rum is gone" size="24.0" />
+            </font>
+        </ToggleButton>
+        <ToggleButton fx:id="sword" graphicTextGap="10" layoutX="591.0" layoutY="161.0" onAction="#handleImageSelection" prefHeight="200.0" prefWidth="300.0" text="100 Coins">
+            <graphic>
+                <ImageView fitHeight="120" fitWidth="120">
+                    <image>
+                        <Image url="@Sword.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <SepiaTone level="0.4">
+                    <input>
+                        <InnerShadow />
+                    </input>
+                </SepiaTone>
+            </effect>
+            <font>
+                <Font name="the rum is gone" size="24.0" />
+            </font>
+        </ToggleButton>
+        <ToggleButton fx:id="kitehelmet" graphicTextGap="10" layoutX="139.0" layoutY="404.0" onAction="#handleImageSelection" prefHeight="200.0" prefWidth="300.0" text="200 Coins">
+            <graphic>
+                <ImageView fitHeight="120" fitWidth="120">
+                    <image>
+                        <Image url="@Kite-Helmet.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <SepiaTone level="0.4">
+                    <input>
+                        <InnerShadow />
+                    </input>
+                </SepiaTone>
+            </effect>
+            <font>
+                <Font name="the rum is gone" size="24.0" />
+            </font>
+        </ToggleButton>
+        <ToggleButton fx:id="bridge" graphicTextGap="10" layoutX="592.0" layoutY="401.0" onAction="#handleImageSelection" prefHeight="200.0" prefWidth="300.0" text="300 Coins">
+            <graphic>
+                <ImageView fitHeight="120" fitWidth="120">
+                    <image>
+                        <Image url="@Bridge.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <effect>
+                <SepiaTone level="0.4">
+                    <input>
+                        <InnerShadow />
+                    </input>
+                </SepiaTone>
+            </effect>
+            <font>
+                <Font name="the rum is gone" size="24.0" />
+            </font>
+        </ToggleButton>
+    </children>
 </AnchorPane>
