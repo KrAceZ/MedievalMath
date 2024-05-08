@@ -13,7 +13,7 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-<<<<<<< HEAD
+
         //Parent root = FXMLLoader.load(MainApplication.class.getResource("basic_add_subtract_test.fxml"));
         //primaryStage.setTitle("Basic Add Subtract Test");
 
@@ -36,12 +36,12 @@ public class MainApplication extends Application {
         //Parent root = FXMLLoader.load(Objects.requireNonNull(MainApplication.class.getResource("login.fxml")));
         //primaryStage.setTitle("Login Page");
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(MainApplication.class.getResource("achievements_page.fxml")));
-        primaryStage.setTitle("Achievements Page");
-=======
+        //Parent root = FXMLLoader.load(Objects.requireNonNull(MainApplication.class.getResource("achievements_page.fxml")));
+        //primaryStage.setTitle("Achievements Page");
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(MainApplication.class.getResource("login.fxml")));
         primaryStage.setTitle("Login Page");
->>>>>>> Math-Changes-Testing
+
 
         primaryStage.setScene(new Scene(root, 1123, 794));
         primaryStage.show();

@@ -13,11 +13,11 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
-<<<<<<< HEAD
+
 import javafx.scene.paint.Color;
-=======
+
 import javax.swing.*;
->>>>>>> Math-Changes-Testing
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -56,15 +56,15 @@ public class LoginController {
     private Button loginButton;
     public int currentGrade;
     public int currentPoints;
-<<<<<<< HEAD
+
     private String username;
 
-=======
+
     public String currentUsername;
     public String currentStudentName;
     public int currentUserID;
     public static Map<Integer, String> videoURLs = new HashMap<>();
->>>>>>> Math-Changes-Testing
+
 
     // Method to handle the action of the switch link
     @FXML
@@ -72,12 +72,12 @@ public class LoginController {
         // If the current view is "Login"
         if (loginLabel.getText().equals("Login")) {
             // Change the view to "Create a new account"
-<<<<<<< HEAD
+
             loginLabel.setText("Create a new account");
             loginLabel.setTextFill(Color.WHITE);
-=======
+
             loginLabel.setText(""); // FIX THIS
->>>>>>> Math-Changes-Testing
+
             switchLink.setText("Login as a returning user");
             // Hide the login-related fields
             showPasswordCheckBox.setVisible(false);
@@ -227,15 +227,15 @@ public class LoginController {
                     if (BCrypt.checkpw(password, profileReturn.getString("password"))) {
                         int grade = profileReturn.getInt("currentGrade");
                         int points = profileReturn.getInt("points");
-<<<<<<< HEAD
+
                         setUserInfo(username, grade, points);
-=======
+
                         String userName = profileReturn.getString("userName");
                         String studentName = profileReturn.getString("name");
                         currentUserID = profileReturn.getInt("userID");
                         setUserInfo(grade, points, userName, studentName);
                         setUserAchievements();
->>>>>>> Math-Changes-Testing
+
                         return true;
                     }
                 }
@@ -246,7 +246,7 @@ public class LoginController {
         }
         return false;
     }
-<<<<<<< HEAD
+
 
     public void setUserInfo(String userName, int grade, int points) {
         username = userName;
@@ -285,7 +285,8 @@ public class LoginController {
         } catch (Exception e) {
             System.out.println(e);
         }
-=======
+    }
+
     public void setTutorialUrls(){
         String myUrl = "jdbc:mysql://medievalmath.c3eqia6i2cfi.us-east-2.rds.amazonaws.com:3306/medievalMath";
         String user = "admin";
@@ -343,6 +344,6 @@ public class LoginController {
         System.out.println("User Name: " + currentUsername);
         System.out.println("Grade: " + currentGrade);
         System.out.println("Points: " + currentPoints);
->>>>>>> Math-Changes-Testing
+
     }
 }
