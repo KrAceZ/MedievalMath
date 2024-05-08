@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.medievalmath.HomePageController">
     <children>
 
         <!-- Background image -->
         <ImageView fx:id="backgroundImageView" fitHeight="794" fitWidth="1123" preserveRatio="false">
             <image>
                 <Image url="@Background.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="Level1Crest" fitHeight="175.0" fitWidth="175.0" layoutX="875.0" layoutY="5.0" preserveRatio="false" visible="false">
+            <image>
+                <Image url="@Level1Crest.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="Level2Crest" fitHeight="175.0" fitWidth="175.0" layoutX="875.0" layoutY="5.0" preserveRatio="false" visible="false">
+            <image>
+                <Image url="@Level2Crest.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="Level3Crest" fitHeight="175.0" fitWidth="175.0" layoutX="875.0" layoutY="5.0" preserveRatio="false" visible="false">
+            <image>
+                <Image url="@Level3Crest.png" />
             </image>
         </ImageView>
 
